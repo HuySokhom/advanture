@@ -1,0 +1,146 @@
+<form data-ng-submit="vm.save()" name="accountForm" novalidate>
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="form-group">
+				<label>Photo</label>
+				<div class="center">
+					<img src="images/icon-person.png"
+						 data-ng-if="!vm.account.photo"
+						 style="width: 100%;margin-bottom: 10px;"
+						 class="img-thumbnail">
+					<img src="images/{{vm.account.photo}}"
+						 data-ng-if="vm.account.photo"
+						 style="width: 100%;margin-bottom: 10px;"
+						 class="img-thumbnail">
+					<input type="file" accept="image/*"
+						   ng-model="picFile"
+						   ngf-max-size="2MB"
+						   ngf-model-invalid="errorFiles"
+						   ngf-select="vm.uploadPic(picFile, 'feature_image')"
+						   class="form-control">
+					<i ng-show="accountForm.file.$error.maxSize">
+						File too large {{errorFiles[0].size / 1000000|number:1}}MB: max 2M
+					</i>
+					<span class="progress" ng-show="picFile.progress >= 0">
+						<div
+							style="width:{{picFile.progress}}%"
+							ng-bind="picFile.progress + '%'"
+						>
+						</div>
+					</span>
+					<span ng-show="picFile.result">Upload Successful</span>
+					<span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+				</div>
+			</div><!-- /.form-group-->
+		</div><!-- /.col-* -->
+
+		<div class="col-sm-8 row">
+			<div class="col-sm-6">
+				<div class="form-group" ng-class="{ 'has-error' : accountForm.companyName.$invalid && accountForm.$submitted }">
+					<label>
+						Company Name
+						<span class="required">* </span>
+					</label>
+					<input type="text"
+						   class="form-control"
+						   name="companyName"
+						   required
+						   placeholder="Company Name..."
+						   data-ng-model="vm.account.company_name"
+					/>
+				</div><!-- /.form-group -->
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group" ng-class="{ 'has-error' : accountForm.email.$invalid && accountForm.$submitted }">
+					<label>
+						Email Address
+						<span class="required">* </span>
+					</label>
+					<input type="email"
+						   class="form-control"
+						   name="email"
+						   placeholder="Email Address"
+						   required
+						   data-ng-model="vm.account.customers_email_address"
+					/>
+				</div><!-- /.form-group -->
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label>Website</label>
+					<input type="text"
+						   class="form-control"
+						   placeholder="Website..."
+						   data-ng-model="vm.account.customers_website"
+					/>
+				</div><!-- /.form-group -->
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group" ng-class="{ 'has-error' : accountForm.telephone.$invalid && accountForm.$submitted }">
+					<label>
+						Telephone
+						<span class="required">* </span>
+					</label>
+					<input type="text"
+						   class="form-control"
+						   placeholder="Telephone..."
+						   name="telephone"
+						   required
+						   data-ng-model="vm.account.customers_telephone"
+					/>
+				</div><!-- /.form-group -->
+			</div>
+			<div class="col-sm-12">
+				<div class="form-group" ng-class="{ 'has-error' : accountForm.address.$invalid && accountForm.$submitted }">
+					<label>
+						Address
+						<span class="required">* </span>
+					</label>
+					<textarea required
+							  name="address"
+							  rows="5"
+							  placeholder="Address Information..."
+							  class="form-control"
+							  data-ng-model="vm.account.customers_address"
+					></textarea>
+				</div><!-- /.form-group -->
+			</div>
+		</div><!-- /.col-* -->
+	</div><!-- /.row -->
+
+	<div ng-class="{ 'has-error' : accountForm.about.$invalid && accountForm.$submitted }">
+		<h3 class="page-header">
+			About Company Information
+			<span class="required">* </span>
+		</h3>
+		<div class="">
+			<trix-editor
+					data-ng-model="vm.account.detail"
+					required
+					name="about"
+					angular-trix trix-initialize="trixInitialize(e, editor);"
+					trix-change="trixChange(e, editor);"
+					trix-selection-change="trixSelectionChange(e, editor);"
+					trix-focus="trixFocus(e, editor);"
+					trix-blur="trixBlur(e, editor);"
+					trix-file-accept="trixFileAccept(e, editor);"
+					trix-attachment-add="trixAttachmentAdd(e, editor);"
+					placeholder="Write Company Information..."
+					trix-attachment-remove="trixAttachmentRemove(e, editor);"
+					style="overflow: scroll;height: 200px;overflow-y: auto;overflow-x: auto;">
+			</trix-editor>
+		</div><!-- /.row -->
+	</div>
+	<hr>
+
+	<div class="">
+		<a href="javascript" class="btn btn-default" ui-sref="/account">
+			<i class="fa fa-close"></i>
+			Discard
+		</a>
+		<button type="submit" class="btn btn-secondary">
+			<i class="fa fa-save"></i>
+			Save
+		</button>
+	</div><!-- /.center -->
+</form>

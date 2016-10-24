@@ -1,0 +1,169 @@
+<form data-ng-submit="save();" name="myForm">
+    <h4>
+        Job Information
+    </h4>
+    <div class="row">
+        <div class="col-md-6">
+            <label>
+                Type:
+                <span class="require">*</span>
+            </label>
+            <select
+                data-ng-model="model.categories_id"
+                data-ng-options="c.categories_id as c.categories_name for c in categoryList.elements"
+                class="form-control"
+                data-ng-selected="categories_id == c.categories_id"
+                required
+            >
+                <option value="">--Select Category--</option>
+            </select>
+            <label>
+                Job Type
+                <span class="require">*</span>
+            </label>
+            <select
+                data-ng-model="model.products_kind_of"
+                data-ng-options="p for p in propertyTypes"
+                class="form-control"
+                data-ng-selected="property_type == p"
+                required
+            >
+                <option value="">--Select Category--</option>
+            </select>
+            <label>
+                Gender:
+                <span class="require">*</span>
+            </label>
+            <select
+                data-ng-model="model.gender"
+                data-ng-options="p for p in genders"
+                class="form-control"
+                required
+            >
+                <option value="">--Select Gender--</option>
+            </select>
+            <label>
+                Job Title:
+                <span class="require">*</span>
+            </label>
+            <input
+                type="text"
+                class="form-control"
+                data-ng-model="model.product_detail[0].products_name"
+                required
+            />
+            <label>
+                Salary:
+            </label>
+            <input type="text" class="form-control" required data-ng-model="model.salary"/>
+            <label>
+                Number of Hire:
+            </label>
+            <input type="text" class="form-control" required data-ng-model="model.number_of_hire"/>
+            <label>
+                Location:
+                <span class="require">*</span>
+            </label>
+            <select
+                data-ng-model="model.province_id"
+                data-ng-options="p.id as p.name for p in provinces.elements"
+                class="form-control"
+                data-ng-change="initDistrict(province_id);"
+                required
+            >
+                <option value="">--Select Province--</option>
+            </select>
+            <label>
+                Expire Date:
+                <span class="require">*</span>
+            </label>
+            <input
+                type="text"
+                class="form-control"
+                data-ng-model="model.products_close_date"
+                required
+            />
+        </div>
+        <div class="col-md-6">
+            <label>
+                Description, duties, responsibilities:
+                <span class="require">*</span>
+            </label>
+            <trix-editor
+                    data-ng-model="model.product_detail[0].products_description"
+                    angular-trix trix-initialize="trixInitialize(e, editor);"
+                    trix-change="trixChange(e, editor);"
+                    trix-selection-change="trixSelectionChange(e, editor);"
+                    trix-focus="trixFocus(e, editor);"
+                    trix-blur="trixBlur(e, editor);"
+                    trix-file-accept="trixFileAccept(e, editor);"
+                    trix-attachment-add="trixAttachmentAdd(e, editor);"
+                    placeholder="Write something.."
+                    trix-attachment-remove="trixAttachmentRemove(e, editor);"
+                    style="overflow: scroll;height: 444px;overflow-y: auto;overflow-x: auto;">
+            </trix-editor>
+        </div>
+    </div>
+    <div class="row">
+        <div class="dcol-md-12">
+            <div class="col-md-6">
+                <label>
+                    Other benefits:
+                    <span class="require">*</span>
+                </label>
+                <trix-editor
+                        data-ng-model="model.product_detail[0].benefits"
+                        angular-trix trix-initialize="trixInitialize(e, editor);"
+                        trix-change="trixChange(e, editor);"
+                        trix-selection-change="trixSelectionChange(e, editor);"
+                        trix-focus="trixFocus(e, editor);"
+                        trix-blur="trixBlur(e, editor);"
+                        trix-file-accept="trixFileAccept(e, editor);"
+                        trix-attachment-add="trixAttachmentAdd(e, editor);"
+                        placeholder="Write something.."
+                        trix-attachment-remove="trixAttachmentRemove(e, editor);"
+                        style="overflow: scroll;height: 444px;overflow-y: auto;overflow-x: auto;">
+                </trix-editor>
+            </div>
+            <div class="col-md-6">
+                <label> 
+                    Personality requirements and skills:
+                    <span class="require">*</span>
+                </label>
+                <trix-editor
+                        data-ng-model="model.product_detail[0].skill"
+                        angular-trix trix-initialize="trixInitialize(e, editor);"
+                        trix-change="trixChange(e, editor);"
+                        trix-selection-change="trixSelectionChange(e, editor);"
+                        trix-focus="trixFocus(e, editor);"
+                        trix-blur="trixBlur(e, editor);"
+                        trix-file-accept="trixFileAccept(e, editor);"
+                        trix-attachment-add="trixAttachmentAdd(e, editor);"
+                        placeholder="Write something.."
+                        trix-attachment-remove="trixAttachmentRemove(e, editor);"
+                        style="overflow: scroll;height: 444px;overflow-y: auto;overflow-x: auto;">
+                </trix-editor>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row col-md-12">
+        <div class="align-right">
+            <button
+                class="btn btn-primary"
+                data-ng-disabled="!disabled"
+            >
+                <i class="fa fa-save" data-ng-show="disabled"></i>
+                <i class="fa fa-refresh fa-spin" data-ng-hide="disabled"></i>
+                Save
+            </button>
+            <button
+                class="btn btn-default"
+                ng-click="back($event);"
+            >
+                <i class="fa fa-close"></i>
+                Close
+            </button>
+        </div>
+    </div>
+</form>
