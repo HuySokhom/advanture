@@ -42,7 +42,7 @@
                   <div class="cart-products-list">
                     <div class="cart-products">
                       <div class="cart-image">
-                        <a href="index.html#"><img alt="" src="img/cart/1.jpg"></a>
+                        <a href="index.html#"><img alt="" src="themes/img/cart/1.jpg"></a>
                       </div>
                       <div class="cart-product-info">
                         <a class="product-name" href="index.html#">alteration</a>
@@ -53,7 +53,7 @@
                     </div>
                     <div class="cart-products">
                       <div class="cart-image">
-                        <a href="index.html#"><img alt="" src="img/cart/2.jpg"></a>
+                        <a href="index.html#"><img alt="" src="themes/img/cart/2.jpg"></a>
                       </div>
                       <div class="cart-product-info">
                         <a class="product-name" href="index.html#">alteration</a>
@@ -88,7 +88,7 @@
             <div class="row">
               <div class="col-md-4 col-sm-12">
                 <div class="logo">
-                  <a href="index.html"><img src="img/logo/logo.png" alt="ADVENTURES"></a>
+                  <a href="index.html"><img src="themes/img/logo/logo.png" alt="ADVENTURES"></a>
                 </div>
               </div>
               <div class="col-md-8 hidden-sm hidden-xs">
@@ -107,7 +107,7 @@
                           <div class="megamenu-list clearfix">
                                                                 <span class="border-hover">
                                                                     <a href="index.html#" class="mega-image">
-                                                                      <img src="img/mega-b-4.jpg" alt="">
+                                                                      <img src="themes/img/mega-b-4.jpg" alt="">
                                                                     </a>
                                                                 </span>
                                                                 <span>
@@ -221,70 +221,3 @@
 </header>
 <!--End of Header Area-->
 
-
-
-<!--Slider Area Start-->
-<div class="slider-area">
-  <div class="preview-2">
-    <div id="nivoslider" class="slides">
-      <a href="index.html#"><img src="img/slider/slider-1.jpg" alt="" title="#slider-1-caption1"/></a>
-      <a href="index.html#"><img src="img/slider/slider-2.jpg" alt="" title="#slider-1-caption1"/></a>
-    </div>
-    <div id="slider-1-caption1" class="nivo-html-caption nivo-caption">
-      <div class="banner-content slider-1">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="text-content">
-                <h1 class="title1">TRAVEL STYLES</h1>
-                <h2 class="sub-title">The right tour for the</h2>
-                <h2 class="sub-title">right <span>traveller</span></h2>
-                <form action="index.html#" id="banner-searchbox" class="hidden-xs">
-                  <div class="adventure-cat">
-                    <select name="category" class="search-adventure">
-                      <option>Select Adventure</option>
-                      <option>Bungee jumping</option>
-                      <option>Bicycle touring</option>
-                      <option>Jungle tourism</option>
-                      <option>Shark tourism</option>
-                      <option>Mountain biking</option>
-                      <option>Mountaineering</option>
-                      <option>Rock Adventure</option>
-                    </select>
-                  </div>
-                  <div class="adventure-cat destination">
-                    <select name="destination" class="search-adventure">
-                      <option>Select Your Destination</option>
-                      <option>Madagascar</option>
-                      <option>Botswana</option>
-                      <option>Canada, Alaska</option>
-                      <option>Antarctica</option>
-                      <option>Swaziland</option>
-                      <option>Ethiopia</option>
-                      <option>Tanzania</option>
-                    </select>
-                  </div>
-                  <div class="adventure-cat floatright">
-                    <select name="date" class="search-adventure">
-                      <option>Select Date</option>
-                      <option>1-4-2016</option>
-                      <option>5-9-2016</option>
-                      <option>3-10-2016</option>
-                      <option>15-2-2017</option>
-                      <option>22-7-2017</option>
-                      <option>10-8-2017</option>
-                      <option>7-11-2017</option>
-                      <option>9-12-2017</option>
-                    </select>
-                  </div>
-                  <div class="clearfix"></div>
-                  <button type="submit" id="btn-search-category">SEARCH</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>

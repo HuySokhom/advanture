@@ -1,4 +1,69 @@
-<?php
+<!--Slider Area Start-->
+<div class="slider-area">
+    <div class="preview-2">
+        <div id="nivoslider" class="slides">
+            <a href="index.html#"><img src="themes/img/slider/slider-1.jpg" alt="" title="#slider-1-caption1"/></a>
+            <a href="index.html#"><img src="themes/img/slider/slider-2.jpg" alt="" title="#slider-1-caption1"/></a>
+        </div>
+        <div id="slider-1-caption1" class="nivo-html-caption nivo-caption">
+            <div class="banner-content slider-1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-content">
+                                <h1 class="title1">TRAVEL STYLES</h1>
+                                <h2 class="sub-title">The right tour for the</h2>
+                                <h2 class="sub-title">right <span>traveller</span></h2>
+                                <form action="index.html#" id="banner-searchbox" class="hidden-xs">
+                                    <div class="adventure-cat">
+                                        <select name="category" class="search-adventure">
+                                            <option>Select Adventure</option>
+                                            <option>Bungee jumping</option>
+                                            <option>Bicycle touring</option>
+                                            <option>Jungle tourism</option>
+                                            <option>Shark tourism</option>
+                                            <option>Mountain biking</option>
+                                            <option>Mountaineering</option>
+                                            <option>Rock Adventure</option>
+                                        </select>
+                                    </div>
+                                    <div class="adventure-cat destination">
+                                        <select name="destination" class="search-adventure">
+                                            <option>Select Your Destination</option>
+                                            <option>Madagascar</option>
+                                            <option>Botswana</option>
+                                            <option>Canada, Alaska</option>
+                                            <option>Antarctica</option>
+                                            <option>Swaziland</option>
+                                            <option>Ethiopia</option>
+                                            <option>Tanzania</option>
+                                        </select>
+                                    </div>
+                                    <div class="adventure-cat floatright">
+                                        <select name="date" class="search-adventure">
+                                            <option>Select Date</option>
+                                            <option>1-4-2016</option>
+                                            <option>5-9-2016</option>
+                                            <option>3-10-2016</option>
+                                            <option>15-2-2017</option>
+                                            <option>22-7-2017</option>
+                                            <option>10-8-2017</option>
+                                            <option>7-11-2017</option>
+                                            <option>9-12-2017</option>
+                                        </select>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <button type="submit" id="btn-search-category">SEARCH</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php /*
     $candidate_query = tep_db_query("
         select
             customers_id,
@@ -37,7 +102,7 @@
             is_agency = 1
                 and
             status_approve = 1
-        order by rand()           
+        order by rand()
     ");
     $num_featured = tep_db_num_rows($feature_query);
     $array_featured_company = [];
@@ -111,7 +176,7 @@
                 </div>
                 <div class="features-img">
                     <div class="row space m0">
-                    <?php 
+                    <?php
                         foreach($array_featured_company as $feature) {
                             echo '<div class="col-xs-2 pr3 pl3 mb3">
                             <div class="img-table">
@@ -209,3 +274,225 @@
     </div>
 <!-- /.row -->
 </div>
+ <?php */ ?>
+
+<!--Best Sell Area Start-->
+<div class="best-sell-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <div class="title-border">
+                        <h1>Best <span>Selling Trips</span></h1>
+                    </div>
+                    <p>Not sure what you’re looking for and need a little inspiration? We can help. Check out our handpicked <br>lists of topical trips you can take right now.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="sell-text-container">
+                    <div class="title-container">
+                        <h3>WILDLIFE</h3>
+                        <div class="best-sell-link">
+                            <a href="index.html#"><i class="fa fa-facebook"></i></a>
+                            <a href="index.html#"><i class="fa fa-twitter"></i></a>
+                            <a href="index.html#"><i class="fa fa-google-plus"></i></a>
+                            <a href="index.html#"><i class="fa fa-linkedin"></i></a>
+                            <a href="index.html#"><i class="fa fa-rss"></i></a>
+                        </div>
+                    </div>
+                    <P>Get closer to nature. From the jungles of India to the African bush, our small group tours take you to the heart of nature. From elephants silhouetted against an Africa sunset to orangutans swinging in the treetops.....</P>
+                    <a href="index.html#" class="button-one">VIew trip</a>
+                </div>
+                <div class="row">
+                    <div class="best-sell-slider carousel-style-one">
+                        <div class="col-md-3">
+                            <div class="hover-effect">
+                                <div class="box-hover">
+                                    <a href="index.html#">
+                                        <img src="img/sell/1.jpg" alt="">
+                                        <span>Rail Trip</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="hover-effect">
+                                <div class="box-hover">
+                                    <a href="index.html#" class="no-margin">
+                                        <img src="img/sell/3.jpg" alt="">
+                                        <span>Egypt Trip</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="hover-effect">
+                                <div class="box-hover">
+                                    <a href="index.html#">
+                                        <img src="img/sell/2.jpg" alt="">
+                                        <span>Brazil Trip</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="hover-effect">
+                                <div class="box-hover">
+                                    <a href="index.html#" class="no-margin">
+                                        <img src="img/sell/4.jpg" alt="">
+                                        <span>Sailing Trip</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="hover-effect">
+                                <div class="box-hover">
+                                    <a href="index.html#">
+                                        <img src="img/sell/3.jpg" alt="">
+                                        <span>Egypt Trip</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="hover-effect">
+                                <div class="box-hover">
+                                    <a href="index.html#" class="no-margin">
+                                        <img src="img/sell/1.jpg" alt="">
+                                        <span>Rail Trip</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="hover-effect">
+                                <div class="box-hover">
+                                    <a href="index.html#">
+                                        <img src="img/sell/4.jpg" alt="">
+                                        <span>sailing Trip</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="hover-effect">
+                                <div class="box-hover">
+                                    <a href="index.html#" class="no-margin">
+                                        <img src="img/sell/2.jpg" alt="">
+                                        <span>Brazil Trip</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 hidden-sm">
+                <img src="img/sell/5.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Best Sell Area-->
+
+<!--Team Area Start-->
+<div class="team-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <div class="title-border">
+                        <h1>Our <span>Team</span></h1>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dolor turpis, pulvinar varius dui<br> id, convallis iaculis eros. Praesent porta lacinia elementum.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <div class="single-member">
+                    <div class="team-image">
+                        <a href="index.html#"><img src="img/team/1.jpg" alt=""></a>
+                        <div class="member-text effect-bottom">
+                            <h4><a href="index.html#">Maria B. | <span>Hiking Guide</span></a></h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard text ever</p>
+                            <div class="member-link">
+                                <a href="index.html#"><i class="fa fa-facebook"></i></a>
+                                <a href="index.html#"><i class="fa fa-twitter"></i></a>
+                                <a href="index.html#"><i class="fa fa-google-plus"></i></a>
+                                <a href="index.html#"><i class="fa fa-linkedin"></i></a>
+                                <a href="index.html#"><i class="fa fa-rss"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="single-member">
+                    <div class="team-image">
+                        <a href="index.html#"><img src="img/team/2.jpg" alt=""></a>
+                        <div class="member-text effect-bottom">
+                            <h4><a href="index.html#">Janifer Craving | <span>Photographer</span></a></h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard text ever</p>
+                            <div class="member-link">
+                                <a href="index.html#"><i class="fa fa-facebook"></i></a>
+                                <a href="index.html#"><i class="fa fa-twitter"></i></a>
+                                <a href="index.html#"><i class="fa fa-google-plus"></i></a>
+                                <a href="index.html#"><i class="fa fa-linkedin"></i></a>
+                                <a href="index.html#"><i class="fa fa-rss"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 hidden-sm">
+                <div class="single-member">
+                    <div class="team-image">
+                        <a href="index.html#"><img src="img/team/3.jpg" alt=""></a>
+                        <div class="member-text effect-bottom">
+                            <h4><a href="index.html#">Matt Jason | <span>Guide</span></a></h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's dummy text ever</p>
+                            <div class="member-link">
+                                <a href="index.html#"><i class="fa fa-facebook"></i></a>
+                                <a href="index.html#"><i class="fa fa-twitter"></i></a>
+                                <a href="index.html#"><i class="fa fa-google-plus"></i></a>
+                                <a href="index.html#"><i class="fa fa-linkedin"></i></a>
+                                <a href="index.html#"><i class="fa fa-rss"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Team Area-->
+<!--Partner Area Start-->
+<div class="partner-area section-bottom-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <div class="title-border">
+                        <h1>Our <span>Partners</span></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="partner-carousel carousel-style-two">
+                <div class="col-md-3">
+                    <a href="index.html#"><img src="img/brand/1.jpg" alt=""></a>
+                </div>
+                <div class="col-md-3">
+                    <a href="index.html#"><img src="img/brand/2.jpg" alt=""></a>
+                </div>
+                <div class="col-md-3">
+                    <a href="index.html#"><img src="img/brand/3.jpg" alt=""></a>
+                </div>
+                <div class="col-md-3">
+                    <a href="index.html#"><img src="img/brand/4.jpg" alt=""></a>
+                </div>
+                <div class="col-md-3">
+                    <a href="index.html#"><img src="img/brand/1.jpg" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Partner Area-->

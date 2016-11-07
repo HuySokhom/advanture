@@ -93,11 +93,11 @@
   }
 ?>
 
-<div class="container">
+<div class="">
     <?php
         if (tep_not_null(TEXT_MAIN)) {
     ?>
-      <div class="contentText">
+      <div class="">
         <?php echo TEXT_MAIN; ?>
       </div>
     <?php
