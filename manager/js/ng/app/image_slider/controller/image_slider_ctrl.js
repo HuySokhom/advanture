@@ -35,6 +35,8 @@ app.controller(
 		$scope.save = function(){
 			var data = {
 				text: $scope.image_slider.text,
+				text2: $scope.image_slider.text2,
+				text3: $scope.image_slider.text3,
 				image: $scope.image_slider.image,
 				image_thumbnail: $scope.image_slider.image_thumbnail,
 				sort_order: $scope.image_slider.sort_order

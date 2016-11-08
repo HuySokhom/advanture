@@ -1,10 +1,54 @@
+<?php
+    $image_query = tep_db_query("
+        select
+            text,
+            text2,
+            text3,
+            image
+        from
+            image_slider
+        order by sort_order asc"
+    );
+    $num_image = tep_db_num_rows($image_query);
+    $array_image = [];
+    if($num_image > 0) {
+        while ($images = tep_db_fetch_array($image_query)) {
+            $array_image[] = $images;
+        }
+    }
+ ?>
 <!--Slider Area Start-->
 <div class="slider-area">
     <div class="preview-2">
         <div id="nivoslider" class="slides">
-            <a href="index.html#"><img src="themes/img/slider/slider-1.jpg" alt="" title="#slider-1-caption1"/></a>
-            <a href="index.html#"><img src="themes/img/slider/slider-2.jpg" alt="" title="#slider-1-caption1"/></a>
+            <?php
+                foreach($array_image as $key => $value){
+                    echo '<img src="images/'.$value['image'].'" title="#slider-'.$key.'"/>';
+                }
+            ?>
+<!--            <a href="index.html#"><img src="themes/img/slider/slider-2.jpg" alt="" title="#slider-1-caption11"/></a>-->
         </div>
+        <?php
+        foreach($array_image as $key => $value){
+            echo '
+                <div id="slider-'.$key.'" class="nivo-html-caption nivo-caption">
+                    <div class="banner-content slider-1">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="text-content">
+                                        <h1 class="title1">'. $value['text'].'</h1>
+                                        <h2 class="sub-title">'. $value['text2'].'</h2>
+                                        <h2 class="sub-title">'. $value['text3'].'</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ';
+        }
+        ?>
         <div id="slider-1-caption1" class="nivo-html-caption nivo-caption">
             <div class="banner-content slider-1">
                 <div class="container">
@@ -14,47 +58,21 @@
                                 <h1 class="title1">TRAVEL STYLES</h1>
                                 <h2 class="sub-title">The right tour for the</h2>
                                 <h2 class="sub-title">right <span>traveller</span></h2>
-                                <form action="index.html#" id="banner-searchbox" class="hidden-xs">
-                                    <div class="adventure-cat">
-                                        <select name="category" class="search-adventure">
-                                            <option>Select Adventure</option>
-                                            <option>Bungee jumping</option>
-                                            <option>Bicycle touring</option>
-                                            <option>Jungle tourism</option>
-                                            <option>Shark tourism</option>
-                                            <option>Mountain biking</option>
-                                            <option>Mountaineering</option>
-                                            <option>Rock Adventure</option>
-                                        </select>
-                                    </div>
-                                    <div class="adventure-cat destination">
-                                        <select name="destination" class="search-adventure">
-                                            <option>Select Your Destination</option>
-                                            <option>Madagascar</option>
-                                            <option>Botswana</option>
-                                            <option>Canada, Alaska</option>
-                                            <option>Antarctica</option>
-                                            <option>Swaziland</option>
-                                            <option>Ethiopia</option>
-                                            <option>Tanzania</option>
-                                        </select>
-                                    </div>
-                                    <div class="adventure-cat floatright">
-                                        <select name="date" class="search-adventure">
-                                            <option>Select Date</option>
-                                            <option>1-4-2016</option>
-                                            <option>5-9-2016</option>
-                                            <option>3-10-2016</option>
-                                            <option>15-2-2017</option>
-                                            <option>22-7-2017</option>
-                                            <option>10-8-2017</option>
-                                            <option>7-11-2017</option>
-                                            <option>9-12-2017</option>
-                                        </select>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <button type="submit" id="btn-search-category">SEARCH</button>
-                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="slider-1-caption11" class="nivo-html-caption nivo-caption">
+            <div class="banner-content slider-1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-content">
+                                <h1 class="title1"></h1>
+                                <h2 class="sub-title">The right tour for the</h2>
+                                <h2 class="sub-title">right <span>traveller</span></h2>
                             </div>
                         </div>
                     </div>

@@ -14,6 +14,10 @@ class RestApiImageUpload extends RestApi {
 				'jpeg',
 				'gif',
 				'png',
+				'PNG',
+				'JPG',
+				'GIF',
+				'JPEG',
 			))){
 				continue;
 			}
@@ -21,21 +25,21 @@ class RestApiImageUpload extends RestApi {
 			// add timestamp to image name to prevent against overwrites
 			$file['name'] = substr($file['name'], 0, strlen($ext) * -1)
 				. time()
-				. '.' . $ext
+				.'.' .$ext
 			;
 			if(move_uploaded_file(
 				$file['tmp_name'],
-				DIR_FS_CATALOG . 'images/news/' . $file['name']
+				DIR_FS_CATALOG . 'images/original/' . $file['name']
 			)){
-				$image = DIR_FS_CATALOG . 'images/news/' . $file['name'];
+				$image = DIR_FS_CATALOG . 'images/original/' . $file['name'];
 				// to make image thumbnail
-				$imgThumbnail = DIR_FS_CATALOG . 'images/news_thumbnail/' . $file['name'];
+				$imgThumbnail = DIR_FS_CATALOG . 'images/thumbnail/' . $file['name'];
 				$this->make_thumb($file, $image, $imgThumbnail, 200);
 			}
 			return array(
 				'data' => array(
-					'image' => 'news/' . $file['name'],
-					'image_thumbnail' => 'news_thumbnail/' . $file['name']
+					'image' => 'original/' . $file['name'],
+					'image_thumbnail' => 'thumbnail/' . $file['name']
 				)
 			);
 		}

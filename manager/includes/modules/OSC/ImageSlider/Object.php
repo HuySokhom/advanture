@@ -10,6 +10,8 @@ class Object extends DbObj {
 		
 	protected
 		$text
+		, $text2
+		, $text3
 		, $image
 		, $link
 		, $sortOrder
@@ -21,6 +23,8 @@ class Object extends DbObj {
 			'include' => array(
 				'id',
 				'text',
+				'text2',
+				'text3',
 				'image',
 				'link',
 				'sort_order',
@@ -35,6 +39,8 @@ class Object extends DbObj {
 		$q = $this->dbQuery("
 			SELECT
 				text,
+				text2,
+				text3,
 				link,
 				status,
 				image,
@@ -77,6 +83,8 @@ class Object extends DbObj {
 				image_slider
 			SET
 				text = '" . $this->dbEscape( $this->getText() ) . "',
+				text3 = '" . $this->dbEscape( $this->getText3() ) . "',
+				text2 = '" . $this->dbEscape( $this->getText2() ) . "',
 				image = '" . $this->dbEscape( $this->getImage() ) . "',
 				image_thumbnail = '" . $this->dbEscape( $this->getImageThumbnail() ) . "',
 				sort_order = '" . $this->dbEscape( $this->getSortOrder() ) . "'
@@ -93,6 +101,8 @@ class Object extends DbObj {
 				image_slider
 			(
 				text,
+				text2,
+				text3,
 				link,
 				image,
 				image_thumbnail,
@@ -102,6 +112,8 @@ class Object extends DbObj {
 				VALUES
 			(
 				'" . $this->dbEscape($this->getText()) . "',
+				'" . $this->dbEscape($this->getText2()) . "',
+				'" . $this->dbEscape($this->getText3()) . "',
 				'" . $this->dbEscape($this->getLink()) . "',
 				'" . $this->dbEscape($this->getImage()) . "',
 				'" . $this->dbEscape( $this->getImageThumbnail() ) . "',
@@ -151,5 +163,20 @@ class Object extends DbObj {
 	public function getText(){
 		return $this->text;
 	}
-	
+
+	public function setText3( $string ){
+		$this->text3 = (string)$string;
+	}
+
+	public function getText3(){
+		return $this->text3;
+	}
+
+	public function setText2( $string ){
+		$this->text2 = (string)$string;
+	}
+
+	public function getText2(){
+		return $this->text2;
+	}
 }
