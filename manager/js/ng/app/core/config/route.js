@@ -14,6 +14,11 @@ app.config([
 				templateUrl: 'js/ng/app/content/partials/index.html',
 				controller: 'content_ctrl'
 			})
+			.state('/partner_banner', {
+				url: '/partner_banner',
+				templateUrl: 'js/ng/app/partner_banner/partials/index.html',
+				controller: 'partner_banner_ctrl'
+			})
 			.state('/customer_expire', {
 				url: '/customer_expire',
 				templateUrl: 'js/ng/app/report_customer_expire/partials/index.html',

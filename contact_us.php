@@ -68,16 +68,14 @@
           <div class="contact-image">
             <div class="contact-icon">
               <div class="icon-table-cell">
-                <img class="primary-img" src="img/icon/contact-1.png" alt="">
-                <img class="secondary-img" src="img/icon/contact-1-hover.png" alt="">
+                <img class="primary-img" src="themes/img/icon/contact-1.png" alt="">
+                <img class="secondary-img" src="themes/img/icon/contact-1-hover.png" alt="">
               </div>
             </div>
           </div>
           <div class="contact-text">
             <h4>Address</h4>
-            <p>Westminster Corporate Center<br>
-              30A Vreeland Road<br>
-              P.O. Box 6</p>
+            <?php echo nl2br(STORE_ADDRESS); ?>
           </div>
         </div>
       </div>
@@ -86,15 +84,16 @@
           <div class="contact-image">
             <div class="contact-icon">
               <div class="icon-table-cell">
-                <img class="primary-img" src="img/icon/contact-2.png" alt="">
-                <img class="secondary-img" src="img/icon/contact-2-hover.png" alt="">
+                <img class="primary-img" src="themes/img/icon/contact-2.png" alt="">
+                <img class="secondary-img" src="themes/img/icon/contact-2-hover.png" alt="">
               </div>
             </div>
           </div>
           <div class="contact-text">
             <h4>Phone</h4>
-            <p>+123 456 7890<br>
-              +123 456 7890</p>
+            <p>
+              <?php echo STORE_PHONE; ?>
+            </p>
           </div>
         </div>
       </div>
@@ -103,8 +102,8 @@
           <div class="contact-image">
             <div class="contact-icon">
               <div class="icon-table-cell">
-                <img class="primary-img" src="img/icon/contact-3.png" alt="">
-                <img class="secondary-img" src="img/icon/contact-3-hover.png" alt="">
+                <img class="primary-img" src="themes/img/icon/contact-3.png" alt="">
+                <img class="secondary-img" src="themes/img/icon/contact-3-hover.png" alt="">
               </div>
             </div>
           </div>
@@ -120,15 +119,18 @@
           <div class="contact-image">
             <div class="contact-icon">
               <div class="icon-table-cell">
-                <img class="primary-img" src="img/icon/contact-4.png" alt="">
-                <img class="secondary-img" src="img/icon/contact-4-hover.png" alt="">
+                <img class="primary-img" src="themes/img/icon/contact-4.png" alt="">
+                <img class="secondary-img" src="themes/img/icon/contact-4-hover.png" alt="">
               </div>
             </div>
           </div>
           <div class="contact-text">
             <h4>Email</h4>
-            <p>admin@power-boosts<br>
-              admin@power-boosts.com</p>
+            <p>
+              <a href="mailto:<?php echo STORE_OWNER_EMAIL_ADDRESS; ?>">
+                <?php echo STORE_OWNER_EMAIL_ADDRESS; ?>
+              </a>
+            </p>
           </div>
         </div>
       </div>

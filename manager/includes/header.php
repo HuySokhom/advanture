@@ -44,6 +44,7 @@
             <a href="#/news_type"><span class="fa fa-crop"></span> News Type</a>
           </li>
           <li><a href="#/content"><span class="fa fa-comments"></span>Content</a></li>
+          <li><a href="#/partner_banner"><span class="fa fa-comments"></span>Partner Banner</a></li>
         </ul>
       </li>
       <li class="xn-openable">

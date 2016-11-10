@@ -128,6 +128,10 @@
     type="text/javascript"
     src="js/ng/app/report_customer_expire/controller/report_customer_expire_ctrl.js"
 ></script>
+<script
+    type="text/javascript"
+    src="js/ng/app/partner_banner/controller/partner_banner_ctrl.js"
+></script>
 
 
 </body>
