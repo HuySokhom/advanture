@@ -49,75 +49,144 @@
 
   require(DIR_WS_INCLUDES . 'template_top.php');
 ?>
-<br>
-<div class="container">
-<div class="col-md-3 col-sm-6 ">
-  <div class="filter-stacked">
-    <?php include('advanced_search_box_right.php');?> 
-  </div>
-</div>
-<div class="col-md-9 col-sm-6">
-  <div class="row">
-
-<?php
-  if ($messageStack->size('contact') > 0) {
-    echo $messageStack->output('contact');
-  }
-  if (isset($HTTP_GET_VARS['action']) && ($HTTP_GET_VARS['action'] == 'success')) {
-  ?>
-
-  <div class="contentContainer">
-    <div class="contentText">
-      <div class="alert alert-info"><?php echo TEXT_SUCCESS; ?></div>
-    </div>
-
-    <div class="pull-right">
-      <?php echo tep_draw_button(IMAGE_BUTTON_CONTINUE, 'fa fa-mail-reply', tep_href_link(FILENAME_DEFAULT)); ?>
-    </div>
-  </div>
-  <?php 
-    } else {
-  ?>
-    <div class="col-md-6">
-      <address>
-          <h4><?php echo ENTRY_ADDRESS; ?></h4>
-          <?php echo nl2br(STORE_ADDRESS); ?><br>
-          Phone:
-          <?php echo STORE_PHONE; ?>
-          <br>
-          Email:
-          <a href="mailto:<?php echo STORE_OWNER_EMAIL_ADDRESS; ?>" target="_top">
-              <?php echo STORE_OWNER_EMAIL_ADDRESS; ?>
-          </a>
-      </address>
-    </div>
-    <div class="col-md-6">
-      <p class="inputRequirement text-right"><?php echo FORM_REQUIRED_INFORMATION; ?></p>
-      <div class="clearfix"></div>
-      <?php echo tep_draw_form('contact_us', tep_href_link(FILENAME_CONTACT_US, 'action=send'), 'post', 'class="form-horizontal"', true); ?>
-
-        <?php
-        echo tep_draw_input_field('name', NULL, 'required autofocus="autofocus" aria-required="true" id="inputFromName" placeholder="' . ENTRY_NAME . '"');          ?>
-        <br>
-        <?php
-        echo tep_draw_input_field('email', NULL, 'required aria-required="true" id="inputFromEmail" placeholder="' . ENTRY_EMAIL . '"', 'email');
-        ?>
-        <br>
-        <?php
-        echo tep_draw_textarea_field('enquiry', 'soft', 30, 6, NULL, 'required aria-required="true" id="inputEnquiry" placeholder="' . ENTRY_ENQUIRY . '"');          ?>
-        <br>
-        <div class="buttonSet">
-          <div class="text-right"><?php echo tep_draw_button(IMAGE_BUTTON_CONTINUE, 'fa fa-send-o', null, 'primary', null, 'btn-success'); ?></div>
+<div class="banner-area"></div>
+<!--Contact Information Area Start-->
+<div class="contact-information-area section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-title text-center">
+          <div class="title-border">
+            <h1>Contact <span>Information</span></h1>
+          </div>
         </div>
-      </form>
+      </div>
     </div>
-    <?php 
-  }
-  ?>
+    <div class="row">
+      <div class="col-md-3 col-sm-4">
+        <div class="contact-info text-center">
+          <div class="contact-image">
+            <div class="contact-icon">
+              <div class="icon-table-cell">
+                <img class="primary-img" src="img/icon/contact-1.png" alt="">
+                <img class="secondary-img" src="img/icon/contact-1-hover.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="contact-text">
+            <h4>Address</h4>
+            <p>Westminster Corporate Center<br>
+              30A Vreeland Road<br>
+              P.O. Box 6</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-4">
+        <div class="contact-info text-center">
+          <div class="contact-image">
+            <div class="contact-icon">
+              <div class="icon-table-cell">
+                <img class="primary-img" src="img/icon/contact-2.png" alt="">
+                <img class="secondary-img" src="img/icon/contact-2-hover.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="contact-text">
+            <h4>Phone</h4>
+            <p>+123 456 7890<br>
+              +123 456 7890</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-4">
+        <div class="contact-info text-center">
+          <div class="contact-image">
+            <div class="contact-icon">
+              <div class="icon-table-cell">
+                <img class="primary-img" src="img/icon/contact-3.png" alt="">
+                <img class="secondary-img" src="img/icon/contact-3-hover.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="contact-text">
+            <h4>Fax</h4>
+            <p>(973) 377-5077<br>
+              (001) 254-7359</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 hidden-sm">
+        <div class="contact-info text-center">
+          <div class="contact-image">
+            <div class="contact-icon">
+              <div class="icon-table-cell">
+                <img class="primary-img" src="img/icon/contact-4.png" alt="">
+                <img class="secondary-img" src="img/icon/contact-4-hover.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="contact-text">
+            <h4>Email</h4>
+            <p>admin@power-boosts<br>
+              admin@power-boosts.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+<!--End of Contact Information Area-->
+<!--Contact Form Start-->
+<div class="contact-form">
+  <!-- google-map-area start -->
+  <div class="google-map-area">
+    <!--  Map Section -->
+    <div id="contacts" class="map-area">
+      <div id="googleMap" style="width:100%;height:737px;filter: grayscale(100%)"></div>
+    </div>
+  </div>
+  <!-- google-map-area end -->
+  <div class="contact-us-form-wrapper">
+    <div class="container">
+      <div class="contact-us-form section-padding">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="section-title text-center">
+              <div class="title-border">
+                <h1>Contact <span>US</span></h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <form action="" method="post">
+              <div class="row">
+                <div class="col-md-6">
+                  <input name="f_name" type="text" class="form-box" placeholder="First name">
+                </div>
+                <div class="col-md-6">
+                  <input name="l_name" type="text" class="form-box" placeholder="Last name">
+                </div>
+                <div class="col-md-6">
+                  <input name="email" type="email" class="form-box" placeholder="Email">
+                </div>
+                <div class="col-md-6">
+                  <input name="number" type="text" class="form-box" placeholder="Phone number">
+                </div>
+                <div class="col-md-12">
+                  <textarea name="message" class="yourmessage" placeholder="Your message"></textarea>
+                  <input type="submit" value="Send Message" class="submit-button">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
+<!--End of Contact Form-->
 <?php
 
   require(DIR_WS_INCLUDES . 'template_bottom.php');

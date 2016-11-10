@@ -140,7 +140,7 @@ body {
 }
 .container { width: 1200px}
 .section-padding {
-    padding-top: 100px;
+    padding-top: 50px;
     padding-bottom: 100px
 }
 .section-bottom-padding {padding-bottom: 100px}
@@ -1225,7 +1225,7 @@ button#btn-search-category:hover, .newsletter-content button:hover, .button-one:
 /*  13. Footer Widget Area
 /*----------------------------------------*/
 .footer-widget-area {
-  background: rgba(0, 0, 0, 0) url("img/banner/footer-bg.jpg") no-repeat scroll center top / cover ;
+  background: rgba(0, 0, 0, 0) url("../themes/img/banner/footer-bg.jpg") no-repeat scroll center top / cover ;
   padding-top: 180px;
   position: relative;
 }

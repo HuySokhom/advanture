@@ -447,7 +447,7 @@
     .single-list-item {margin-bottom: 50px}
     .adventure-list-container {padding-left: 20px}
     .banner-area, .banner-area.contact-banner, .banner-area.about-banner, .banner-area.contact-banner, .banner-area.blog-one, .banner-area.blog-two, .banner-area.signin-banner {
-        padding-top: 110px;
+        padding-top: 0px;
     }  
     .trip-information {padding: 0}
     .trip-action {width: 20%}
@@ -628,7 +628,7 @@
     .single-adventure:hover .adventure-text.effect-bottom::after {bottom: 33px}
     .adventure-text h4 a {font-size: 18px}
     .banner-area, .banner-area.contact-banner, .banner-area.about-banner, .banner-area.contact-banner, .banner-area.blog-one, .banner-area.blog-two, .banner-area.signin-banner {
-        padding-top: 55px;
+        padding-top: 0px;
     }
     .pagination li {
         height: 30px;
