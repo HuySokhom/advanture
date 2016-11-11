@@ -15,7 +15,7 @@
     Best Sell Owl Carousel
 ------------------------------ */  
     $(".best-sell-slider").owlCarousel({
-        autoPlay: false, 
+        autoPlay: true,
         slideSpeed:2000,
         pagination:false,
         navigation:true,	  

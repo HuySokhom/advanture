@@ -14,7 +14,7 @@ while($banner_info = tep_db_fetch_array($banner_query)){
 ?>
 
 <!--Partner Area Start-->
-<div class="partner-area section-bottom-padding">
+<div class="partner-area section-padding section-bottom-padding">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

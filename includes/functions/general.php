@@ -564,15 +564,18 @@ function tep_get_location($id = '') {
    $categories_query = tep_db_query("select c.categories_id, cd.categories_name from " . TABLE_CATEGORIES . " c, " . TABLE_CATEGORIES_DESCRIPTION . " cd where parent_id = '" . (int)$parent_id . "' and c.categories_id = cd.categories_id and cd.language_id = '" . (int)$languages_id . "' order by cd.categories_name");
    $t = '';
    while ($categories = tep_db_fetch_array($categories_query)) {
-      $t .= '<li><a href="' . tep_href_link(FILENAME_DEFAULT, 'cPath=' . $categories['categories_id']) . '">';
-     $t .= $categories['categories_name'];
+      $t .= '<li class="drop-down">
+            <a href="' . tep_href_link(FILENAME_DEFAULT, 'cPath=' . $categories['categories_id']) . '">';
+     $t .= $categories['categories_name'] . '</a>';
+
+     $className = 'sub-menu';
      if ($categories['categories_id'] != $parent_id) {
-       $t .= tep_get_categories_list($categories['categories_id'], $indent . '');
+       $sub = tep_get_categories_list($categories['categories_id'], $indent . '');
      }
-     $countProducts = tep_db_query("select count(products_id) as count_category from products where categories_id = '".$categories['categories_id'] . "' and products_status = 1 ");
-     $count = tep_db_fetch_array($countProducts);
-     $t .= '<span class="filter-list-count">(' . $count['count_category'] . ')</span> </a></li>';
+     $t .= $sub ? '<ul class="sub-menu">'. $sub .'</ul>' : '';
+
    }
+
    $t .= '';
    return $t;
   }
