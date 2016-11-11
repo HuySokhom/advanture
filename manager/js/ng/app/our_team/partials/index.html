@@ -2,10 +2,10 @@
 	<div class="col-md-2">
 		<a
 			class="btn btn-default"
-			ui-sref="our_team.post"
+			ui-sref="our_team/post"
 		>
 			<span class="fa fa-plus"></span>
-			Add Doctor
+			Add Our Team
 		</a>
 	</div>
 	<div class="col-md-4">
@@ -33,19 +33,19 @@
 			Gender
 		</th>
 		<th>
-			Branch
+			Address
 		</th>
 		<th width="15%">
 			Action
 		</th>
 	</tr>
-	<tr data-ng-if="!vm.doctors">
+	<tr data-ng-if="!vm.ourTeams">
 		<td colspan="6" align="center">
 			<img src="images/icons/gettestr-large-spinner-orange.gif"/>
 		</td>
 	</tr>
 	<tr
-		data-ng-repeat="row in vm.doctors.elements"
+		data-ng-repeat="row in vm.ourTeams.elements"
 	>
 		<td>
 			{{row.id}}
@@ -57,12 +57,12 @@
 			{{row.gender}}
 		</td>
 		<td>
-			{{row.branch}}
+			{{row.address}}
 		</td>
 		<td>
 			<a
 				class="btn btn-default"
-				ui-sref="doctorsEdit({id: row.id})"
+				ui-sref="our_team/edit({id: row.id})"
 				data-toggle="tooltip"
 				data-placement="top"
 				title="Edit"
@@ -82,7 +82,7 @@
 			</button>
 		</td>
 	</tr>
-	<tr data-ng-if="vm.doctors.elements == 0">
+	<tr data-ng-if="vm.ourTeams.elements == 0">
 		<td colspan="5">
 			<div class="text-center">
 				<strong>No record found.</strong>

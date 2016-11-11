@@ -11,12 +11,12 @@ app.controller(
 	, function ($scope, Restful, Services, $stateParams, Upload, $state, $anchorScroll, $timeout){
 		var vm = this;
 		var url = "api/OurTeam/";
-		vm.doctor = {};
-		vm.doctor.gender = 'Male';
+		vm.our_team = {};
+		vm.our_team.gender = 'Male';
 		vm.service = new Services();
 		vm.currentPage = $state.current.name;
 		console.log(vm.currentPage);
-		if(vm.currentPage == "our_team.post"){
+		if(vm.currentPage == "our_team/post"){
 			vm.header = 'Create Our Team';
 		}else{
 			vm.header = 'Edit Our Team';
@@ -25,36 +25,36 @@ app.controller(
 			};
 			Restful.get(url, data).success(function(data){
 				console.log(data);
-				vm.doctor = data.elements[0];
+				vm.our_team = data.elements[0];
 			});
 		}
 
 		vm.clear = function(){
-			vm.doctor = {};
-			vm.doctor.gender = 'Male';
+			vm.our_team = {};
+			vm.our_team.gender = 'Male';
 		};
 
 		vm.save = function() {
-			if (!$scope.doctorForm.$valid) {
+			if (!$scope.our_teamForm.$valid) {
 				$anchorScroll();
 				return;
 			}
-			console.log(vm.doctor);
+			console.log(vm.our_team);
 
 			vm.isDisabled = true;
-			if (vm.currentPage == "doctorsEdit") {
-				Restful.put(url + vm.doctor.id, vm.doctor).success(function (data) {
+			if (vm.currentPage == "our_team/edit") {
+				Restful.put(url + vm.our_team.id, vm.our_team).success(function (data) {
 					console.log(data);
 					vm.service.alertMessage('<strong>Complete: </strong>Save Success.');
 					vm.isDisabled = false;
-					$state.go('doctors');
+					$state.go('our_team');
 				});
 			} else {
-				Restful.post(url, vm.doctor).success(function (data) {
+				Restful.post(url, vm.our_team).success(function (data) {
 					console.log(data);
 					vm.service.alertMessage('<strong>Complete: </strong>Save Success.');
 					vm.isDisabled = false;
-					$state.go('doctors');
+					$state.go('our_team');
 				});
 			}
 		};
@@ -73,7 +73,7 @@ app.controller(
 					$timeout(function () {
 						console.log(response);
 						file.result = response.data;
-						vm.doctor.photo = response.data.image;
+						vm.our_team.photo = response.data.image;
 						vm.image_thumbnail = response.data.image_thumbnail;
 						//file.result.substring(1, file.result.length - 1);
 					});

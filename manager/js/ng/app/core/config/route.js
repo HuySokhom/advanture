@@ -117,17 +117,20 @@ app.config([
 			.state('our_team', {
 				url: '/our_team',
 				templateUrl: 'js/ng/app/our_team/partials/index.html',
-				controller: 'team_ctrl'
+				controller: 'team_ctrl',
+				controllerAs: 'vm'
 			})
-			.state('our_team.post', {
-				url: '/post',
+			.state('our_team/post', {
+				url: '/our_team/post',
 				templateUrl: 'js/ng/app/our_team/partials/post.html',
-				controller: 'team_post_ctrl'
+				controller: 'team_post_ctrl',
+				controllerAs: 'vm'
 			})
-			.state('our_team.edit', {
-				url: '/edit/:id',
+			.state('our_team/edit', {
+				url: '/our_team/edit/:id',
 				templateUrl: 'js/ng/app/our_team/partials/post.html',
-				controller: 'team_post_ctrl'
+				controller: 'team_post_ctrl',
+				controllerAs: 'vm'
 			})
 		;
 		$urlRouterProvider.otherwise('/');

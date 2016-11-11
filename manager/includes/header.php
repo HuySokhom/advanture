@@ -5,26 +5,10 @@
     <!-- START X-NAVIGATION -->
     <ul class="x-navigation">
       <li class="xn-logo">
-        <a href="#/">Singa Property</a>
+        <a href="#/">Adventure</a>
         <a href="#" class="x-navigation-control"></a>
       </li>
-      <li class="xn-profile">
-        <a href="#/" class="profile-mini">
-          <img src="images/icons/ico.png" alt="Logo"/>
-        </a>
-        <div class="profile">
-          <div class="profile-image">
-            <img src="images/logo.png" alt="John Doe" style="background: #ffffff;"/>
-          </div>
-          <div class="profile-data">
-            <div class="profile-data-name">
-              <i class="fa fa-user"></i>
-              <?php echo $admin['username'];?>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="active">
+      <li>
         <a href="#/"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>
       </li>
       <li class="xn-openable">

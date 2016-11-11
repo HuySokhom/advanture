@@ -17,7 +17,7 @@ app.controller(
 			params.pagination = 'yes';
 			console.log(params);
 			Restful.get(url, params).success(function(data){
-				vm.doctors = data;
+				vm.ourTeams = data;
 				console.log(data);
 				vm.totalItems = data.count;
 			});
@@ -28,7 +28,7 @@ app.controller(
 			$alertify.okBtn("Ok")
 				.cancelBtn("Cancel")
 				.confirm("<b>Waring: </b>" +
-						"Are you sure want to delete this doctor?", function (ev) {
+						"Are you sure want to delete?", function (ev) {
 					// The click event is in the
 					// event variable, so you can use
 					// it here.
@@ -36,7 +36,7 @@ app.controller(
 					Restful.delete( url + params.id, params ).success(function(data){
 						vm.disabled = true;
 						vm.service.alertMessage('<strong>Complete: </strong>Delete Success.');
-						vm.doctors.elements.splice($index, 1);
+						vm.ourTeams.elements.splice($index, 1);
 					});
 				}, function(ev) {
 					// The click event is in the

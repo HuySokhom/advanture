@@ -1,11 +1,11 @@
-<form name="doctorForm" role="form" class="form-horizontal" novalidate>
+<form name="our_teamForm" role="form" class="form-horizontal" novalidate>
 	<h4>
 		{{vm.header}}
 	</h4>
 	<hr/>
 	<a
 			class="btn btn-default"
-			ui-sref="doctors"
+			ui-sref="our_team"
 	>
 		<span class="fa fa-backward"></span>
 		Back
@@ -17,14 +17,14 @@
 	<hr/>
 	<div class="col-sm-7">
 
-		<div class="form-group" ng-class="{ 'has-error': doctorForm.name.$invalid && doctorForm.$submitted }">
+		<div class="form-group" ng-class="{ 'has-error': our_teamForm.name.$invalid && our_teamForm.$submitted }">
 			<label class="col-md-2 control-label">
 				Full Name
 				<span class="required">* </span>
 			</label>
 			<div class="col-md-10">
 				<input type="text"
-					   ng-model="vm.doctor.name"
+					   ng-model="vm.our_team.name"
 					   class="form-control"
 					   required
 					   name="name"
@@ -42,149 +42,67 @@
 				<select class="bs-select form-control"
 						name="gender"
 						required
-						data-ng-model="vm.doctor.gender"
+						data-ng-model="vm.our_team.gender"
 						data-ng-options="gender for gender in ['Male', 'Female']">
 				</select>
 			</div>
 		</div>
 
-		<div class="form-group" ng-class="{ 'has-error': doctorForm.email.$invalid && doctorForm.$submitted }">
+		<div class="form-group" ng-class="{ 'has-error': our_teamForm.email.$invalid && our_teamForm.$submitted }">
 			<label class="control-label col-md-2">
 				Email
 				<span class="required">* </span>
 			</label>
 			<div class="col-md-10">
 				<input type="email"
-					   data-ng-model="vm.doctor.email"
+					   data-ng-model="vm.our_team.email"
 					   name="email"
 					   required
 					   class="form-control"
 					   placeholder="Email" />
 			</div>
 		</div>
-		<div class="form-group" ng-class="{ 'has-error': doctorForm.telephone.$invalid && doctorForm.$submitted }">
+		<div class="form-group" ng-class="{ 'has-error': our_teamForm.telephone.$invalid && our_teamForm.$submitted }">
 			<label class="control-label col-md-2">
 				Telephone
 				<span class="required">* </span>
 			</label>
 			<div class="col-md-10">
 				<input type="text"
-					   data-ng-model="vm.doctor.telephone"
+					   data-ng-model="vm.our_team.telephone"
 					   name="telephone"
 					   required
 					   class="form-control"
 					   placeholder="Telephone" />
 			</div>
 		</div>
-		<div class="form-group" ng-class="{ 'has-error': doctorForm.address.$invalid && doctorForm.$submitted }">
+		<div class="form-group" ng-class="{ 'has-error': our_teamForm.address.$invalid && our_teamForm.$submitted }">
 			<label class="control-label col-md-2">
 				Address
 				<span class="required">* </span>
 			</label>
 			<div class="col-md-10">
-				<textarea data-ng-model="vm.doctor.address"
+				<textarea data-ng-model="vm.our_team.address"
 						  name="address"
 						  required
 						  class="form-control" rows="5"
 						  placeholder="address"></textarea>
 			</div>
 		</div>
-		<div class="form-group" ng-class="{ 'has-error': doctorForm.summary.$invalid && doctorForm.$submitted }">
+		<div class="form-group" ng-class="{ 'has-error': our_teamForm.summary.$invalid && our_teamForm.$submitted }">
 			<label class="control-label col-md-2">
 				Summary
 				<span class="required">* </span>
 			</label>
 			<div class="col-md-10">
-				<textarea data-ng-model="vm.doctor.summary"
+				<textarea data-ng-model="vm.our_team.summary"
 					   name="summary"
 					   required
 					   rows="10"
 					   class="form-control"
-					   placeholder="Summary Doctor"></textarea>
+					   placeholder="Summary our_team"></textarea>
 			</div>
 		</div>
-		<div class="form-group" ng-class="{ 'has-error': doctorForm.speciality.$invalid && doctorForm.$submitted }">
-			<label class="control-label col-md-2">
-				Speciality
-				<span class="required">* </span>
-			</label>
-			<div class="col-md-10">
-				<textarea data-ng-model="vm.doctor.speciality"
-						  name="speciality"
-						  required
-						  class="form-control"
-						  rows="10"
-						  placeholder="Branch Location"
-						  ui-tinymce="tinymceOptions"></textarea>
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label col-md-2">
-				Education
-				<span class="required">* </span>
-			</label>
-			<div class="col-md-10">
-				<textarea data-ng-model="vm.doctor.education"
-					   name="education"
-					   required
-					   rows="10"
-					   class="form-control"
-					   ui-tinymce="tinymceOptions"
-					   placeholder="Branch Location"></textarea>
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label col-md-2">
-				Experience
-				<span class="required">* </span>
-			</label>
-			<div class="col-md-10">
-				<textarea rows="10"
-					   data-ng-model="vm.doctor.experience"
-					   name="experience"
-					   ui-tinymce="tinymceOptions"
-					   required
-					   class="form-control"
-					   placeholder="experience"></textarea>
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label col-md-2">
-				Working Day
-			</label>
-			<div class="col-md-10">
-				<input type="text"
-					   data-ng-model="vm.doctor.working_day"
-					   name="workingDay"
-					   class="form-control"
-					   placeholder="Working from day to day" />
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label col-md-2">
-				Working Hour
-			</label>
-			<div class="col-md-10">
-				<input type="text"
-					   data-ng-model="vm.doctor.working_hour"
-					   name="workingHour"
-					   class="form-control"
-					   placeholder="Working from hour to hour" />
-			</div>
-		</div>
-		<div class="form-group">
-		<label class="control-label col-md-2">
-			Branch
-		</label>
-		<div class="col-md-10">
-			<input type="text"
-				   data-ng-model="vm.doctor.branch"
-				   name="branch"
-				   class="form-control"
-				   placeholder="Branch Location" />
-		</div>
-	</div>
-
 	</div>
 	<div class="col-sm-3">
 		<input
@@ -196,21 +114,21 @@
 			ngf-model-invalid="errorFiles"
 			ngf-select="vm.uploadPic(vm.picFile)"
 		>
-		<i ng-show="doctorForm.file.$error.maxSize" class="error">
+		<i ng-show="our_teamForm.file.$error.maxSize" class="error">
 			File too large {{errorFiles[0].size / 1000000|number:1}}MB: max 2M
 		</i>
 		<div>
 			<img
-				data-ng-if="!vm.doctor.photo"
+				data-ng-if="!vm.our_team.photo"
 				class="img-thumbnail"
 				src="../images/icon-person.png"
 				width="300px"
 			/>
 			<img
-				data-ng-if="vm.doctor.photo"
+				data-ng-if="vm.our_team.photo"
 				class="img-thumbnail"
 				width="300px"
-				src="../images/{{vm.doctor.photo}}"
+				src="../images/{{vm.our_team.photo}}"
 			/>
 			<div ng-show="vm.picFile.progress >= 0">
 				<div class="progress-bar progress-bar-striped"
@@ -238,7 +156,7 @@
 	<hr/>
 	<a
 		class="btn btn-default"
-		ui-sref="doctors"
+		ui-sref="our_team"
 	>
 		<span class="fa fa-backward"></span>
 		Back
