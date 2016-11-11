@@ -14,27 +14,34 @@ app.controller(
 		function init(params){
 			Restful.get(url, params).success(function(data){
 				$scope.category = data;
-				$scope.totalItems = data.count;
+				$scope.totalItems = data.count;console.log(data);
 			});
 		};
 		init(params);
 
 		$scope.clear = function(){
 			$scope.name_en = '';
-			$scope.name_kh = '';
 			$scope.sort_order = '';
 			$scope.parent_id = '';
 			$scope.id = '';
+			$scope.getCategory();
+		};
+
+
+		$scope.getCategory = function(){
+			Restful.get(url).success(function(data){
+				$scope.categories = data;
+			});
 		};
 
 		$scope.edit = function(params){
 			$('#categoryPopup').modal('show');
 			var temp = angular.copy(params);
 			$scope.name_en = temp.detail[0].categories_name;
-			$scope.name_kh = temp.detail[1].categories_name;
 			$scope.parent_id = temp.parent_id;
 			$scope.id = temp.categories_id;
 			$scope.sort_order = temp.sort_order;
+			$scope.getCategory();
 		};
 
 		$scope.save = function(){

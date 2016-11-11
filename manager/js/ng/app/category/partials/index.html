@@ -120,7 +120,7 @@
 							<td>
 								<select
 									class="form-control"
-									data-ng-options="c.detail[0].categories_id as c.detail[0].categories_name for c in category.elements"
+									data-ng-options="c.detail[0].categories_id as c.detail[0].categories_name for c in categories.elements"
 									data-ng-model="parent_id"
 
 									data-ng-init="parent_id == c.detail[0].categories_id"
@@ -131,26 +131,13 @@
 						</tr>
 						<tr>
 							<td width="20%">
-								Name En:
+								Name:
 							</td>
 							<td>
 								<input
 									type="text"
 									class="form-control"
 									data-ng-model="name_en"
-									required="required"
-								/>
-							</td>
-						</tr>
-						<tr>
-							<td width="20%">
-								Name Kh:
-							</td>
-							<td>
-								<input
-									type="text"
-									class="form-control"
-									data-ng-model="name_kh"
 									required="required"
 								/>
 							</td>

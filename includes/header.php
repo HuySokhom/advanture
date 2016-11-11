@@ -43,7 +43,7 @@
               <div class="col-md-3 col-sm-12">
                 <div class="logo">
                   <a href="#">
-                    <img src="themes/img/logo/logo.png" alt="ADVENTURES">
+                    <img src="themes/img/logo/logo.png" alt="<?php echo STORE_NAME; ?>" style="margin-top: 10px;">
                   </a>
                 </div>
               </div>
@@ -57,63 +57,6 @@
                       <?php
                         echo tep_get_categories_list();
                       ?>
-<!--                      <li>-->
-<!--                        <a href="shop-grid-no-sidebar.html">Destination</a>-->
-<!--                        <div class="megamenu">-->
-<!--                          <div class="megamenu-list clearfix">-->
-<!--                            <span class="border-hover">-->
-<!--                                <a href="index.html#" class="mega-image">-->
-<!--                                  <img src="themes/img/mega-b-4.jpg" alt="">-->
-<!--                                </a>-->
-<!--                            </span>-->
-<!--                            <span>-->
-<!--                                <a href="index.html#" class="mega-title">Edgeworks Climbing</a>-->
-<!--                                <a href="index.html#">Indoor climbing</a>-->
-<!--                                <a href="index.html#">Rock climbing</a>-->
-<!--                                <a href="index.html#">Climbing competition</a>-->
-<!--                                <a href="index.html#">Top rope climbing</a>-->
-<!--                                <a href="index.html#">Traditional climbing</a>-->
-<!--                                <a href="index.html#">Free solo climbing</a>-->
-<!--                            </span>-->
-<!--                            <span>-->
-<!--                                <a href="index.html#" class="mega-title">Academic Mountain</a>-->
-<!--                                <a href="index.html#">Fold and thrust belt</a>-->
-<!--                                <a href="index.html#">Fault-block mountain</a>-->
-<!--                                <a href="index.html#">Mountain ranges</a>-->
-<!--                                <a href="index.html#">Sedimentary</a>-->
-<!--                                <a href="index.html#">Subaqueous volcano</a>-->
-<!--                                <a href="index.html#">Complex volcano</a>-->
-<!--                            </span>-->
-<!--                            <span>-->
-<!--                                <a href="index.html#" class="mega-title">Adventure Camping</a>-->
-<!--                                <a href="index.html#">Bicycle Camping</a>-->
-<!--                                <a href="index.html#">Canoe Camping</a>-->
-<!--                                <a href="index.html#">Reenact camping</a>-->
-<!--                                <a href="index.html#">Winter camping</a>-->
-<!--                                <a href="index.html#">Dry camping</a>-->
-<!--                                <a href="index.html#">Backpacking</a>-->
-<!--                            </span>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </li>-->
-<!--                      <li><a href="shop-grid-no-sidebar.html">Travel</a></li>-->
-<!--                      <li class="drop-down">-->
-<!---->
-<!--                        <a href="shop-grid-no-sidebar.html">Pages </a>-->
-<!--                        <ul class="sub-menu">-->
-<!--                          --><?php
-//                            echo tep_get_categories_list();
-//                          ?>
-<!--                        </ul>-->
-<!---->
-<!--                      </li>-->
-<!--                      <li class="drop-down"><a href="blog-1.html">BLOG</a>-->
-<!--                        <ul class="sub-menu">-->
-<!--                          <li><a href="index.html#" class="mega-title">Blog Pages</a></li>-->
-<!--                          <li><a href="blog-2.html">Blog Page 2</a></li>-->
-<!--                          <li><a href="blog-details.html">Blog Details Page</a></li>-->
-<!--                        </ul>-->
-<!--                      </li>-->
                       <li><a href="contact_us.php">Contact Us</a></li>
                       <li><a href="about_us.php">About Us</a></li>
                     </ul>
