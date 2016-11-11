@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-11-10 17:04:26
+Date: 2016-11-11 10:43:33
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,7 +32,7 @@ CREATE TABLE `action_recorder` (
   KEY `idx_action_recorder_user_id` (`user_id`) USING BTREE,
   KEY `idx_action_recorder_identifier` (`identifier`) USING BTREE,
   KEY `idx_action_recorder_date_added` (`date_added`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of action_recorder
@@ -115,6 +115,7 @@ INSERT INTO `action_recorder` VALUES ('75', 'ar_admin_login', '1', 'admin', '', 
 INSERT INTO `action_recorder` VALUES ('76', 'ar_admin_login', '1', 'admin', '', '1', '2016-10-25 20:28:07');
 INSERT INTO `action_recorder` VALUES ('77', 'ar_admin_login', '1', 'admin', '', '1', '2016-11-08 21:44:44');
 INSERT INTO `action_recorder` VALUES ('78', 'ar_admin_login', '1', 'admin', '', '1', '2016-11-10 16:51:09');
+INSERT INTO `action_recorder` VALUES ('79', 'ar_admin_login', '1', 'admin', '', '1', '2016-11-11 21:48:53');
 
 -- ----------------------------
 -- Table structure for address_book
@@ -264,14 +265,16 @@ CREATE TABLE `banner_partner` (
   `sort_order` int(11) DEFAULT NULL,
   `status` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of banner_partner
 -- ----------------------------
-INSERT INTO `banner_partner` VALUES ('6', 'ad', '', 'original/employee joining.1478772108.PNG', 'thumbnail/employee joining.1478772108.PNG', '2016-09-13 22:32:09', '0', '1');
-INSERT INTO `banner_partner` VALUES ('8', 'asd', '', 'original/15.1478772084.jpg', 'thumbnail/15.1478772084.jpg', '2016-11-10 17:01:26', '2', '1');
-INSERT INTO `banner_partner` VALUES ('9', 'ASD AS', '', 'original/footer-bg.1478772098.jpg', 'thumbnail/footer-bg.1478772098.jpg', '2016-11-10 17:01:40', '0', '1');
+INSERT INTO `banner_partner` VALUES ('6', 'ad', '', 'original/1.1478772651.jpg', 'thumbnail/1.1478772651.jpg', '2016-09-13 22:32:09', '0', '1');
+INSERT INTO `banner_partner` VALUES ('8', 'asd', '', 'original/2.1478772684.jpg', 'thumbnail/2.1478772684.jpg', '2016-11-10 17:01:26', '2', '1');
+INSERT INTO `banner_partner` VALUES ('9', 'ASD AS', '', 'original/4.1478772656.jpg', 'thumbnail/4.1478772656.jpg', '2016-11-10 17:01:40', '0', '1');
+INSERT INTO `banner_partner` VALUES ('11', 'cv', '', 'original/3.1478772698.jpg', 'thumbnail/3.1478772698.jpg', '2016-11-10 17:11:40', '0', '1');
+INSERT INTO `banner_partner` VALUES ('12', 'we', '', 'original/2.1478772748.jpg', 'thumbnail/2.1478772748.jpg', '2016-11-10 17:12:30', '0', '1');
 
 -- ----------------------------
 -- Table structure for cache
@@ -10330,44 +10333,16 @@ CREATE TABLE `categories` (
   `last_modified` datetime DEFAULT NULL,
   PRIMARY KEY (`categories_id`),
   KEY `idx_categories_parent_id` (`parent_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of categories
 -- ----------------------------
-INSERT INTO `categories` VALUES ('54', '', '0', '0', '2016-06-18 15:02:11', null);
-INSERT INTO `categories` VALUES ('55', '', '0', '1', '2016-06-18 15:02:30', null);
-INSERT INTO `categories` VALUES ('56', '', '0', '2', '2016-06-18 15:03:23', null);
-INSERT INTO `categories` VALUES ('57', '', '0', '3', '2016-06-18 15:04:05', null);
-INSERT INTO `categories` VALUES ('58', '', '0', '4', '2016-06-18 15:04:36', null);
-INSERT INTO `categories` VALUES ('59', '', '0', '5', '2016-06-18 15:05:11', null);
-INSERT INTO `categories` VALUES ('60', '', '0', '0', '2016-08-18 13:28:49', null);
-INSERT INTO `categories` VALUES ('61', '', '0', '0', '2016-08-18 13:28:59', null);
-INSERT INTO `categories` VALUES ('62', '', '0', '0', '2016-08-18 13:29:09', null);
-INSERT INTO `categories` VALUES ('63', '', '0', '0', '2016-08-18 13:29:26', null);
-INSERT INTO `categories` VALUES ('64', '', '0', '0', '2016-08-18 13:29:34', null);
-INSERT INTO `categories` VALUES ('65', '', '0', '0', '2016-08-18 13:29:42', null);
-INSERT INTO `categories` VALUES ('66', '', '0', '0', '2016-08-18 13:29:49', null);
-INSERT INTO `categories` VALUES ('67', '', '0', '0', '2016-08-18 13:29:58', null);
-INSERT INTO `categories` VALUES ('69', '', '0', '0', '2016-08-18 13:30:28', null);
-INSERT INTO `categories` VALUES ('70', '', '0', '0', '2016-08-18 13:30:35', null);
-INSERT INTO `categories` VALUES ('71', '', '0', '0', '2016-08-18 13:30:42', null);
-INSERT INTO `categories` VALUES ('72', '', '0', '0', '2016-08-18 13:30:49', null);
-INSERT INTO `categories` VALUES ('73', '', '0', '0', '2016-08-18 13:30:56', null);
-INSERT INTO `categories` VALUES ('74', '', '0', '0', '2016-08-18 13:31:02', null);
-INSERT INTO `categories` VALUES ('75', '', '0', '0', '2016-08-18 13:31:12', null);
-INSERT INTO `categories` VALUES ('76', '', '0', '0', '2016-08-18 13:31:20', null);
-INSERT INTO `categories` VALUES ('77', '', '0', '0', '2016-08-18 13:31:27', null);
-INSERT INTO `categories` VALUES ('79', '', '0', '0', '2016-08-18 13:31:46', null);
-INSERT INTO `categories` VALUES ('80', '', '0', '0', '2016-08-18 13:31:52', null);
-INSERT INTO `categories` VALUES ('81', '', '0', '0', '2016-08-18 13:31:58', null);
-INSERT INTO `categories` VALUES ('82', '', '0', '0', '2016-08-18 13:32:05', null);
-INSERT INTO `categories` VALUES ('83', '', '0', '0', '2016-08-18 13:32:12', null);
-INSERT INTO `categories` VALUES ('84', '', '0', '0', '2016-08-18 13:32:18', null);
-INSERT INTO `categories` VALUES ('85', '', '0', '0', '2016-08-18 13:32:25', null);
-INSERT INTO `categories` VALUES ('86', '', '0', '0', '2016-08-18 13:32:30', null);
-INSERT INTO `categories` VALUES ('87', '', '0', '0', '2016-08-18 13:32:35', null);
-INSERT INTO `categories` VALUES ('88', '', '0', '0', '2016-08-18 13:32:45', null);
+INSERT INTO `categories` VALUES ('89', '', '0', '0', '2016-11-11 22:25:26', null);
+INSERT INTO `categories` VALUES ('93', '', '89', '0', '2016-11-11 22:26:48', null);
+INSERT INTO `categories` VALUES ('96', '', '89', '0', '2016-11-11 22:27:31', null);
+INSERT INTO `categories` VALUES ('99', '', '0', '0', '2016-11-11 22:28:20', null);
+INSERT INTO `categories` VALUES ('101', '', '89', '0', '2016-11-11 23:02:05', null);
 
 -- ----------------------------
 -- Table structure for categories_description
@@ -10380,77 +10355,21 @@ CREATE TABLE `categories_description` (
   `categories_name` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`,`categories_id`,`language_id`),
   KEY `idx_categories_name` (`categories_name`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=130 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of categories_description
 -- ----------------------------
-INSERT INTO `categories_description` VALUES ('34', '54', '1', 'Accounting');
-INSERT INTO `categories_description` VALUES ('36', '55', '1', 'Administration');
-INSERT INTO `categories_description` VALUES ('38', '56', '1', 'Architecture/Engineering');
-INSERT INTO `categories_description` VALUES ('40', '57', '1', 'Assistant/Secretary');
-INSERT INTO `categories_description` VALUES ('42', '58', '1', 'Audit/Taxation');
-INSERT INTO `categories_description` VALUES ('44', '59', '1', 'Banking/Insurance');
-INSERT INTO `categories_description` VALUES ('46', '60', '1', 'Cashier/Receptionist');
-INSERT INTO `categories_description` VALUES ('47', '60', '2', 'Cashier/Receptionist');
-INSERT INTO `categories_description` VALUES ('48', '61', '1', 'Catering/Restaurant');
-INSERT INTO `categories_description` VALUES ('49', '61', '2', 'Catering/Restaurant');
-INSERT INTO `categories_description` VALUES ('50', '62', '1', 'Cleaner/Maid');
-INSERT INTO `categories_description` VALUES ('51', '62', '2', 'Cleaner/Maid');
-INSERT INTO `categories_description` VALUES ('52', '63', '1', 'Consultancy');
-INSERT INTO `categories_description` VALUES ('53', '63', '2', 'Consultancy');
-INSERT INTO `categories_description` VALUES ('54', '64', '1', 'Customer Service');
-INSERT INTO `categories_description` VALUES ('55', '64', '2', 'Customer Service');
-INSERT INTO `categories_description` VALUES ('56', '65', '1', 'Design');
-INSERT INTO `categories_description` VALUES ('57', '65', '2', 'Design');
-INSERT INTO `categories_description` VALUES ('58', '66', '1', 'Education/Training');
-INSERT INTO `categories_description` VALUES ('59', '66', '2', 'Education/Training');
-INSERT INTO `categories_description` VALUES ('60', '67', '1', 'Finance');
-INSERT INTO `categories_description` VALUES ('61', '67', '2', 'Finance');
-INSERT INTO `categories_description` VALUES ('64', '69', '1', 'Hotel/Hospitality');
-INSERT INTO `categories_description` VALUES ('65', '69', '2', 'Hotel/Hospitality');
-INSERT INTO `categories_description` VALUES ('66', '70', '1', 'Human Resource');
-INSERT INTO `categories_description` VALUES ('67', '70', '2', 'Human Resource');
-INSERT INTO `categories_description` VALUES ('68', '71', '1', 'Information Technology');
-INSERT INTO `categories_description` VALUES ('69', '71', '2', 'Information Technology');
-INSERT INTO `categories_description` VALUES ('70', '72', '1', 'Lawyer/Legal Service');
-INSERT INTO `categories_description` VALUES ('71', '72', '2', 'Lawyer/Legal Service');
-INSERT INTO `categories_description` VALUES ('72', '73', '1', 'Management');
-INSERT INTO `categories_description` VALUES ('73', '73', '2', 'Management');
-INSERT INTO `categories_description` VALUES ('74', '74', '1', 'Manufacturing');
-INSERT INTO `categories_description` VALUES ('75', '74', '2', 'Manufacturing');
-INSERT INTO `categories_description` VALUES ('76', '75', '1', 'Marketing');
-INSERT INTO `categories_description` VALUES ('77', '75', '2', 'Marketing');
-INSERT INTO `categories_description` VALUES ('78', '76', '1', 'Media/Advertising');
-INSERT INTO `categories_description` VALUES ('79', '76', '2', 'Media/Advertising');
-INSERT INTO `categories_description` VALUES ('80', '77', '1', 'Medical/Health/Nursing');
-INSERT INTO `categories_description` VALUES ('81', '77', '2', 'Medical/Health/Nursing');
-INSERT INTO `categories_description` VALUES ('84', '79', '1', 'Operations');
-INSERT INTO `categories_description` VALUES ('85', '79', '2', 'Operations');
-INSERT INTO `categories_description` VALUES ('86', '80', '1', 'Others');
-INSERT INTO `categories_description` VALUES ('87', '80', '2', 'Others');
-INSERT INTO `categories_description` VALUES ('88', '81', '1', 'Project Management');
-INSERT INTO `categories_description` VALUES ('89', '81', '2', 'Project Management');
-INSERT INTO `categories_description` VALUES ('90', '82', '1', 'Quality Control');
-INSERT INTO `categories_description` VALUES ('91', '82', '2', 'Quality Control');
-INSERT INTO `categories_description` VALUES ('92', '83', '1', 'Resort/Casino');
-INSERT INTO `categories_description` VALUES ('93', '83', '2', 'Resort/Casino');
-INSERT INTO `categories_description` VALUES ('94', '84', '1', 'Sales');
-INSERT INTO `categories_description` VALUES ('95', '84', '2', 'Sales');
-INSERT INTO `categories_description` VALUES ('96', '85', '1', 'Security/Driver');
-INSERT INTO `categories_description` VALUES ('97', '85', '2', 'Security/Driver');
-INSERT INTO `categories_description` VALUES ('98', '86', '1', 'Technician');
-INSERT INTO `categories_description` VALUES ('99', '86', '2', 'Technician');
-INSERT INTO `categories_description` VALUES ('100', '87', '1', 'Telecommunication');
-INSERT INTO `categories_description` VALUES ('101', '87', '2', 'Telecommunication');
-INSERT INTO `categories_description` VALUES ('102', '88', '1', 'Translation/Interpretation');
-INSERT INTO `categories_description` VALUES ('103', '88', '2', 'Translation/Interpretation');
-INSERT INTO `categories_description` VALUES ('39', '56', '2', 'ការវិវត្តថ្មី');
-INSERT INTO `categories_description` VALUES ('43', '58', '2', 'ខុនដូរ');
-INSERT INTO `categories_description` VALUES ('37', '55', '2', 'ជូល');
-INSERT INTO `categories_description` VALUES ('35', '54', '2', 'ទិញ');
-INSERT INTO `categories_description` VALUES ('41', '57', '2', 'បុរី');
-INSERT INTO `categories_description` VALUES ('45', '59', '2', 'ពាណិជ្ជកម្ម');
+INSERT INTO `categories_description` VALUES ('118', '96', '1', 'Academic Mountain');
+INSERT INTO `categories_description` VALUES ('119', '96', '2', 'Academic Mountain');
+INSERT INTO `categories_description` VALUES ('104', '89', '1', 'Edgeworks Climbing');
+INSERT INTO `categories_description` VALUES ('105', '89', '2', 'Edgeworks Climbing');
+INSERT INTO `categories_description` VALUES ('128', '101', '1', 'OOPO');
+INSERT INTO `categories_description` VALUES ('112', '93', '1', 'Reenact camping');
+INSERT INTO `categories_description` VALUES ('113', '93', '2', 'Reenact camping');
+INSERT INTO `categories_description` VALUES ('124', '99', '1', 'Rock climbing');
+INSERT INTO `categories_description` VALUES ('125', '99', '2', 'Rock climbing');
+INSERT INTO `categories_description` VALUES ('129', '101', '2', 'T$');
 
 -- ----------------------------
 -- Table structure for colors
@@ -10932,10 +10851,10 @@ CREATE TABLE `content_description` (
 -- ----------------------------
 -- Records of content_description
 -- ----------------------------
-INSERT INTO `content_description` VALUES ('1', '1', '1', 'test ', 'test');
-INSERT INTO `content_description` VALUES ('2', '1', '2', 'KOKO', 'OPOP');
-INSERT INTO `content_description` VALUES ('3', '2', '1', 'kLKLK', 'osl;dkl;sdjsdg');
-INSERT INTO `content_description` VALUES ('4', '2', '2', '322fc', 'f23rf32ewc');
+INSERT INTO `content_description` VALUES ('1', '1', '1', 'Home Page', 'Welcome');
+INSERT INTO `content_description` VALUES ('2', '1', '2', 'Home Page', 'Home Page');
+INSERT INTO `content_description` VALUES ('3', '2', '1', 'About Us', 'About Us Content');
+INSERT INTO `content_description` VALUES ('4', '2', '2', 'About Us', 'About Us Content');
 
 -- ----------------------------
 -- Table structure for countries
@@ -11264,36 +11183,6 @@ CREATE TABLE `customers` (
 -- ----------------------------
 -- Records of customers
 -- ----------------------------
-INSERT INTO `customers` VALUES ('1', '3', '', 'test', 'test', 'test posting', 'normal', null, 'ASUS', null, '', 'images/05.1463643198.jpg', '', '', '1', '0000-00-00 00:00:00', 'test@test.com', '1', 'phnom penh', '0912 332', '', '$P$DHXuIqt1FraLmwA0.jDbRUQKNw69qs.', null, null, null, null, '1', '1', null, '2016-05-22 15:33:16', '2016-08-19 09:54:06', 'admin', '0');
-INSERT INTO `customers` VALUES ('2', '15', 'm', 'test', 'test', 'asdas', 'agency', null, 'DELL', null, '', 'assets/img/tmp/airbnb.png', '', '', '1', '2010-05-06 00:00:00', 'cvn@testw.adf', '2', 'pp', '12512', 'test@test.com', '$P$DpiUh/.52rNO0l1mcIRJgTWMWkXjCp/', null, null, null, null, '', '1', null, '2016-05-22 15:33:16', '2016-08-19 09:55:59', 'admin', '0');
-INSERT INTO `customers` VALUES ('3', '5', 'm', 'GASG', 'sd gsgd', 'ASFF', 'normal', null, 'CORRAL', 'Web Developer', '', 'assets/img/tmp/partner-5.jpg', '', '', '0', '1999-01-05 00:00:00', 'asg@gm.com', '3', 'po', '1241241 52 1255', '', '$P$DWCxvfMUNfRgLmjSP01fkWZIVEL.fB.', null, null, null, null, '', '1', null, '2016-05-22 15:33:16', '2016-08-19 10:22:36', 'admin', '0');
-INSERT INTO `customers` VALUES ('4', '19', 'm', 'm', 'mk', 'TEST', 'member', null, 'DELL', null, '', 'news_thumbnail/Chrome-Red.1466005155.jpg', '', '', '1', '0000-00-00 00:00:00', 'test@test.com12', null, 'PPca', '123432', '', '', null, null, null, null, null, '1', null, '2016-05-22 15:33:37', '2016-08-19 09:54:22', 'admin', '0');
-INSERT INTO `customers` VALUES ('5', '12', '', 'asdg', 'sdg', 'test', 'agency', null, 'ABC', null, '', 'assets/img/tmp/partner-5.jpg', '', '', '1', '0000-00-00 00:00:00', 'test32@g.com', '7', 's', 'asf', '', '$P$DmCfvPca7v/8NZYUO1Iz.6q3j7O5ib1', null, null, null, null, '', '1', null, '2016-05-26 23:49:55', '2016-08-28 11:04:31', 'admin', '1');
-INSERT INTO `customers` VALUES ('6', '12', '', 'Huy ', 'Sokhom', 'huy sokhom', 'agency', 'www.skwebsolution.com', 'SKWeb Solution', null, 'huy_sokhom/2016-10-21/images/logo-first-finace..png', 'huy_sokhom/2016-10-21/image_thumbnail/logo-first-finace..png', '<div><!--block-->Singa Property<br>No. 93, Preah Sihanouk Blvd (274),<br>S.I Building, 2nd floor, office 7, 12211 Phnom Penh<br>Phone: 017 93 93 90&nbsp;<br>Email:&nbsp;<a href=\"mailto:khenkim@gmail.com\">khenkim@gmail.com<br></a><br></div>', '', '1', '0000-00-00 00:00:00', 'oop@gmail.com', '8', 'posenchey, Phnom Penh, cambodia', '099 546 682, 096 231 564', 'asdgwe', '$P$DdiyBErNBisXlvOSVaqI2HIMRnkV1/0', '3', '5', '2016-08-23 23:30:46', '2016-07-23 23:30:46', '', '1', null, '2016-05-28 21:12:32', '2016-10-22 00:05:47', '', '1');
-INSERT INTO `customers` VALUES ('7', '0', '', '', '', 'Test', 'normal', null, 'Viva', 'Java', '', 'assets/img/tmp/airbnb.png', null, 'assets/img/tmp/airbnb.png', '0', '0000-00-00 00:00:00', 'test32@g.com123', '9', '', '', '', '$P$DfaKlfWicS7BMysduo.Iv3iF6pNaCj1', '2', '50', '2016-08-25 09:38:44', '2016-07-25 09:38:44', '', '1', null, '2016-05-28 21:12:32', '2016-08-28 10:56:31', '', '0');
-INSERT INTO `customers` VALUES ('8', '18', 'Male', '', '', 'asdg', 'normal', null, 'Honda', 'Account', '', 'assets/img/tmp/partner-5.jpg', 'Fusce eu est lectus. Integer commodo fringilla libero, non sodales ipsum consectetur sit amet. Aenean non ligula ac est dapibus feugiat. Fusce convallis ex nec tellus vulputate.', 'assets/img/tmp/airbnb.png', '0', '0000-00-00 00:00:00', 'admin@admin.ca32', '10', 'pp', '08809899', '', '$P$Dt3kL6IccUVgkCX2wskmiP1Ved6/jK0', null, null, null, null, '', '1', null, '2016-05-28 21:12:32', '2016-08-28 10:57:11', 'admin', '0');
-INSERT INTO `customers` VALUES ('9', '0', '', '', '', 'zXC', 'normal', null, 'ABC', null, '', 'assets/img/tmp/partner-5.jpg', null, '', '0', '0000-00-00 00:00:00', 'as@as.com', '11', '', '', '', '$P$DFoob5PKWHI.y5w2GJjJ93M0vn8a7M0', null, null, null, null, '', '1', null, '2016-06-15 18:31:05', '2016-08-19 09:59:32', 'admin', '0');
-INSERT INTO `customers` VALUES ('10', '0', '', '', '', 'sda', 'agency', null, 'DELL', null, '', 'assets/img/tmp/airbnb.png', null, '', '1', '0000-00-00 00:00:00', 'admin@a2dmin.com', '12', '', '', '', '$P$DxhOZ2qxx74SlYejUGVJnLoDS5PIVM1', null, null, null, null, '', '1', null, '2016-06-15 18:54:04', '2016-08-19 09:56:01', 'admin', '0');
-INSERT INTO `customers` VALUES ('11', '0', '', '', '', 'ZCV', 'normal', null, null, 'Marketing', '', 'assets/img/tmp/partner-5.jpg', null, '', '0', '0000-00-00 00:00:00', 'admin@admin.ca32sd', '13', '', '', '', '$P$D51356im.MCIbnSMdg7veS.SSY1eWM.', null, null, null, null, '', '1', null, '2016-06-15 18:59:24', '2016-08-19 10:22:49', 'admin', '0');
-INSERT INTO `customers` VALUES ('13', '0', '', '', '', 'tesa', 'agency', null, null, 'Finace', '', null, null, '', '0', '0000-00-00 00:00:00', 'admin@admwein.ca32', '15', '', '', '', '$P$D924hyJDMrfZmj/wdr8ZMLhNy6QQ2W1', null, null, null, null, '', '1', null, '2016-06-15 19:10:31', '2016-08-19 10:22:55', 'admin', '0');
-INSERT INTO `customers` VALUES ('14', '9', '', '', '', 'ASa', 'agency', null, 'Travel Agent', 'Rule', '', 'assets/img/tmp/partner-4.jpg', '', '', '0', '0000-00-00 00:00:00', 'AS@ds.com', '16', 'asdsad', '213113', '1313', '$P$D2UTi7fl/Zq6SLvbd2tYVkhJHv3ecE0', null, null, null, null, '', '1', null, '2016-06-17 17:07:22', '2016-08-19 10:23:00', null, '0');
-INSERT INTO `customers` VALUES ('15', '0', '', '', '', 'tyty', 'agency', null, null, 'Law', '', 'assets/img/tmp/airbnb.png', null, '', '0', '0000-00-00 00:00:00', 'kom.huy@gmail.com', '17', '', '', '', '$P$DR/x9YkABIZydeNt/zk47Y5BNPY9y00', null, null, null, null, '', '1', null, '2016-06-24 09:36:21', '2016-08-19 10:23:03', null, '0');
-INSERT INTO `customers` VALUES ('16', '0', null, 'asfa3e', '23r2', '12124', 'agency', null, 'Travel Agent', null, '', 'assets/img/tmp/partner-5.jpg', null, '', '1', '0000-00-00 00:00:00', '', null, '', '', null, '', '0', null, null, null, null, '1', null, null, '2016-08-19 09:58:54', null, '0');
-INSERT INTO `customers` VALUES ('17', '0', null, '', '', 'agency', 'agency', null, null, null, '', 'assets/img/tmp/partner-4.jpg', null, '', '1', '0000-00-00 00:00:00', '', null, '', '', null, '', '0', null, null, null, null, '1', null, null, '2016-08-19 09:59:53', null, '0');
-INSERT INTO `customers` VALUES ('18', '0', null, '', '', 'agency', 'agency', null, null, null, '', null, null, '', '1', '0000-00-00 00:00:00', '', null, '', '', null, '', '0', null, null, null, null, '1', null, null, '2016-07-16 17:19:52', null, '0');
-INSERT INTO `customers` VALUES ('19', '0', null, '', '', 'agency', 'agency', null, 'DELL', null, '', 'assets/img/tmp/partner-5.jpg', null, '', '1', '0000-00-00 00:00:00', '', null, '', '', null, '', '0', null, null, null, null, '1', null, null, '2016-08-19 09:59:56', null, '0');
-INSERT INTO `customers` VALUES ('20', '0', null, 'agency', '', 'agency', 'agency', null, null, null, '', 'assets/img/tmp/partner-5.jpg', null, '', '1', '0000-00-00 00:00:00', '', null, '', '', null, '', '0', null, null, null, null, '1', null, null, '2016-08-19 09:59:58', null, '0');
-INSERT INTO `customers` VALUES ('21', '0', null, 'agency', '', 'agency', 'agency', null, 'Travel Agent', null, '', 'assets/img/tmp/partner-5.jpg', null, '', '1', '0000-00-00 00:00:00', '', null, '', '', null, '', '0', null, null, null, null, '1', null, null, '2016-08-19 10:00:03', null, '0');
-INSERT INTO `customers` VALUES ('22', '0', null, '', '', 'agency', 'agency', null, null, null, '', null, null, '', '1', '0000-00-00 00:00:00', '', null, '', '', null, '', '0', null, null, null, null, '1', null, null, '2016-07-16 17:19:55', null, '0');
-INSERT INTO `customers` VALUES ('23', '13', '', '', '', 'sadcvh xf', 'normal', null, 'Travel Agent', 'OOP', '', '', '', '', '0', '0000-00-00 00:00:00', 'asdg@g.com', '18', 'nyuk uil;uio; io ;ui o;iu;', '7797979999797', '', '$P$DE3F1.bewYLakPYE4mils/sgxOVsTN.', '0', null, null, null, '', '1', null, '2016-07-23 05:54:34', '2016-08-19 10:23:08', null, '0');
-INSERT INTO `customers` VALUES ('24', '0', '', '', '', 'new', 'normal', null, null, null, '', null, null, '', '0', '0000-00-00 00:00:00', 'new@gmail.com', '19', '', '', '', '$P$DGBUXv0o4lbwusqoTB1YLz1DvDE8YE0', '0', null, null, null, '', '1', null, '2016-08-28 09:37:55', '2016-08-28 14:37:55', null, '0');
-INSERT INTO `customers` VALUES ('25', '0', '', '', '', 'ABA', 'agency', null, null, null, '', null, null, '', '1', '0000-00-00 00:00:00', 'aba@gmail.com', '20', '', '', '', '$P$DShw5THOESfV.E6EH4w6L1OU3Z5pEM1', '0', null, null, null, '', '1', null, '2016-08-28 09:39:52', '2016-09-18 22:06:25', 'admin', '0');
-INSERT INTO `customers` VALUES ('26', '0', '', '', '', 'cellcard', 'agency', null, null, null, '', null, null, '', '0', '0000-00-00 00:00:00', 'cellcard@gmail.com', '21', '', '', '', '$P$D8nCiDzJeuQ/hMFHFGRsGAXZDbo8991', '0', null, null, null, '', '1', null, '2016-08-28 09:41:02', '2016-08-28 14:41:02', null, '0');
-INSERT INTO `customers` VALUES ('1000', '1', '12 1', 'sdgjk', 'kl', '', null, null, null, null, '', null, null, '', '0', '0000-00-00 00:00:00', '', null, '', '', null, '', '0', null, null, null, null, '1', null, null, null, null, '0');
-INSERT INTO `customers` VALUES ('1001', '0', '', '', '', 'SKWeb Solution', 'agency', null, null, null, '', null, null, '', '0', '0000-00-00 00:00:00', 'sokhom@gmail.com', '22', '', '', '', '$P$DVmIQWt.AFJZnOq7twZKmMBhEZ1g/X0', '0', null, null, null, '', '1', null, '2016-10-18 16:44:50', '2016-10-18 21:44:50', null, '0');
-INSERT INTO `customers` VALUES ('1002', '0', '', '', '', 'AABC', 'normal', null, null, null, '', null, null, '', '0', '0000-00-00 00:00:00', 'abc@gmail.com', '23', '', '', '', '$P$DGQalQ9yHwY4V3x59gZROTv87aRo9o0', '0', null, null, null, '', '1', null, '2016-10-19 09:28:08', '2016-10-19 14:28:08', null, '0');
-INSERT INTO `customers` VALUES ('1003', '0', '', '', '', 'huy sokhom', 'normal', '', 'OOP Web', null, '', '', '<div><!--block-->Working History<br><br></div><div><!--block-->Current&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Project Manager</div><div><!--block--><br></div><div><!--block-->&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Fusce eu est lectus. Integer commodo fringilla libero, non sodales ipsum consectetur sit amet. Aenean non ligula ac est dapibus feugiat. Fusce convallis ex nec tellus vulputate.<br><br></div><div><!--block-->2011 - 2014&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Senior UX/UI designer</div><div><!--block--><br></div><div><!--block-->&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Fusce eu est lectus. Integer commodo fringilla libero, non sodales ipsum consectetur sit amet. Aenean non ligula ac est dapibus feugiat. Fusce convallis ex nec tellus vulputate.<br><br></div><div><!--block-->2010 - 2011&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Junior UX/UI designer</div><div><!--block--><br></div><div><!--block-->&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Fusce eu est lectus. Integer commodo fringilla libero, non sodales ipsum consectetur sit amet. Aenean non ligula ac est dapibus feugiat. Fusce convallis ex nec tellus vulputate.<br><br></div><div><!--block-->2009 - 2010 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; UX Tester</div><div><!--block--><br></div><div><!--block-->&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Fusce eu est lectus. Integer commodo fringilla libero, non sodales ipsum consectetur sit amet. Aenean non ligula ac est dapibus feugiat. Fusce convallis ex nec tellus vulputate.</div>', '', '0', '0000-00-00 00:00:00', 'huysokhom@yahoo.com', '24', 'OPM', '0921831', '', '$P$DGD.8GuGhwnB.ilhqR4bH92AzheHnO.', '0', null, null, null, '', '1', null, '2016-10-22 10:53:34', '2016-10-22 16:00:01', null, '0');
-INSERT INTO `customers` VALUES ('1004', '0', '', '', '', 'kom', 'agency', 'Www.Google.Com', 'SKWeb Solution', null, 'kom/2016-10-23/images/2..jpg', 'kom/2016-10-23/image_thumbnail/2..jpg', '<div><!--block-->SKWeb Solution was build in 2016</div>', '', '1', '0000-00-00 00:00:00', 'kom@gmail.com', '25', 'Toul Pornror, Chaom Choav, Phnom Penh', '093 938 932 / 092 389 349', '', '$P$D/EqL8d70/9lxDtxVgzUtfx38A9dcP/', '0', null, null, null, '', '1', null, '2016-10-23 05:29:12', '2016-10-23 11:03:43', 'admin', '0');
 
 -- ----------------------------
 -- Table structure for customers_basket
@@ -11581,13 +11470,15 @@ CREATE TABLE `image_slider` (
   `created` datetime NOT NULL,
   `sort_order` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of image_slider
 -- ----------------------------
 INSERT INTO `image_slider` VALUES ('66', 'test', null, null, 'original/slider-2.1478617016jpg', 'thumbnail/slider-2.1478617016jpg', '', '0', '2015-12-31 12:05:49', '1');
-INSERT INTO `image_slider` VALUES ('79', 'Huy Sokhom', 'Web developer', 'software engineering', 'original/slider-1.1478617008jpg', 'thumbnail/slider-1.1478617008jpg', '', '0', '2015-12-31 14:20:02', '0');
+INSERT INTO `image_slider` VALUES ('79', 'Huy Sokhom', 'Web developer', 'software engineering', 'original/slider-1.1478617008jpg', 'thumbnail/slider-1.1478617008jpg', '', '0', '2015-12-31 14:20:02', '1');
+INSERT INTO `image_slider` VALUES ('80', 'Seama reab', 'Angkor wat', '10 Day 250$', 'original/angkor-wat-5-2.jpg.1920x810_default.1478875928.jpeg', 'thumbnail/angkor-wat-5-2.jpg.1920x810_default.1478875928.jpeg', '', '0', '2016-11-11 21:52:58', '0');
+INSERT INTO `image_slider` VALUES ('81', 'Cambodia', 'Kingdom of Wonder', '', 'original/20cdbd76503f67478c60381a3be4d9c6.1478876541.jpg', 'thumbnail/20cdbd76503f67478c60381a3be4d9c6.1478876541.jpg', '', '0', '2016-11-11 22:02:26', '0');
 
 -- ----------------------------
 -- Table structure for languages
@@ -12216,48 +12107,6 @@ CREATE TABLE `products` (
 -- ----------------------------
 -- Records of products
 -- ----------------------------
-INSERT INTO `products` VALUES ('75', '56', '4', '6', '', '2016-08-18 15:17:22', '', 'For Rent', '23.0000', null, '0', '0', '0', '13', '', '104.88615066528', '11.534289603606', '10', '3', null, '1', '0', '2016-07-25 08:56:23', null, null, null, '0', null, null, null, '2016-07-25 08:56:23', '2016-08-19 14:42:08', null, null, '0.00', null, null, '0', '');
-INSERT INTO `products` VALUES ('76', '56', '12', '6', '', '2016-09-02 15:17:46', '', 'For Rent', '2323.0000', null, '0', '0', '0', '15', '', '104.88615066528', '11.534289603606', '10', '0', null, '1', '0', '2016-07-25 08:59:53', null, null, null, '0', null, null, null, '2016-07-25 08:59:53', '2016-08-19 14:42:08', null, null, '0.00', null, null, '0', '');
-INSERT INTO `products` VALUES ('77', '56', '4', '6', '', '2016-09-07 15:17:42', '', 'For Rent', '332.0000', null, '0', '8', '0', '15', '', '104.88615066528', '11.534289603606', '10', '0', null, '1', '0', '2016-07-25 09:10:30', null, null, null, '0', null, null, null, '2016-07-25 09:10:30', '2016-08-19 14:42:08', null, null, '0.00', null, null, '0', '');
-INSERT INTO `products` VALUES ('78', '56', '2', '6', '', '2016-08-26 15:17:24', '', 'For Rent', '23.0000', null, '0', '0', '0', '16', '', '104.88615066528', '11.534289603606', '10', '0', null, '1', '0', '2016-07-25 09:10:48', null, null, null, '0', null, null, null, '2016-07-25 09:10:48', '2016-08-19 14:42:08', null, null, '0.00', null, null, '0', '');
-INSERT INTO `products` VALUES ('79', '56', '5', '6', '', '2016-08-27 15:17:30', '', 'Both Sale and Rent', '2332.0000', null, '0', '0', '0', '15', '', '104.88615066528', '11.534289603606', '10', '3', null, '1', '0', '2016-07-25 09:11:06', null, null, null, '0', null, null, null, '2016-07-25 09:11:06', '2016-08-19 14:49:07', null, null, '560.00', '5', 'Both', '0', '');
-INSERT INTO `products` VALUES ('80', '56', '12', '6', '', '2016-08-31 15:17:27', '', 'For Rent', '22.0000', null, '0', '0', '0', '14', '', '104.88615066528', '11.534289603606', '10', '3', null, '1', '0', '2016-07-25 09:11:27', null, null, null, '0', null, null, null, '2016-07-25 09:11:27', '2016-08-28 15:21:25', null, null, '0.00', null, null, '0', '');
-INSERT INTO `products` VALUES ('81', '56', '12', '7', '', '2016-08-28 15:17:37', '', 'For Rent', '23.0000', null, '0', '0', '0', '12', '', '104.88615066528', '11.534289603606', '10', '0', null, '1', '0', '2016-07-25 09:16:12', null, null, null, '0', null, null, null, '2016-07-25 09:16:12', '2016-08-19 14:42:10', '', null, '0.00', null, null, '0', '');
-INSERT INTO `products` VALUES ('82', '56', '20', '7', '', '2016-09-07 15:17:33', '', 'For Rent', '433.0000', null, '7', '6', '9', '14', '', '104.88615066528', '11.534289603606', '10', '0', null, '1', '0', '2016-07-25 14:25:01', null, null, null, '0', null, null, null, '2016-07-25 14:25:01', '2016-08-19 14:42:11', null, null, '0.00', null, null, '0', '');
-INSERT INTO `products` VALUES ('83', '0', '0', '0', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '0', '0', null, null, null, null, '0', null, null, null, null, null, null, null, '0.00', null, null, '0', '');
-INSERT INTO `products` VALUES ('84', '0', '0', '0', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '0', '0', null, null, null, null, '0', null, null, null, null, null, 'asd', null, '0.00', null, null, '0', '');
-INSERT INTO `products` VALUES ('85', '0', '0', '0', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '0', '0', null, null, null, null, '0', null, null, null, null, null, 'a', null, '0.00', null, null, '0', '');
-INSERT INTO `products` VALUES ('86', '59', '2', '26', null, '0000-00-00 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-08-30 22:41:48', null, null, null, '0', null, null, null, '2016-08-30 22:41:48', null, null, null, '23232.00', '2323', 'Female', '0', '');
-INSERT INTO `products` VALUES ('87', '57', '6', '26', null, '2016-10-10 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-08-31 21:00:50', null, null, null, '0', null, null, null, '2016-08-30 22:43:15', '2016-09-04 21:54:04', null, null, '121221.00', '222', 'Female', '0', '');
-INSERT INTO `products` VALUES ('88', '71', '1', '26', null, '0000-00-00 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-08-31 21:59:31', null, null, null, '0', null, null, null, '2016-08-31 21:59:31', null, null, null, '500.00', '5', 'Both', '0', '');
-INSERT INTO `products` VALUES ('89', '58', '1', '26', null, '0000-00-00 00:00:00', null, 'Part-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-08-31 22:00:16', null, null, null, '0', null, null, null, '2016-08-31 22:00:16', '2016-09-04 22:21:42', null, null, '0.00', '0', 'Both', '0', '');
-INSERT INTO `products` VALUES ('90', '71', '1', '26', null, '0000-00-00 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-09-04 22:25:03', null, null, null, '0', null, null, null, '2016-09-04 22:25:03', null, null, null, '666.00', '3', 'Male', '0', '');
-INSERT INTO `products` VALUES ('93', '71', '1', '26', null, '2016-01-30 00:00:00', null, 'Part-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-09-04 22:44:56', null, null, null, '0', null, null, null, '2016-09-04 22:44:56', '2016-09-18 12:06:38', null, null, '555.00', '2', 'Male', '0', '');
-INSERT INTO `products` VALUES ('94', '58', '5', '26', null, '0000-00-00 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-09-04 22:46:22', null, null, null, '0', null, null, null, '2016-09-04 22:46:22', null, null, null, '0.00', '0', 'Female', '0', '');
-INSERT INTO `products` VALUES ('922', '59', '5', '26', null, '0000-00-00 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-09-04 22:43:47', null, null, null, '0', null, null, null, '2016-09-04 22:43:47', '2016-09-04 22:44:34', null, null, '323.00', '3', 'Female', '0', '');
-INSERT INTO `products` VALUES ('923', '61', '8', '26', null, '2016-11-10 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-09-04 22:29:24', null, null, null, '0', null, null, null, '2016-09-04 22:29:24', '2016-09-04 22:45:46', null, null, '333.00', '23', 'Female', '0', '');
-INSERT INTO `products` VALUES ('924', '0', '0', '26', null, '0000-00-00 00:00:00', null, '', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-09-18 10:35:31', null, null, null, '0', null, null, null, '2016-09-18 10:35:31', '2016-09-18 11:27:56', null, null, '0.00', '0', '', '0', '');
-INSERT INTO `products` VALUES ('925', '66', '2', '26', null, '2016-01-10 00:00:00', null, 'Part-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-09-18 13:58:00', null, null, null, '0', null, null, null, '2016-09-18 13:58:00', null, null, null, '100.00', '1', 'Female', '0', '');
-INSERT INTO `products` VALUES ('926', '65', '1', '6', null, '0000-00-00 00:00:00', null, 'Part-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-10-18 16:12:50', null, null, null, '0', null, null, null, '2016-10-18 16:12:50', null, null, null, '200.00', '2', 'Male', '0', '');
-INSERT INTO `products` VALUES ('927', '86', '2', '1001', null, '0000-00-00 00:00:00', null, 'Part-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-10-18 22:43:39', null, null, null, '0', null, null, null, '2016-10-18 22:43:39', null, null, null, '400$ -> 800$', '6', 'Both', '0', '');
-INSERT INTO `products` VALUES ('928', '64', '6', '1001', null, '0000-00-00 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-10-18 22:44:30', null, null, null, '0', null, null, null, '2016-10-18 22:44:30', null, null, null, '800$ -> 1500$', '1', 'Male', '0', '');
-INSERT INTO `products` VALUES ('929', '55', '8', '1001', null, '0000-00-00 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-10-18 23:08:55', null, null, null, '0', null, null, null, '2016-10-18 23:08:55', null, null, null, '200$ -> 400$', '2', 'Female', '0', '');
-INSERT INTO `products` VALUES ('930', '58', '14', '6', null, '0000-00-00 00:00:00', null, 'Part-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-10-20 18:16:29', null, null, null, '0', null, null, null, '2016-10-20 18:16:29', null, null, null, '400$ -> 800$', '3', 'Female', '0', '');
-INSERT INTO `products` VALUES ('931', '57', '16', '6', null, '0000-00-00 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-10-20 22:44:19', null, null, null, '0', null, null, null, '2016-10-20 22:44:19', null, null, null, '800$ -> 1500$', '23', 'Female', '0', '');
-INSERT INTO `products` VALUES ('932', '56', '4', '6', null, '0000-00-00 00:00:00', null, 'Part-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-10-20 22:56:25', null, null, null, '0', null, null, null, '2016-10-20 22:56:25', null, null, null, '200$ -> 500$', '1', 'Male', '0', '');
-INSERT INTO `products` VALUES ('933', '65', '1', '6', null, '2016-05-11 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-10-20 23:01:36', null, null, null, '0', null, null, null, '2016-10-20 23:01:36', null, null, null, '200$ -> 500$', '1', 'Both', '0', '');
-INSERT INTO `products` VALUES ('934', '69', '6', '6', null, '0000-00-00 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-10-20 23:02:48', null, null, null, '0', null, null, null, '2016-10-20 23:02:48', null, null, null, '200$ -> 500$', '4', 'Female', '0', '');
-INSERT INTO `products` VALUES ('935', '58', '3', '6', null, '2016-01-10 00:00:00', null, 'Part-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-10-20 23:05:26', null, null, null, '0', null, null, null, '2016-10-20 23:05:26', null, null, null, '200$ -> 500$', '3', 'Female', '0', '');
-INSERT INTO `products` VALUES ('936', '55', '3', '6', null, '0000-00-00 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-10-20 23:06:46', null, null, null, '0', null, null, null, '2016-10-20 23:06:46', null, null, null, '100$ -> 200$', '1', 'Male', '0', '');
-INSERT INTO `products` VALUES ('937', '58', '3', '6', null, '0000-00-00 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-10-20 23:08:09', null, null, null, '0', null, null, null, '2016-10-20 23:08:09', null, null, null, '2000$ -> 4000$', '2', 'Female', '0', '');
-INSERT INTO `products` VALUES ('938', '57', '6', '6', null, '2016-01-12 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-10-20 23:19:07', null, null, null, '0', null, null, null, '2016-10-20 23:19:07', null, null, null, '100$ -> 200$', '2', 'Female', '0', '');
-INSERT INTO `products` VALUES ('939', '65', '6', '6', null, '2016-10-20 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-10-20 23:20:04', null, null, null, '0', null, null, null, '2016-10-20 23:20:04', null, null, null, '200$ -> 500$', '234', 'Female', '0', '');
-INSERT INTO `products` VALUES ('940', '56', '10', '6', null, '0000-00-00 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-10-20 23:21:05', null, null, null, '0', null, null, null, '2016-10-20 23:21:05', null, null, null, '200$ -> 500$', '2', 'Male', '0', '');
-INSERT INTO `products` VALUES ('941', '69', '4', '6', null, '0000-00-00 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-10-20 23:22:04', null, null, null, '0', null, null, null, '2016-10-20 23:22:04', null, null, null, '1000$ -> 2000$', '23', 'Female', '0', '');
-INSERT INTO `products` VALUES ('942', '55', '3', '6', null, '2016-10-20 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-10-20 23:48:53', null, null, null, '0', null, null, null, '2016-10-20 23:48:53', null, null, null, '200$ -> 500$', '4', 'Male', '0', '');
-INSERT INTO `products` VALUES ('943', '69', '15', '6', null, '2016-11-04 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-10-20 23:49:16', null, null, null, '0', null, null, null, '2016-10-20 23:49:16', '2016-10-20 23:50:09', null, null, '500$ -> 1000$', '65', 'Female', '0', '');
-INSERT INTO `products` VALUES ('944', '71', '14', '6', null, '2016-10-20 00:00:00', null, 'Part-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-10-20 23:53:57', null, null, null, '0', null, null, null, '2016-10-20 23:53:57', '2016-10-20 23:55:18', null, null, '500$ -> 1000$', '3', 'Female', '0', '');
-INSERT INTO `products` VALUES ('945', '71', '1', '6', null, '2016-11-23 00:00:00', null, 'Full-Time', null, null, null, null, null, null, null, null, null, null, '0', null, '1', '0', '2016-10-22 13:56:26', null, null, null, '0', null, null, null, '2016-10-22 13:56:26', '2016-10-23 10:26:03', null, null, '2000$ -> 4000$', '2', 'Both', '0', '');
 
 -- ----------------------------
 -- Table structure for products_attributes
@@ -12316,50 +12165,6 @@ CREATE TABLE `products_description` (
 -- ----------------------------
 -- Records of products_description
 -- ----------------------------
-INSERT INTO `products_description` VALUES ('165', '75', '1', '23', '<p>dsaf</p>', null, '24', null, null);
-INSERT INTO `products_description` VALUES ('166', '75', '2', 'fff', '<p>dasg223323</p>', null, '24', null, null);
-INSERT INTO `products_description` VALUES ('167', '76', '1', '23fcdsa', '', null, '11', null, null);
-INSERT INTO `products_description` VALUES ('168', '76', '2', 'ffsdf', '', null, '11', null, null);
-INSERT INTO `products_description` VALUES ('169', '77', '1', '23r2', '<p>\r\n				  Vivamus dignissim ex eu diam eleifend pharetra. Aliquam eleifend arcu quis risus scelerisque feugiat. Donec suscipit tincidunt purus et vulputate. Proin ac rutrum urna, nec elementum leo. Praesent commodo neque nunc, efficitur aliquam quam iaculis a. Sed quis eros justo. Pellentesque ut turpis quam.\r\n			  </p>', null, '6', '<ul>\r\n				  <li>Ut aliquam sollicitudin leo.</li>\r\n				  <li>Cras iaculis ultricies nulla.</li>\r\n				  <li>Donec quis dui at dolor tempor interdum.</li>\r\n				  <li>Vivamus molestie gravida turpis.</li>\r\n				  <li>Fusce lobortis lorem at ipsum semper sagittis.</li>\r\n			  </ul>', '<ul>\r\n				  <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>\r\n				  <li>Aliquam tincidunt mauris eu risus.</li>\r\n				  <li>Vestibulum auctor dapibus neque.</li>\r\n				  <li>Nunc dignissim risus id metus.</li>\r\n				  <li>Cras ornare tristique elit.</li>\r\n				  <li>Vivamus vestibulum nulla nec ante.</li>\r\n				  <li>Praesent placerat risus quis eros.</li>\r\n				  <li>Fusce pellentesque suscipit nibh.</li>\r\n				  <li>Integer vitae libero ac risus egestas placerat.</li>\r\n				  <li>Vestibulum commodo felis quis tortor.</li>\r\n				  <li>Ut aliquam sollicitudin leo.</li>\r\n				  <li>Cras iaculis ultricies nulla.</li>\r\n				  <li>Donec quis dui at dolor tempor interdum.</li>\r\n				  <li>Vivamus molestie gravida turpis.</li>\r\n				  <li>Fusce lobortis lorem at ipsum semper sagittis.</li>\r\n				  <li>Nam convallis pellentesque nisl.</li>\r\n				  <li>Integer malesuada commodo nulla.</li>\r\n			  </ul>');
-INSERT INTO `products_description` VALUES ('170', '77', '2', 'df23f2', '<p>23f 2f 23f&nbsp;</p>', null, '6', null, null);
-INSERT INTO `products_description` VALUES ('171', '78', '1', '3r', '<p>f3</p>', null, '19', null, null);
-INSERT INTO `products_description` VALUES ('172', '78', '2', '32f2', '<p>f3</p>', null, '19', null, null);
-INSERT INTO `products_description` VALUES ('173', '79', '1', '32df', '', null, '47', null, null);
-INSERT INTO `products_description` VALUES ('174', '79', '2', '23f23f', '', null, '47', null, null);
-INSERT INTO `products_description` VALUES ('175', '80', '1', 'ewfwef', '', null, '32', null, null);
-INSERT INTO `products_description` VALUES ('176', '80', '2', 'asd', '', null, '32', null, null);
-INSERT INTO `products_description` VALUES ('177', '81', '1', 'f23f', '', null, '2', null, null);
-INSERT INTO `products_description` VALUES ('178', '81', '2', '23fe', '', null, '2', null, null);
-INSERT INTO `products_description` VALUES ('179', '82', '1', '32fd', '', null, '3', null, null);
-INSERT INTO `products_description` VALUES ('180', '82', '2', 'sfad', '', null, '3', null, null);
-INSERT INTO `products_description` VALUES ('181', '87', '1', 'd21', '<p>gewgwegewg</p>', null, '7', '<p>dsadsgagwgawegaegawe</p>', '<p>ewegewwge</p>');
-INSERT INTO `products_description` VALUES ('182', '89', '1', 'Graphic Designer $200 to $500', '<h2 class=\"main-job-w-title\" style=\"padding: 0px; margin: 0px auto 20px; font-size: 18px; width: 615px; overflow: hidden; white-space: nowrap; border-bottom: 2px solid #344e8c; line-height: 60px; height: 60px; font-weight: normal; color: #333333; font-family: Arial, Helvetica, Tahoma, sans-serif;\">Graphic Designer $200 to $500</h2>', null, '12', '<h2 class=\"main-job-w-title\" style=\"padding: 0px; margin: 0px auto 20px; font-size: 18px; width: 615px; overflow: hidden; white-space: nowrap; border-bottom: 2px solid #344e8c; line-height: 60px; height: 60px; font-weight: normal; color: #333333; font-family: Arial, Helvetica, Tahoma, sans-serif;\">Graphic Designer $200 to $500</h2>', '<h2 class=\"main-job-w-title\" style=\"padding: 0px; margin: 0px auto 20px; font-size: 18px; width: 615px; overflow: hidden; white-space: nowrap; border-bottom: 2px solid #344e8c; line-height: 60px; height: 60px; font-weight: normal; color: #333333; font-family: Arial, Helvetica, Tahoma, sans-serif;\">Graphic Designer $200 to $500</h2>');
-INSERT INTO `products_description` VALUES ('183', '90', '1', 'Web Developer', '<p>test textesdtdas dgasdg sg</p>', null, '3', '<p>test textesdtdas dgasdg sg</p>', '');
-INSERT INTO `products_description` VALUES ('184', '2021', '1', 'ADV', '<p>2323 c 23f23</p>', null, '4', '<p>32f 23f&nbsp;</p>', '<p>23f 23f&nbsp;</p>');
-INSERT INTO `products_description` VALUES ('185', '92', '1', 'ACC', '<p>afea</p>', null, '2', '', '');
-INSERT INTO `products_description` VALUES ('186', '93', '1', 'ITEM', '<p><strong>PHP</strong></p>', null, '4', '<p style=\"text-align: center;\"><strong>ASP</strong></p>', '<ul>\n<li>Angularjs</li>\n</ul>');
-INSERT INTO `products_description` VALUES ('187', '94', '1', 'we', '', null, '0', '', '');
-INSERT INTO `products_description` VALUES ('189', '924', '1', 'WEB', '<p>asfdsdfaf</p>', null, '2', '<p>safd s</p>', '<p>adf asd asdg</p>');
-INSERT INTO `products_description` VALUES ('190', '925', '1', 'OOOP', '<table class=\"main-job-w main-job-tab\" style=\"width: 615px; margin: 0px auto; border-collapse: collapse; color: #333333; font-family: Arial, Helvetica, Tahoma, sans-serif; font-size: 12px;\" border=\"0\" width=\"100%\">\n<tbody>\n<tr>\n<td style=\"padding: 5px 0px; margin: 0px; line-height: 20px;\"><br class=\"Apple-interchange-newline\" />- Bachelor Degree of English or Chinese<br />- Excellent written and verbal communication skills<br />- Full of creative idea person of social media platforms<br />- Willingness to learn<br />- Experience managing communications through website planning, management and production&nbsp;<br />+Condition and Benefit:<br />-Annual Bonus (Chinese New Year, Khmer New Year, Pchum Ben)<br />-Staffs Insurance<br />-Staffs and Social Party<br />-Annual Leaves and Public Holidays<br />-Opportunity to work with various dynamic teams likewise Singapore, and Malaysia teams&nbsp;<br />-Opportunity to join workshop with international specialist&nbsp;</td>\n</tr>\n</tbody>\n</table>', null, '4', '<table class=\"main-job-w main-job-tab\" style=\"width: 615px; margin: 0px auto; border-collapse: collapse; color: #333333; font-family: Arial, Helvetica, Tahoma, sans-serif; font-size: 12px;\" border=\"0\" width=\"100%\">\n<tbody>\n<tr>\n<td style=\"padding: 5px 0px; margin: 0px; line-height: 20px;\"><br class=\"Apple-interchange-newline\" />- Bachelor Degree of English or Chinese<br />- Excellent written and verbal communication skills<br />- Full of creative idea person of social media platforms<br />- Willingness to learn<br />- Experience managing communications through website planning, management and production&nbsp;<br />+Condition and Benefit:<br />-Annual Bonus (Chinese New Year, Khmer New Year, Pchum Ben)<br />-Staffs Insurance<br />-Staffs and Social Party<br />-Annual Leaves and Public Holidays<br />-Opportunity to work with various dynamic teams likewise Singapore, and Malaysia teams&nbsp;<br />-Opportunity to join workshop with international specialist&nbsp;</td>\n</tr>\n</tbody>\n</table>', '<table class=\"main-job-w main-job-tab\" style=\"width: 615px; margin: 0px auto; border-collapse: collapse; color: #333333; font-family: Arial, Helvetica, Tahoma, sans-serif; font-size: 12px;\" border=\"0\" width=\"100%\">\n<tbody>\n<tr>\n<td style=\"padding: 5px 0px; margin: 0px; line-height: 20px;\"><br class=\"Apple-interchange-newline\" />- Bachelor Degree of English or Chinese<br />- Excellent written and verbal communication skills<br />- Full of creative idea person of social media platforms<br />- Willingness to learn<br />- Experience managing communications through website planning, management and production&nbsp;<br />+Condition and Benefit:<br />-Annual Bonus (Chinese New Year, Khmer New Year, Pchum Ben)<br />-Staffs Insurance<br />-Staffs and Social Party<br />-Annual Leaves and Public Holidays<br />-Opportunity to work with various dynamic teams likewise Singapore, and Malaysia teams&nbsp;<br />-Opportunity to join workshop with international specialist&nbsp;</td>\n</tr>\n</tbody>\n</table>');
-INSERT INTO `products_description` VALUES ('191', '926', '1', 'UX/UI Design Urgent', '<ul>\n<li>must have experience 10year</li>\n</ul>', null, '0', '<ol>\n<li>must have experience 10year</li>\n</ol>', '<ol>\n<li>must have experience 10year</li>\n</ol>');
-INSERT INTO `products_description` VALUES ('192', '928', '1', 'Top Salaries for App/Web Developers', '<h2 class=\"main-job-w-title\" style=\"padding: 0px; margin: 0px auto 20px; font-size: 18px; width: 615px; overflow: hidden; white-space: nowrap; border-bottom: 2px solid #344e8c; line-height: 60px; height: 60px; font-weight: normal; color: #333333; font-family: Arial, Helvetica, Tahoma, sans-serif;\">Top Salaries for App/Web Developers</h2>', null, '3', '<h2 class=\"main-job-w-title\" style=\"padding: 0px; margin: 0px auto 20px; font-size: 18px; width: 615px; overflow: hidden; white-space: nowrap; border-bottom: 2px solid #344e8c; line-height: 60px; height: 60px; font-weight: normal; color: #333333; font-family: Arial, Helvetica, Tahoma, sans-serif;\">Top Salaries for App/Web Developers</h2>', '<h2 class=\"main-job-w-title\" style=\"padding: 0px; margin: 0px auto 20px; font-size: 18px; width: 615px; overflow: hidden; white-space: nowrap; border-bottom: 2px solid #344e8c; line-height: 60px; height: 60px; font-weight: normal; color: #333333; font-family: Arial, Helvetica, Tahoma, sans-serif;\">Top Salaries for App/Web Developers</h2>');
-INSERT INTO `products_description` VALUES ('193', '929', '1', 'requirement', '', null, '2', '<div><!--block-->requirement</div><div><!--block-->requirementrequiremenrequirementtrequirementrequirementrequirementrequirementrequirement&nbsp;</div><pre><!--block-->requirement</pre><div><!--block--><br><br></div><pre><!--block-->requirementrequirement\nrequirement\nrequirement\nrequirementrequirementrequire</pre><div><!--block--><br></div><div><!--block--><br></div><pre><!--block-->m</pre><div><!--block--><br></div><div><!--block--><br></div><pre><!--block-->erequirement</pre><div><!--block--><br><br><br><br><br></div><pre><!--block-->requirementntrequirementrequirementrequirementrequirementrequirement</pre>', '<pre><!--block-->requirement</pre><div><!--block--><br></div>');
-INSERT INTO `products_description` VALUES ('194', '930', '1', 'sa sa', '<div><!--block-->dajspogjpasdogmalks</div>', null, '2', '<div><!--block-->sadgasdgwgsdgaw</div>', '<div><!--block-->sagawgaasd</div>');
-INSERT INTO `products_description` VALUES ('195', '931', '1', '21111ed', '<div><!--block-->asdasdg sdgasg<span data-trix-cursor-target=\"true\" data-trix-serialize=\"false\">﻿</span><figure class=\"attachment attachment-preview png\" data-trix-attachment=\"{&quot;contentType&quot;:&quot;image/png&quot;,&quot;filename&quot;:&quot;skype.PNG&quot;,&quot;filesize&quot;:109776,&quot;height&quot;:863,&quot;width&quot;:1391}\" data-trix-content-type=\"image/png\" data-trix-id=\"412\" data-trix-attributes=\"{&quot;caption&quot;:&quot;sdaasgd&quot;}\" data-trix-serialize=\"false\" contenteditable=\"false\"><img src=\"blob:http://localhost:8080/ab746688-c2f6-4ce7-8a26-a5671a991096\" data-trix-mutable=\"true\" data-trix-store-key=\"imageElement/412/698/blob:http://localhost:8080/ab746688-c2f6-4ce7-8a26-a5671a991096\" data-trix-serialized-attributes=\"{}\" width=\"1391\" height=\"863\"><figcaption class=\"caption caption-edited\">sdaasgd</figcaption><progress class=\"progress\" value=\"0\" max=\"100\" data-trix-mutable=\"true\" data-trix-store-key=\"progressElement/412/698/blob:http://localhost:8080/ab746688-c2f6-4ce7-8a26-a5671a991096\"></progress></figure><span data-trix-cursor-target=\"true\" data-trix-serialize=\"false\">﻿</span></div>', null, '2', '<div><!--block-->f 23qf v</div>', '<div><!--block-->as</div>');
-INSERT INTO `products_description` VALUES ('196', '932', '1', 'sdga', '', null, '2', '', '');
-INSERT INTO `products_description` VALUES ('197', '933', '1', 'UX/UI Designer Urgent', '<div><!--block-->asdf</div>', null, '2', '<div><!--block-->asdf</div>', '<div><!--block-->af</div>');
-INSERT INTO `products_description` VALUES ('198', '934', '1', '780uj', '<div><!--block-->dhf&nbsp;</div>', null, '0', '<div><!--block-->hsh</div>', '<div><!--block-->df</div>');
-INSERT INTO `products_description` VALUES ('199', '935', '1', 'asf', '', null, '0', '', '');
-INSERT INTO `products_description` VALUES ('200', '936', '1', 'asd', '', null, '0', '', '');
-INSERT INTO `products_description` VALUES ('201', '937', '1', '12esdx', '', null, '0', '', '');
-INSERT INTO `products_description` VALUES ('202', '938', '1', 'ws', '', null, '1', '', '');
-INSERT INTO `products_description` VALUES ('203', '939', '1', 'sdfasd', '', null, '0', '', '');
-INSERT INTO `products_description` VALUES ('204', '940', '1', 'qwdc', '', null, '0', '', '');
-INSERT INTO `products_description` VALUES ('205', '941', '1', '23fv', '', null, '2', '', '<div><!--block-->asdg</div>');
-INSERT INTO `products_description` VALUES ('206', '942', '1', 'sdgsg', '', null, '0', '', '<div><!--block-->asdg</div>');
-INSERT INTO `products_description` VALUES ('207', '943', '1', 'sgdsdagsd', '', null, '0', '<div><!--block-->asg</div>', '<div><!--block-->sdg</div>');
-INSERT INTO `products_description` VALUES ('208', '944', '1', 'QFSDAS', '<ul><li><!--block-->sdgssd</li></ul>', null, '9', '<blockquote><!--block-->AAD</blockquote>', '<pre><!--block-->aw32rf2sdaf</pre>');
-INSERT INTO `products_description` VALUES ('209', '945', '1', 'Web Developer', '<ul><li><!--block-->fsadopdspoopsdadsaklsda</li><li><!--block-->sdgasdgasdgsagsa</li><li><!--block-->sadgdsagdsagadsg</li><li><!--block-->sdagsadgsdg</li><li><!--block-->sadgadsg</li></ul>', null, '4', '<ol><li><!--block-->sadsadgdsadsdsa</li><li><!--block-->dggsdagsda</li><li><!--block-->gsagsdghsdhdfsh</li><li><!--block-->dfhsdf</li></ol>', '<ul><li><!--block-->oijosiadjfoihsdhjksdalkjdslakjhsdhudsahdlnssdnlnksdojsdojladsfojijfoisdjk;dsa</li><li><!--block-->sd</li><li><!--block-->dsa</li><li><!--block-->g</li></ul>');
 
 -- ----------------------------
 -- Table structure for products_images
@@ -12379,115 +12184,6 @@ CREATE TABLE `products_images` (
 -- ----------------------------
 -- Records of products_images
 -- ----------------------------
-INSERT INTO `products_images` VALUES ('57', '32', 'huy_sokhom/2016-06-22/images/Jellyfish..jpg', 'huy_sokhom/2016-06-22/image_thumbnail/Jellyfish..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('58', '32', 'huy_sokhom/2016-06-22/images/Tulips..jpg', 'huy_sokhom/2016-06-22/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('59', '32', 'huy_sokhom/2016-06-22/images/Koala..jpg', 'huy_sokhom/2016-06-22/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('75', '74', 'huy_sokhom/2016-06-22/images/nature-wallpapers-10..jpg', 'huy_sokhom/2016-06-22/image_thumbnail/nature-wallpapers-10..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('76', '75', 'huy_sokhom/2016-06-22/images/^9A58BDDBD830E319F7BD17A6577132FD80B9EFEE3F4EEF0E77^pimgpsh_fullsize_distr..jpg', 'huy_sokhom/2016-06-22/image_thumbnail/^9A58BDDBD830E319F7BD17A6577132FD80B9EFEE3F4EEF0E77^pimgpsh_fullsize_distr..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('77', '31', 'huy_sokhom/2016-06-21/images/Tulips..jpg', 'huy_sokhom/2016-06-21/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('79', '33', 'news/nature-wallpapers-10.1466656162.jpg', 'news_thumbnail/nature-wallpapers-10.1466656162.jpg', null, '0');
-INSERT INTO `products_images` VALUES ('80', '33', 'news/Untitled.1466656165.png', 'news_thumbnail/Untitled.1466656165.png', null, '0');
-INSERT INTO `products_images` VALUES ('102', '3', 'sd', 'as', null, '0');
-INSERT INTO `products_images` VALUES ('103', '3', 'dd', 'q2', null, '0');
-INSERT INTO `products_images` VALUES ('104', '3', 'qwex', 'ds', null, '0');
-INSERT INTO `products_images` VALUES ('107', '35', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('108', '35', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('109', '36', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('110', '36', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('111', '37', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('112', '37', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('113', '38', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('114', '38', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('115', '39', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('116', '39', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('117', '40', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('118', '40', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('119', '41', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('120', '41', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('121', '42', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('122', '42', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('123', '43', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('124', '43', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('125', '44', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('126', '44', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('127', '45', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('128', '45', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('129', '46', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('130', '46', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('131', '47', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('132', '47', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('133', '48', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('134', '48', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('135', '49', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('136', '49', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('137', '50', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('138', '50', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('139', '51', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('140', '51', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('141', '52', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('142', '52', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('143', '53', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('144', '53', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('145', '54', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('146', '54', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('147', '55', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('148', '55', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('149', '56', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('150', '56', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('151', '57', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('152', '57', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('153', '58', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('154', '58', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('155', '59', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('156', '59', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('157', '60', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('158', '60', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('159', '61', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('160', '61', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('161', '62', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('162', '62', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('163', '63', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('164', '63', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('165', '64', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('166', '64', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('169', '66', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('170', '66', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('171', '67', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('172', '67', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('173', '68', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('174', '68', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('179', '70', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('180', '70', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('183', '71', 'huy_sokhom/2016-07-01/images/Hydrangeas..jpg', 'huy_sokhom/2016-07-01/image_thumbnail/Hydrangeas..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('184', '71', 'huy_sokhom/2016-07-01/images/Jellyfish..jpg', 'huy_sokhom/2016-07-01/image_thumbnail/Jellyfish..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('187', '72', 'huy_sokhom/2016-06-21/images/Chrysanthemum..jpg', 'huy_sokhom/2016-06-21/image_thumbnail/Chrysanthemum..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('189', '71', 'huy_sokhom/2016-07-16/images/websolutions..jpg', 'huy_sokhom/2016-07-16/image_thumbnail/websolutions..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('190', '69', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('191', '69', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('192', '74', 'news/Penguins.1467363480.jpg', 'news_thumbnail/Penguins.1467363480.jpg', null, '0');
-INSERT INTO `products_images` VALUES ('193', '75', 'news/Tulips.1467363533.jpg', 'news_thumbnail/Tulips.1467363533.jpg', null, '0');
-INSERT INTO `products_images` VALUES ('194', '65', 'huy_sokhom/2016-06-28/images/Tulips..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Tulips..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('195', '65', 'huy_sokhom/2016-06-28/images/Koala..jpg', 'huy_sokhom/2016-06-28/image_thumbnail/Koala..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('197', '72', 'huy_sokhom/2016-06-21/images/Chrysanthemum..jpg', 'huy_sokhom/2016-06-21/image_thumbnail/Chrysanthemum..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('198', '72', 'sad/2016-07-23/images/websolutions..jpg', 'sad/2016-07-23/image_thumbnail/websolutions..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('207', '70', 'news/https_www_filepicker_io_api_file_Y82gAHZfRnmTrpbvdg9c_qr4j1k.1469265972.jpg', 'news_thumbnail/https_www_filepicker_io_api_file_Y82gAHZfRnmTrpbvdg9c_qr4j1k.1469265972.jpg', null, '0');
-INSERT INTO `products_images` VALUES ('208', '70', 'news/websolutions.1469265980.jpg', 'news_thumbnail/websolutions.1469265980.jpg', null, '0');
-INSERT INTO `products_images` VALUES ('209', '76', 'huy_sokhom/2016-07-16/images/nature-wallpapers-10..jpg', 'huy_sokhom/2016-07-16/image_thumbnail/nature-wallpapers-10..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('210', '76', 'huy_sokhom/2016-07-16/images/Singacity Logo..png', 'huy_sokhom/2016-07-16/image_thumbnail/Singacity Logo..png', null, '0');
-INSERT INTO `products_images` VALUES ('211', '76', 'huy_sokhom/2016-07-16/images/Untitled..png', 'huy_sokhom/2016-07-16/image_thumbnail/Untitled..png', null, '0');
-INSERT INTO `products_images` VALUES ('214', '77', 'huy_sokhom/2016-06-22/images/nature-wallpapers-10..jpg', 'huy_sokhom/2016-06-22/image_thumbnail/nature-wallpapers-10..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('215', '77', 'huy_sokhom/2016-07-16/images/nature-wallpapers-10..jpg', 'huy_sokhom/2016-07-16/image_thumbnail/nature-wallpapers-10..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('216', '77', 'huy_sokhom/2016-07-16/images/Untitled..png', 'huy_sokhom/2016-07-16/image_thumbnail/Untitled..png', null, '0');
-INSERT INTO `products_images` VALUES ('217', '78', 'Test/2016-07-18/images/nature-wallpapers-10..jpg', 'Test/2016-07-18/image_thumbnail/nature-wallpapers-10..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('218', '78', 'Test/2016-07-18/images/CarlosHathcock..jpg', 'Test/2016-07-18/image_thumbnail/CarlosHathcock..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('219', '78', 'Test/2016-07-18/images/Singacity Logo..png', 'Test/2016-07-18/image_thumbnail/Singacity Logo..png', null, '0');
-INSERT INTO `products_images` VALUES ('220', '78', 'Test/2016-07-18/images/beautiful-nature-wallpaper-in-1080p-size-with-purpleviews..jpg', 'Test/2016-07-18/image_thumbnail/beautiful-nature-wallpaper-in-1080p-size-with-purpleviews..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('221', '78', 'Test/2016-07-18/images/red_cat_sleeps_recreation_pet_animals_ultra_3840x2160_hd-wallpaper-327953..jpg', 'Test/2016-07-18/image_thumbnail/red_cat_sleeps_recreation_pet_animals_ultra_3840x2160_hd-wallpaper-327953..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('222', '78', 'Test/2016-07-18/images/678636..jpg', 'Test/2016-07-18/image_thumbnail/678636..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('223', '79', 'Test/2016-07-18/images/Check_Status _Application..png', 'Test/2016-07-18/image_thumbnail/Check_Status _Application..png', null, '0');
-INSERT INTO `products_images` VALUES ('224', '80', 'Test/2016-07-18/images/nature-wallpapers-10..jpg', 'Test/2016-07-18/image_thumbnail/nature-wallpapers-10..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('225', '81', 'Test/2016-07-18/images/red_cat_sleeps_recreation_pet_animals_ultra_3840x2160_hd-wallpaper-327953..jpg', 'Test/2016-07-18/image_thumbnail/red_cat_sleeps_recreation_pet_animals_ultra_3840x2160_hd-wallpaper-327953..jpg', null, '0');
-INSERT INTO `products_images` VALUES ('226', '73', 'huy_sokhom/2016-07-25/images/red_cat_sleeps_recreation_pet_animals_ultra_3840x2160_hd-wallpaper-327953..jpg', 'huy_sokhom/2016-07-25/image_thumbnail/red_cat_sleeps_recreation_pet_animals_ultra_3840x2160_hd-wallpaper-327953..jpg', null, '0');
 
 -- ----------------------------
 -- Table structure for products_notifications
@@ -12609,95 +12305,6 @@ CREATE TABLE `products_to_categories` (
 -- ----------------------------
 -- Records of products_to_categories
 -- ----------------------------
-INSERT INTO `products_to_categories` VALUES ('1', '3', '56');
-INSERT INTO `products_to_categories` VALUES ('3', '11', '57');
-INSERT INTO `products_to_categories` VALUES ('6', '14', '56');
-INSERT INTO `products_to_categories` VALUES ('18', '26', '54');
-INSERT INTO `products_to_categories` VALUES ('20', '28', '55');
-INSERT INTO `products_to_categories` VALUES ('21', '29', '58');
-INSERT INTO `products_to_categories` VALUES ('22', '30', '58');
-INSERT INTO `products_to_categories` VALUES ('23', '31', '57');
-INSERT INTO `products_to_categories` VALUES ('24', '32', '54');
-INSERT INTO `products_to_categories` VALUES ('25', '33', '55');
-INSERT INTO `products_to_categories` VALUES ('27', '35', '54');
-INSERT INTO `products_to_categories` VALUES ('28', '36', '54');
-INSERT INTO `products_to_categories` VALUES ('29', '37', '54');
-INSERT INTO `products_to_categories` VALUES ('30', '38', '54');
-INSERT INTO `products_to_categories` VALUES ('31', '39', '54');
-INSERT INTO `products_to_categories` VALUES ('32', '40', '54');
-INSERT INTO `products_to_categories` VALUES ('33', '41', '54');
-INSERT INTO `products_to_categories` VALUES ('34', '42', '54');
-INSERT INTO `products_to_categories` VALUES ('35', '43', '54');
-INSERT INTO `products_to_categories` VALUES ('36', '44', '54');
-INSERT INTO `products_to_categories` VALUES ('37', '45', '54');
-INSERT INTO `products_to_categories` VALUES ('38', '46', '54');
-INSERT INTO `products_to_categories` VALUES ('39', '47', '54');
-INSERT INTO `products_to_categories` VALUES ('40', '48', '54');
-INSERT INTO `products_to_categories` VALUES ('41', '49', '54');
-INSERT INTO `products_to_categories` VALUES ('42', '50', '54');
-INSERT INTO `products_to_categories` VALUES ('43', '51', '54');
-INSERT INTO `products_to_categories` VALUES ('44', '52', '54');
-INSERT INTO `products_to_categories` VALUES ('45', '53', '54');
-INSERT INTO `products_to_categories` VALUES ('46', '54', '54');
-INSERT INTO `products_to_categories` VALUES ('47', '55', '54');
-INSERT INTO `products_to_categories` VALUES ('48', '56', '54');
-INSERT INTO `products_to_categories` VALUES ('49', '57', '54');
-INSERT INTO `products_to_categories` VALUES ('50', '58', '54');
-INSERT INTO `products_to_categories` VALUES ('51', '59', '54');
-INSERT INTO `products_to_categories` VALUES ('52', '60', '54');
-INSERT INTO `products_to_categories` VALUES ('53', '61', '54');
-INSERT INTO `products_to_categories` VALUES ('54', '62', '54');
-INSERT INTO `products_to_categories` VALUES ('55', '63', '54');
-INSERT INTO `products_to_categories` VALUES ('56', '64', '54');
-INSERT INTO `products_to_categories` VALUES ('57', '65', '54');
-INSERT INTO `products_to_categories` VALUES ('58', '66', '54');
-INSERT INTO `products_to_categories` VALUES ('59', '67', '54');
-INSERT INTO `products_to_categories` VALUES ('60', '68', '54');
-INSERT INTO `products_to_categories` VALUES ('61', '69', '54');
-INSERT INTO `products_to_categories` VALUES ('62', '70', '56');
-INSERT INTO `products_to_categories` VALUES ('63', '71', '57');
-INSERT INTO `products_to_categories` VALUES ('64', '72', '54');
-INSERT INTO `products_to_categories` VALUES ('65', '73', '56');
-INSERT INTO `products_to_categories` VALUES ('66', '74', '56');
-INSERT INTO `products_to_categories` VALUES ('67', '75', '56');
-INSERT INTO `products_to_categories` VALUES ('68', '76', '55');
-INSERT INTO `products_to_categories` VALUES ('69', '77', '56');
-INSERT INTO `products_to_categories` VALUES ('70', '78', '57');
-INSERT INTO `products_to_categories` VALUES ('71', '79', '57');
-INSERT INTO `products_to_categories` VALUES ('72', '80', '57');
-INSERT INTO `products_to_categories` VALUES ('73', '81', '56');
-INSERT INTO `products_to_categories` VALUES ('74', '82', '56');
-INSERT INTO `products_to_categories` VALUES ('75', '86', '59');
-INSERT INTO `products_to_categories` VALUES ('76', '87', '57');
-INSERT INTO `products_to_categories` VALUES ('77', '88', '71');
-INSERT INTO `products_to_categories` VALUES ('78', '89', '58');
-INSERT INTO `products_to_categories` VALUES ('79', '90', '71');
-INSERT INTO `products_to_categories` VALUES ('80', '2021', '61');
-INSERT INTO `products_to_categories` VALUES ('81', '92', '59');
-INSERT INTO `products_to_categories` VALUES ('82', '93', '0');
-INSERT INTO `products_to_categories` VALUES ('83', '94', '58');
-INSERT INTO `products_to_categories` VALUES ('85', '924', '0');
-INSERT INTO `products_to_categories` VALUES ('86', '925', '66');
-INSERT INTO `products_to_categories` VALUES ('87', '926', '65');
-INSERT INTO `products_to_categories` VALUES ('88', '927', '86');
-INSERT INTO `products_to_categories` VALUES ('89', '928', '64');
-INSERT INTO `products_to_categories` VALUES ('90', '929', '55');
-INSERT INTO `products_to_categories` VALUES ('91', '930', '58');
-INSERT INTO `products_to_categories` VALUES ('92', '931', '57');
-INSERT INTO `products_to_categories` VALUES ('93', '932', '56');
-INSERT INTO `products_to_categories` VALUES ('94', '933', '65');
-INSERT INTO `products_to_categories` VALUES ('95', '934', '69');
-INSERT INTO `products_to_categories` VALUES ('96', '935', '58');
-INSERT INTO `products_to_categories` VALUES ('97', '936', '55');
-INSERT INTO `products_to_categories` VALUES ('98', '937', '58');
-INSERT INTO `products_to_categories` VALUES ('99', '938', '57');
-INSERT INTO `products_to_categories` VALUES ('100', '939', '65');
-INSERT INTO `products_to_categories` VALUES ('101', '940', '56');
-INSERT INTO `products_to_categories` VALUES ('102', '941', '69');
-INSERT INTO `products_to_categories` VALUES ('103', '942', '55');
-INSERT INTO `products_to_categories` VALUES ('104', '943', '69');
-INSERT INTO `products_to_categories` VALUES ('105', '944', '0');
-INSERT INTO `products_to_categories` VALUES ('106', '945', '71');
 
 -- ----------------------------
 -- Table structure for product_contact_person
@@ -12866,13 +12473,15 @@ CREATE TABLE `sessions` (
 -- ----------------------------
 -- Records of sessions
 -- ----------------------------
-INSERT INTO `sessions` VALUES ('06aq3chbvn5dfff3250vb2t3b1', '1478772234', 'language|s:7:\"english\";languages_id|s:1:\"1\";admin|a:2:{s:2:\"id\";s:1:\"1\";s:8:\"username\";s:5:\"admin\";}');
+INSERT INTO `sessions` VALUES ('06aq3chbvn5dfff3250vb2t3b1', '1478772750', 'language|s:7:\"english\";languages_id|s:1:\"1\";admin|a:2:{s:2:\"id\";s:1:\"1\";s:8:\"username\";s:5:\"admin\";}');
 INSERT INTO `sessions` VALUES ('1c0ivas3bseqbfr3jtjcpnl5s0', '1477324415', 'sessiontoken|s:32:\"7c786ca29a77010c2522a409adac5762\";cart|O:12:\"shoppingCart\":4:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:1:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:0:{}}');
 INSERT INTO `sessions` VALUES ('21dgl947pupk4foojql8egi7u7', '1477128030', 'sessiontoken|s:32:\"ed5d16792d8c0012ca61139d5501cc41\";cart|O:12:\"shoppingCart\":5:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:6:\"cartID\";s:5:\"80774\";s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:3:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}i:1;a:4:{s:4:\"page\";s:15:\"job_seekers.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}i:2;a:4:{s:4:\"page\";s:13:\"api/index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:0:{}}customer_plan|s:1:\"3\";user_name|s:10:\"huy sokhom\";user_type|s:6:\"normal\";customer_id|i:1003;customer_first_name|N;customer_default_address_id|i:24;customer_country_id|i:36;customer_zone_id|N;');
-INSERT INTO `sessions` VALUES ('3rd7qcukscq2t7l9s1prlul0j7', '1478771414', 'sessiontoken|s:32:\"06809f24e0ffb1f19eb2877b36ee59c4\";cart|O:12:\"shoppingCart\":5:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:6:\"cartID\";N;s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:1:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:0:{}}');
+INSERT INTO `sessions` VALUES ('3rd7qcukscq2t7l9s1prlul0j7', '1478772752', 'sessiontoken|s:32:\"06809f24e0ffb1f19eb2877b36ee59c4\";cart|O:12:\"shoppingCart\":5:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:6:\"cartID\";N;s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:1:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:0:{}}');
 INSERT INTO `sessions` VALUES ('41u5jbiqbb8foacba79thbpr24', '1477193163', 'sessiontoken|s:32:\"7d653f167b343ebe38e2f9d9b769ab0f\";cart|O:12:\"shoppingCart\":5:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:6:\"cartID\";s:5:\"02332\";s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:4:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}i:1;a:4:{s:4:\"page\";s:9:\"login.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:1:{s:6:\"action\";s:7:\"process\";}s:4:\"post\";a:3:{s:6:\"formid\";s:32:\"bc6533dac72646663a067191c524844c\";s:13:\"email_address\";s:13:\"oop@gmail.com\";s:8:\"password\";s:7:\"test123\";}}i:2;a:4:{s:4:\"page\";s:11:\"account.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}i:3;a:4:{s:4:\"page\";s:13:\"api/index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:0:{}}customer_id|i:6;user_name|s:10:\"huy sokhom\";customer_plan|s:1:\"3\";customers_limit_products|s:1:\"5\";user_type|s:6:\"agency\";customer_default_address_id|s:1:\"8\";customer_first_name|s:4:\"Huy \";customer_last_name|s:6:\"Sokhom\";customer_country_id|s:1:\"0\";customer_zone_id|s:1:\"0\";');
 INSERT INTO `sessions` VALUES ('49nf9fupm00qrckgj9v1ub2i53', '1477195910', 'language|s:7:\"english\";languages_id|s:1:\"1\";admin|a:2:{s:2:\"id\";s:1:\"1\";s:8:\"username\";s:5:\"admin\";}');
 INSERT INTO `sessions` VALUES ('4pahqc3idb65it8nam7ju4fqh3', '1477189914', 'sessiontoken|s:32:\"1ec048c20c598b774bb493e99f5e3270\";cart|O:12:\"shoppingCart\":5:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:6:\"cartID\";N;s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:2:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}i:1;a:4:{s:4:\"page\";s:9:\"login.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:0:{}}');
+INSERT INTO `sessions` VALUES ('4vf0hfe3lq6i9udmqupgo37lm6', '1478881784', 'sessiontoken|s:32:\"6eacd05dbe114ce4caf2d403570e848a\";cart|O:12:\"shoppingCart\":5:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:6:\"cartID\";N;s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:1:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:1:{s:5:\"cPath\";s:2:\"89\";}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:0:{}}');
+INSERT INTO `sessions` VALUES ('5vnd5lo1t3pqee421vfl36nk54', '1478835786', 'sessiontoken|s:32:\"72bb001026221871191f4867686d1dc4\";cart|O:12:\"shoppingCart\":5:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:6:\"cartID\";N;s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:2:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}i:1;a:4:{s:4:\"page\";s:12:\"about_us.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:0:{}}');
 INSERT INTO `sessions` VALUES ('62cv28jeeef4pvn9e4nkf2enm7', '1477119557', 'sessiontoken|s:32:\"88ae064dc87d5fa42b304ba882126d9b\";cart|O:12:\"shoppingCart\":5:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:6:\"cartID\";s:5:\"48850\";s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:2:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}i:1;a:4:{s:4:\"page\";s:14:\"info_pages.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:1:{s:8:\"pages_id\";s:1:\"4\";}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:0:{}}customer_id|i:6;user_name|s:10:\"huy sokhom\";customer_plan|s:1:\"3\";customers_limit_products|s:1:\"5\";user_type|s:6:\"agency\";customer_default_address_id|s:1:\"8\";customer_first_name|s:4:\"Huy \";customer_last_name|s:6:\"Sokhom\";customer_country_id|s:1:\"0\";customer_zone_id|s:1:\"0\";');
 INSERT INTO `sessions` VALUES ('9elpsol210mf3o49cn75h52km4', '1477357236', 'sessiontoken|s:32:\"bb98d6f53dcce4da55b526e6d61e39a9\";cart|O:12:\"shoppingCart\":4:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:1:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:0:{}}');
 INSERT INTO `sessions` VALUES ('b4ic2gsm5u09ruohqu4aaskk55', '1478078038', 'sessiontoken|s:32:\"fdb8065e9df2f51f7ead7223d7d994e2\";cart|O:12:\"shoppingCart\":4:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:1:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:0:{}}');
@@ -12881,6 +12490,7 @@ INSERT INTO `sessions` VALUES ('ei3cn6srcgenj1t46bhlqq0dn1', '1477325937', 'sess
 INSERT INTO `sessions` VALUES ('hc4muljfcqigt9a10u0m6hvde0', '1478533559', 'sessiontoken|s:32:\"19536d07e575bf696f0141a3df206f39\";cart|O:12:\"shoppingCart\":5:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:6:\"cartID\";N;s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:1:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:0:{}}');
 INSERT INTO `sessions` VALUES ('hq2vovhothldg58s67batmdi64', '1477313913', 'sessiontoken|s:32:\"a64b9671c8153372e53700bf7dbed381\";cart|O:12:\"shoppingCart\":4:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:1:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:0:{}}');
 INSERT INTO `sessions` VALUES ('jjodc01hailcrhjo6fsdq9iuu0', '1477389506', 'sessiontoken|s:32:\"8baaf4521a62729442c291892f9a33a9\";cart|O:12:\"shoppingCart\":5:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:6:\"cartID\";N;s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:2:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}i:1;a:4:{s:4:\"page\";s:18:\"create_account.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:0:{}}');
+INSERT INTO `sessions` VALUES ('jpgkp30j4r2bngpsttdk4t5rk1', '1478881560', 'language|s:7:\"english\";languages_id|s:1:\"1\";admin|a:2:{s:2:\"id\";s:1:\"1\";s:8:\"username\";s:5:\"admin\";}');
 INSERT INTO `sessions` VALUES ('ki8j5q3g1eh04b56t3iaeptnr6', '1478019498', 'sessiontoken|s:32:\"f81a4a5e5d764aca7f77afe05a2720d9\";cart|O:12:\"shoppingCart\":5:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:6:\"cartID\";N;s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:1:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:0:{}}');
 INSERT INTO `sessions` VALUES ('mkor1u1m2fd1gpimu9ah50q204', '1477375016', 'sessiontoken|s:32:\"ea67df4f11892ade534baa9cd4519603\";cart|O:12:\"shoppingCart\":4:{s:8:\"contents\";a:0:{}s:5:\"total\";i:0;s:6:\"weight\";i:0;s:12:\"content_type\";b:0;}language|s:7:\"english\";languages_id|s:1:\"1\";currency|s:3:\"USD\";navigation|O:17:\"navigationHistory\":2:{s:4:\"path\";a:1:{i:0;a:4:{s:4:\"page\";s:9:\"index.php\";s:4:\"mode\";s:6:\"NONSSL\";s:3:\"get\";a:0:{}s:4:\"post\";a:0:{}}}s:8:\"snapshot\";a:0:{}}');
 INSERT INTO `sessions` VALUES ('mld6ni9sijmjs0ut4n7eu3rkj6', '1477402146', 'language|s:7:\"english\";languages_id|s:1:\"1\";admin|a:2:{s:2:\"id\";s:1:\"1\";s:8:\"username\";s:5:\"admin\";}');
@@ -13004,7 +12614,8 @@ CREATE TABLE `whos_online` (
 -- ----------------------------
 -- Records of whos_online
 -- ----------------------------
-INSERT INTO `whos_online` VALUES ('0', 'Guest', '3rd7qcukscq2t7l9s1prlul0j7', '', '1478770502', '1478771414', '/advanture/');
+INSERT INTO `whos_online` VALUES ('0', 'Guest', '4vf0hfe3lq6i9udmqupgo37lm6', '', '1478878383', '1478881784', '/advanture/edgeworks-climbing-c-89.html');
+INSERT INTO `whos_online` VALUES ('0', 'Guest', '5vnd5lo1t3pqee421vfl36nk54', '', '1478834149', '1478835786', '/advanture/about_us.php');
 
 -- ----------------------------
 -- Table structure for zones
