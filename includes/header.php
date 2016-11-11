@@ -40,14 +40,14 @@
         <div class="col-md-12">
           <div class="logo-menu-bg">
             <div class="row">
-              <div class="col-md-3 col-sm-12">
+              <div class="col-md-2 col-sm-12">
                 <div class="logo">
                   <a href="#">
                     <img src="themes/img/logo/logo.png" alt="<?php echo STORE_NAME; ?>" style="margin-top: 10px;">
                   </a>
                 </div>
               </div>
-              <div class="col-md-9 hidden-sm hidden-xs">
+              <div class="col-md-10 hidden-sm hidden-xs">
                 <div class="mainmenu">
                   <nav>
                     <ul id="nav">

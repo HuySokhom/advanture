@@ -134,5 +134,15 @@
 ></script>
 
 
+<!--- Add our team plugin -->
+<script
+    type="text/javascript"
+    src="js/ng/app/our_team/controller/team_ctrl.js"
+></script>
+<script
+    type="text/javascript"
+    src="js/ng/app/our_team/controller/team_post_ctrl.js"
+></script>
+
 </body>
 </html>

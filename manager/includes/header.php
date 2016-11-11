@@ -35,6 +35,11 @@
           <li><a href="#/user"><span class="fa fa-users"></span> Users</a></li>
           <li><a href="#/slider"><span class="fa fa-film"></span> Image Slider</a></li>
           <li>
+            <a ui-sref="our_team"><span class="fa fa-film">
+              </span> Our Team
+            </a>
+          </li>
+          <li>
             <a href="#/popular_location"><span class="fa fa-clock-o"></span> Popular Search</a>
           </li>
           <li>

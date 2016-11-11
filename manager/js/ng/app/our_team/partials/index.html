@@ -1,0 +1,104 @@
+<form class="row">
+	<div class="col-md-2">
+		<a
+			class="btn btn-default"
+			ui-sref="our_team.post"
+		>
+			<span class="fa fa-plus"></span>
+			Add Doctor
+		</a>
+	</div>
+	<div class="col-md-4">
+		<div class="input-group">
+			<input type="text" class="form-control" data-ng-model="vm.searchText" placeholder="search name..."/>
+			<span class="input-group-btn">
+				<button class="btn btn-default" data-ng-click="vm.init()" type="submit">
+					<i class="fa fa-search"></i>
+					Search
+				</button>
+			</span>
+		</div>
+	</div>
+</form>
+<br/><br/>
+<table class="table table-striped table-bordered">
+	<tr>
+		<th>
+			Id
+		</th>
+		<th>
+			Name
+		</th>
+		<th>
+			Gender
+		</th>
+		<th>
+			Branch
+		</th>
+		<th width="15%">
+			Action
+		</th>
+	</tr>
+	<tr data-ng-if="!vm.doctors">
+		<td colspan="6" align="center">
+			<img src="images/icons/gettestr-large-spinner-orange.gif"/>
+		</td>
+	</tr>
+	<tr
+		data-ng-repeat="row in vm.doctors.elements"
+	>
+		<td>
+			{{row.id}}
+		</td>
+		<td>
+			{{row.name}}
+		</td>
+		<td>
+			{{row.gender}}
+		</td>
+		<td>
+			{{row.branch}}
+		</td>
+		<td>
+			<a
+				class="btn btn-default"
+				ui-sref="doctorsEdit({id: row.id})"
+				data-toggle="tooltip"
+				data-placement="top"
+				title="Edit"
+				tooltip
+			>
+				<span class="fa fa-pencil-square-o"></span>
+			</a>
+			<button
+				class="btn btn-danger"
+				data-ng-click="vm.remove($index, row);"
+				data-toggle="modals"
+				data-placement="top"
+				title="Delete"
+				tooltip
+			>
+				<span class="fa fa-trash-o"></span>
+			</button>
+		</td>
+	</tr>
+	<tr data-ng-if="vm.doctors.elements == 0">
+		<td colspan="5">
+			<div class="text-center">
+				<strong>No record found.</strong>
+			</div>
+		</td>
+	</tr>
+</table>
+<div
+	class="panel-footer"
+>
+	<pagination
+		total-items="vm.totalItems"
+		ng-model="vm.currentPage"
+		ng-change="vm.pageChanged()"
+		max-size="5"
+		items-per-page="10"
+		boundary-links="true"
+	></pagination>
+</div>

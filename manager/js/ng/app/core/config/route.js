@@ -114,6 +114,21 @@ app.config([
 				templateUrl: 'js/ng/app/search_location/partials/index.html',
 				controller: 'search_popular_ctrl'
 			})
+			.state('our_team', {
+				url: '/our_team',
+				templateUrl: 'js/ng/app/our_team/partials/index.html',
+				controller: 'team_ctrl'
+			})
+			.state('our_team.post', {
+				url: '/post',
+				templateUrl: 'js/ng/app/our_team/partials/post.html',
+				controller: 'team_post_ctrl'
+			})
+			.state('our_team.edit', {
+				url: '/edit/:id',
+				templateUrl: 'js/ng/app/our_team/partials/post.html',
+				controller: 'team_post_ctrl'
+			})
 		;
 		$urlRouterProvider.otherwise('/');
 		// use the HTML5 History API to remove # url

@@ -16,6 +16,11 @@
             $array_image[] = $images;
         }
     }
+
+    //query content page
+    $query = tep_db_query("select * from page_description where pages_id = 2 and language_id = ". (int)$languages_id ." ");
+    $content = tep_db_fetch_array($query);
+
  ?>
 <!--Slider Area Start-->
 <div class="slider-area">
@@ -301,9 +306,13 @@
             <div class="col-md-12">
                 <div class="section-title text-center">
                     <div class="title-border">
-                        <h1>Best <span>Selling Trips</span></h1>
+                        <h1>
+                            <?php echo $content['pages_title'];?>
+                        </h1>
                     </div>
-                    <p>Not sure what you’re looking for and need a little inspiration? We can help. Check out our handpicked <br>lists of topical trips you can take right now.</p>
+                    <p>
+                        <?php echo $content['pages_content'];?>
+                    </p>
                 </div>
             </div>
         </div>
@@ -365,7 +374,7 @@
                             <div class="hover-effect">
                                 <div class="box-hover">
                                     <a href="index.html#">
-                                        <img src="img/sell/3.jpg" alt="">
+                                        <img src="themes/img/sell/3.jpg" alt="">
                                         <span>Egypt Trip</span>
                                     </a>
                                 </div>
@@ -373,7 +382,7 @@
                             <div class="hover-effect">
                                 <div class="box-hover">
                                     <a href="index.html#" class="no-margin">
-                                        <img src="img/sell/1.jpg" alt="">
+                                        <img src="themes/img/sell/1.jpg" alt="">
                                         <span>Rail Trip</span>
                                     </a>
                                 </div>
@@ -383,7 +392,7 @@
                             <div class="hover-effect">
                                 <div class="box-hover">
                                     <a href="index.html#">
-                                        <img src="img/sell/4.jpg" alt="">
+                                        <img src="themes/img/sell/4.jpg" alt="">
                                         <span>sailing Trip</span>
                                     </a>
                                 </div>
@@ -391,7 +400,7 @@
                             <div class="hover-effect">
                                 <div class="box-hover">
                                     <a href="index.html#" class="no-margin">
-                                        <img src="img/sell/2.jpg" alt="">
+                                        <img src="themes/img/sell/2.jpg" alt="">
                                         <span>Brazil Trip</span>
                                     </a>
                                 </div>
@@ -425,7 +434,7 @@
             <div class="col-md-4 col-sm-6">
                 <div class="single-member">
                     <div class="team-image">
-                        <a href="index.html#"><img src="img/team/1.jpg" alt=""></a>
+                        <a href="index.html#"><img src="themes/img/team/1.jpg" alt=""></a>
                         <div class="member-text effect-bottom">
                             <h4><a href="index.html#">Maria B. | <span>Hiking Guide</span></a></h4>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard text ever</p>
@@ -443,7 +452,7 @@
             <div class="col-md-4 col-sm-6">
                 <div class="single-member">
                     <div class="team-image">
-                        <a href="index.html#"><img src="img/team/2.jpg" alt=""></a>
+                        <a href="index.html#"><img src="themes/img/team/2.jpg" alt=""></a>
                         <div class="member-text effect-bottom">
                             <h4><a href="index.html#">Janifer Craving | <span>Photographer</span></a></h4>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard text ever</p>
@@ -461,7 +470,7 @@
             <div class="col-md-4 hidden-sm">
                 <div class="single-member">
                     <div class="team-image">
-                        <a href="index.html#"><img src="img/team/3.jpg" alt=""></a>
+                        <a href="index.html#"><img src="themes/img/team/3.jpg" alt=""></a>
                         <div class="member-text effect-bottom">
                             <h4><a href="index.html#">Matt Jason | <span>Guide</span></a></h4>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's dummy text ever</p>

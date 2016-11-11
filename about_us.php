@@ -1,7 +1,7 @@
 <?php
     require('includes/application_top.php');
     require(DIR_WS_INCLUDES . 'template_top.php');
-    $query = tep_db_query("select * from content_description where content_id = 1 and language_id = ". (int)$languages_id ." ");
+    $query = tep_db_query("select * from page_description where pages_id = 1 and language_id = ". (int)$languages_id ." ");
     $content = tep_db_fetch_array($query);
 ?>
 <div class="banner-area"></div>
@@ -12,23 +12,24 @@
                 <div class="section-title text-center">
                     <div class="title-border">
                         <h1>
-                            <?php echo $content['title']; ?>
+                            <?php echo $content['pages_title']; ?>
                         </h1>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 col-sm-6">
+            <div class="col-sm-12">
                 <p style="text-align: justify;">
-                    <?php echo $content['content']?>
+                    <?php echo $content['pages_content']?>
                 </p>
             </div>
         </div>
     </div>
 </div>
-
 <?php
-  require(DIR_WS_INCLUDES . 'template_bottom.php');
-  require(DIR_WS_INCLUDES . 'application_bottom.php');
+
+    include('partnerBanner.php');
+    require(DIR_WS_INCLUDES . 'template_bottom.php');
+    require(DIR_WS_INCLUDES . 'application_bottom.php');
 ?>
