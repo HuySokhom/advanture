@@ -19,7 +19,7 @@
 <script type="text/javascript" src="js/plugins/fullcalendar/fullcalendar.min.js"></script>
 <!-- END PLUGINS -->
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKqUQ4QmbTWM_KNhkYg7erVxakz_0-noE&v=3.exp"></script>
+<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKqUQ4QmbTWM_KNhkYg7erVxakz_0-noE&v=3.exp"></script>-->
 <!-- Plugin Lib Angular Js -->
 <script
     type="text/javascript"

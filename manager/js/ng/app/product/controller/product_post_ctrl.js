@@ -14,7 +14,7 @@ app.controller(
 				"advlist autolink lists link image charmap print preview hr anchor pagebreak",
 				"searchreplace wordcount visualblocks visualchars fullscreen",
 				"insertdatetime media nonbreaking save table contextmenu directionality",
-				"emoticons template paste textcolor colorpicker textpattern media"
+				"emoticons template paste textcolor colorpicker textpattern media code"
 			],
 			toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
 			toolbar2: "print preview media | forecolor backcolor emoticons",
@@ -28,25 +28,9 @@ app.controller(
 			Restful.get("api/Category").success(function(data){
 				$scope.categoryList = data;
 			});
-			Restful.get("api/Location").success(function(data){
-				$scope.provinces = data;
-			});
 		};
 		$scope.initCategory();
 		$scope.disabled = true;
-		// functional for init district
-		$scope.initDistrict = function(id){
-			Restful.get("api/District/" + id).success(function(data){
-				$scope.districts = data;
-				$scope.communes = '';
-			});
-		};
-		// functional for init Commune
-		$scope.initCommune = function(id){
-			Restful.get("api/Village/" + id).success(function(data){
-				$scope.communes = data;
-			});
-		};
 		// save functionality
 		$scope.save = function(){
 			// set object to save into news
@@ -130,48 +114,7 @@ app.controller(
 		$scope.removeImage = function ($index) {
 			$scope.optionalImage.splice($index, 1);
 		};
-		/*************************************
-		 * start google map functionality  ***
-		 * start google map functionality  ***
-		 ************************************/
 
-		$scope.map = {
-			center: {
-				latitude: 11.534289603605892,
-				longitude: 104.88615066528314
-			},
-			zoom: 10
-		};
-		$scope.options = {
-			scrollwheel: true
-		};
-		$scope.coordsUpdates = 0;
-		$scope.dynamicMoveCtr = 0;
-		$scope.marker = {
-			id: 0,
-			coords: {
-				latitude: 11.534289603605892,
-				longitude: 104.88615066528314
-			},
-			options: {
-				draggable: true
-			},
-			events: {
-				dragend: function(marker, eventName, args) {
-					var lat = marker.getPosition().lat();
-					var lon = marker.getPosition().lng();
-					//$log.log(lat);
-					//$log.log(lon);
 
-					$scope.marker.options = {
-						draggable: true,
-						labelContent: "",
-						labelAnchor: "100 0",
-						labelClass: "marker-labels"
-					};
-				}
-			}
-		};
-		/********* End init UI Google Map NG *************/
 	}
 ]);
