@@ -1515,9 +1515,9 @@ class SEO_URL{
                                 break;
                         default:
                                 if ($this->attributes['USE_SEO_PERFORMANCE_CHECK'] == 'true') $this->performance['NUMBER_QUERIES']++;
-                                $sql = "SELECT user_name as iName
-                                   FROM ".TABLE_CUSTOMERS."
-                                   WHERE customers_id='".(int)$iID."'
+                                $sql = "SELECT name as iName
+                                   FROM ".TABLE_OUR_TEAM."
+                                   WHERE id='".(int)$iID."'
                                    LIMIT 1";
                                 $result = $this->DB->FetchArray( $this->DB->Query( $sql ) );
                                 $iName = $this->strip( $result['iName'] );

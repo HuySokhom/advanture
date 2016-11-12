@@ -12,6 +12,18 @@ app.controller(
 		var vm = this;
 		var url = "api/OurTeam/";
 		vm.our_team = {};
+		$scope.tinymceOptions = {
+			plugins: [
+				"advlist autolink lists link image charmap print preview hr anchor pagebreak",
+				"searchreplace wordcount visualblocks visualchars fullscreen",
+				"insertdatetime media nonbreaking save table contextmenu directionality",
+				"emoticons template paste textcolor colorpicker textpattern media code"
+			],
+			toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+			toolbar2: "print preview media | forecolor backcolor emoticons",
+			image_advtab: true,
+			paste_data_images: true
+		};
 		vm.our_team.gender = 'Male';
 		vm.service = new Services();
 		vm.currentPage = $state.current.name;

@@ -100,11 +100,12 @@
 					   required
 					   rows="10"
 					   class="form-control"
+						  ui-tinymce="tinymceOptions"
 					   placeholder="Summary our_team"></textarea>
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-3">
+	<div class="col-sm-4">
 		<input
 			type="file"
 			ng-model="vm.picFile"
@@ -114,6 +115,9 @@
 			ngf-model-invalid="errorFiles"
 			ngf-select="vm.uploadPic(vm.picFile)"
 		>
+		<i>
+			Recommend image size should: 300px(width) x 450px(height)
+		</i>
 		<i ng-show="our_teamForm.file.$error.maxSize" class="error">
 			File too large {{errorFiles[0].size / 1000000|number:1}}MB: max 2M
 		</i>

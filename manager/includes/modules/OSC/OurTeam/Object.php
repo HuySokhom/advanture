@@ -144,7 +144,7 @@ class Object extends DbObj {
 				photo = '" . $this->dbEscape( $this->getPhoto() ) . "',
 				telephone = '" . $this->dbEscape( $this->getTelephone() ) . "',
 				email = '" . $this->dbEscape( $this->getEmail() ) . "',
-				summary = '" . (int)$this->getSummary() . "',
+				summary = '" . $this->getSummary() . "',
 				address = '" . $this->dbEscape( $this->getAddress() ) . "',
 				update_by = '" . $this->getUpdateBy() ."'
 			WHERE
@@ -194,7 +194,7 @@ class Object extends DbObj {
 	}
 
 	public function setSummary( $string ){
-		$this->summary = (string)$string;
+		$this->summary = $string;
 	}
 
 	public function getSummary(){

@@ -141,14 +141,14 @@ body {
 .container { width: 1200px}
 .section-padding {
     padding-top: 50px;
-    padding-bottom: 100px
+    padding-bottom: 30px
 }
 .section-bottom-padding {padding-bottom: 20px}
 .section-margin {
     margin-top: 100px;
     margin-bottom: 100px
 }
-.section-title { margin-bottom: 80px}
+.section-title { margin-bottom: 25px;}
 .section-title h1 {
     display: inline-block;
     font-size: 35px;
@@ -1184,7 +1184,7 @@ button#btn-search-category:hover, .newsletter-content button:hover, .button-one:
 /*----------------------------------------*/
 /*  11. Team Area
 /*----------------------------------------*/
-.single-member {border: 3px solid hsl(0, 0%, 88%);}
+.single-member {border: 3px solid hsl(0, 0%, 88%);    margin-bottom: 15px;}
 .member-text.effect-bottom::after {
     bottom: -40px;
     top: auto;
@@ -3642,4 +3642,14 @@ textarea.yourmessage {
 }
 #scrollUp:hover {
     background-color: #000;
+}
+
+
+ul.dt_list li {
+    border-bottom: 1px solid #ddd;
+    margin: 15px 0 0;
+    padding: 0 0 15px;
+    width: 100%;
+    text-align: left;
+    overflow: hidden;
 }

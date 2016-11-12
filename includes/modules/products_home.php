@@ -17,7 +17,29 @@
         }
     }
 
-    //query content page
+    /**
+     * Query our team
+     * from table our_team
+     */
+    $our_team_query = tep_db_query("
+        select
+          name, photo, id
+        from
+          our_team
+        where
+          status = 1
+        order by rand() limit 4"
+    );
+    $num_team = tep_db_num_rows($our_team_query);
+    $array_our_team = [];
+    if($num_team > 0) {
+        while ($team = tep_db_fetch_array($our_team_query)) {
+            $array_our_team[] = $team;
+        }
+    }
+
+
+//query content page
     $query = tep_db_query("select * from page_description where pages_id = 2 and language_id = ". (int)$languages_id ." ");
     $content = tep_db_fetch_array($query);
 
@@ -316,38 +338,24 @@
                 </div>
             </div>
         </div>
+        <br/>
         <div class="row">
-            <div class="col-md-6">
-                <div class="sell-text-container">
-                    <div class="title-container">
-                        <h3>WILDLIFE</h3>
-                        <div class="best-sell-link">
-                            <a href="index.html#"><i class="fa fa-facebook"></i></a>
-                            <a href="index.html#"><i class="fa fa-twitter"></i></a>
-                            <a href="index.html#"><i class="fa fa-google-plus"></i></a>
-                            <a href="index.html#"><i class="fa fa-linkedin"></i></a>
-                            <a href="index.html#"><i class="fa fa-rss"></i></a>
-                        </div>
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <div class="title-border">
+                        <h1>Best Trip <span>Today</span></h1>
                     </div>
-                    <P>Get closer to nature. From the jungles of India to the African bush, our small group tours take you to the heart of nature. From elephants silhouetted against an Africa sunset to orangutans swinging in the treetops.....</P>
-                    <a href="index.html#" class="button-one">VIew trip</a>
                 </div>
+            </div>
+            <div class="col-md-12">
                 <div class="row">
                     <div class="best-sell-slider carousel-style-one">
                         <div class="col-md-3">
                             <div class="hover-effect">
                                 <div class="box-hover">
                                     <a href="index.html#">
-                                        <img src="img/sell/1.jpg" alt="">
+                                        <img src="themes/img/sell/1.jpg" alt="">
                                         <span>Rail Trip</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="hover-effect">
-                                <div class="box-hover">
-                                    <a href="index.html#" class="no-margin">
-                                        <img src="img/sell/3.jpg" alt="">
-                                        <span>Egypt Trip</span>
                                     </a>
                                 </div>
                             </div>
@@ -356,16 +364,8 @@
                             <div class="hover-effect">
                                 <div class="box-hover">
                                     <a href="index.html#">
-                                        <img src="img/sell/2.jpg" alt="">
+                                        <img src="themes/img/sell/2.jpg" alt="">
                                         <span>Brazil Trip</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="hover-effect">
-                                <div class="box-hover">
-                                    <a href="index.html#" class="no-margin">
-                                        <img src="img/sell/4.jpg" alt="">
-                                        <span>Sailing Trip</span>
                                     </a>
                                 </div>
                             </div>
@@ -379,14 +379,6 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="hover-effect">
-                                <div class="box-hover">
-                                    <a href="index.html#" class="no-margin">
-                                        <img src="themes/img/sell/1.jpg" alt="">
-                                        <span>Rail Trip</span>
-                                    </a>
-                                </div>
-                            </div>
                         </div>
                         <div class="col-md-3">
                             <div class="hover-effect">
@@ -397,26 +389,16 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="hover-effect">
-                                <div class="box-hover">
-                                    <a href="index.html#" class="no-margin">
-                                        <img src="themes/img/sell/2.jpg" alt="">
-                                        <span>Brazil Trip</span>
-                                    </a>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 hidden-sm">
-                <img src="img/sell/5.jpg" alt="">
+                <a href="index.html#" class="button-one pull-left">VIew All Trip</a>
             </div>
         </div>
     </div>
 </div>
 <!--End of Best Sell Area-->
-
+<div style="margin-bottom: -70px;"></div>
 <!--Team Area Start-->
 <div class="team-area section-padding">
     <div class="container">
@@ -426,69 +408,45 @@
                     <div class="title-border">
                         <h1>Our <span>Team</span></h1>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dolor turpis, pulvinar varius dui<br> id, convallis iaculis eros. Praesent porta lacinia elementum.</p>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 col-sm-6">
-                <div class="single-member">
-                    <div class="team-image">
-                        <a href="index.html#"><img src="themes/img/team/1.jpg" alt=""></a>
-                        <div class="member-text effect-bottom">
-                            <h4><a href="index.html#">Maria B. | <span>Hiking Guide</span></a></h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard text ever</p>
-                            <div class="member-link">
-                                <a href="index.html#"><i class="fa fa-facebook"></i></a>
-                                <a href="index.html#"><i class="fa fa-twitter"></i></a>
-                                <a href="index.html#"><i class="fa fa-google-plus"></i></a>
-                                <a href="index.html#"><i class="fa fa-linkedin"></i></a>
-                                <a href="index.html#"><i class="fa fa-rss"></i></a>
+            <?php
+                foreach($array_our_team as $row){
+                    echo '
+                        <div class="col-md-3 col-sm-6">
+                            <div class="single-member">
+                                <div class="team-image">
+                                    <a href="' . tep_href_link(FILENAME_INFORMATION, 'info_id=' . $row['id']) . '">
+                                        <img src="images/'.$row['photo'].'" alt="' . $row['name'] .'">
+                                    </a>
+                                    <div class="member-text effect-bottom">
+                                        <h4>
+                                            <a href="'. tep_href_link(FILENAME_INFORMATION, 'info_id=' . $row['id']) .'">
+                                                '.$row['name'].'
+                                            </a>
+                                        </h4>
+                                        <div class="member-link">
+                                            <a href=""><i class="fa fa-facebook"></i></a>
+                                            <a href="index.html#"><i class="fa fa-twitter"></i></a>
+                                            <a href="index.html#"><i class="fa fa-google-plus"></i></a>
+                                            <a href="index.html#"><i class="fa fa-linkedin"></i></a>
+                                            <a href="index.html#"><i class="fa fa-rss"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="single-member">
-                    <div class="team-image">
-                        <a href="index.html#"><img src="themes/img/team/2.jpg" alt=""></a>
-                        <div class="member-text effect-bottom">
-                            <h4><a href="index.html#">Janifer Craving | <span>Photographer</span></a></h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard text ever</p>
-                            <div class="member-link">
-                                <a href="index.html#"><i class="fa fa-facebook"></i></a>
-                                <a href="index.html#"><i class="fa fa-twitter"></i></a>
-                                <a href="index.html#"><i class="fa fa-google-plus"></i></a>
-                                <a href="index.html#"><i class="fa fa-linkedin"></i></a>
-                                <a href="index.html#"><i class="fa fa-rss"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 hidden-sm">
-                <div class="single-member">
-                    <div class="team-image">
-                        <a href="index.html#"><img src="themes/img/team/3.jpg" alt=""></a>
-                        <div class="member-text effect-bottom">
-                            <h4><a href="index.html#">Matt Jason | <span>Guide</span></a></h4>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's dummy text ever</p>
-                            <div class="member-link">
-                                <a href="index.html#"><i class="fa fa-facebook"></i></a>
-                                <a href="index.html#"><i class="fa fa-twitter"></i></a>
-                                <a href="index.html#"><i class="fa fa-google-plus"></i></a>
-                                <a href="index.html#"><i class="fa fa-linkedin"></i></a>
-                                <a href="index.html#"><i class="fa fa-rss"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    ';
+                }
+            ?>
         </div>
+        <a href="our_team.php" class="button-one">VIew All Our Team</a>
     </div>
 </div>
 <!--End of Team Area-->
+<div style="margin-bottom: -70px;"></div>
 <?php
     include('partnerBanner.php');
 ?>
