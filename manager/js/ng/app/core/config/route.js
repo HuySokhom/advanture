@@ -99,15 +99,17 @@ app.config([
 				templateUrl: 'js/ng/app/product/partials/index.html',
 				controller: 'product_ctrl'
 			})
-			.state('/product/post', {
+			.state('product/post', {
 				url: '/product/post',
 				templateUrl: 'js/ng/app/product/partials/product_post.html',
-				controller: 'product_post_ctrl'
+				controller: 'product_post_ctrl',
+				controllerAs: 'vm'
 			})
-			.state('/product/edit/:id', {
+			.state('product/edit/:id', {
 				url: '/product/edit/:id',
-				templateUrl: 'js/ng/app/product/partials/product_edit.html',
-				controller: 'product_edit_ctrl'
+				templateUrl: 'js/ng/app/product/partials/product_post.html',
+				controller: 'product_post_ctrl',
+				controllerAs: 'vm'
 			})
 			.state('/popular_location', {
 				url: '/popular_location',

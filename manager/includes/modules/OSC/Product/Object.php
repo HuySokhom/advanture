@@ -40,10 +40,11 @@ class Object extends DbObj {
 				'products_image_thumbnail',
 				'products_price',
 				'create_date',
-				'create_by',
+				'day',
 				'products_status',
 				'image_detail',
 				'product_detail',
+				'person',
 			)
 		);
 		return parent::toArray($args);
@@ -194,14 +195,14 @@ class Object extends DbObj {
 		return $this->day;
 	}
 	public function setDay( $string ){
-		$this->day = $string;
+		$this->day = (int)$string;
 	}
 
 	public function getPerson(){
 		return $this->person;
 	}
 	public function setPerson( $string ){
-		$this->person = $string;
+		$this->person = (int)$string;
 	}
 
 	public function setProductsId( $int ){

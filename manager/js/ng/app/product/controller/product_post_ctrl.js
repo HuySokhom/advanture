@@ -6,10 +6,14 @@ app.controller(
 	, '$location'
 	, 'Upload'
 	, '$timeout'
-	, function ($scope, Restful, Services, $location, Upload, $timeout){
-		$scope.service = new Services();
+	, '$anchorScroll'
+	, '$stateParams'
+	, '$state'
+	, function ($scope, Restful, Services, $location, Upload, $timeout, $anchorScroll, $stateParams, $state){
+		var vm = this;
+		vm.service = new Services();
 		// init tiny option
-		$scope.tinymceOptions = {
+		vm.tinymceOptions = {
 			plugins: [
 				"advlist autolink lists link image charmap print preview hr anchor pagebreak",
 				"searchreplace wordcount visualblocks visualchars fullscreen",
@@ -21,88 +25,65 @@ app.controller(
 			image_advtab: true,
 			paste_data_images: true
 		};
-		$scope.optionalImage = [];
-		$scope.propertyTypes = ["For Sale", "For Rent", "Both Sale and Rent"];
+
+		vm.post = {
+			products: {},
+			products_description: {},
+			products_image: {},
+		};
+		vm.optionalImage = [];
 		// init category
-		$scope.initCategory = function(){
+		vm.initCategory = function(){
 			Restful.get("api/Category").success(function(data){
-				$scope.categoryList = data;
+				vm.categoryList = data;
 			});
 		};
-		$scope.initCategory();
-		$scope.disabled = true;
+		vm.initCategory();
+		vm.disabled = true;
 		// save functionality
-		$scope.save = function(){
-			// set object to save into news
-			var data = {
-				products: {
-					products_image: $scope.image,
-					products_image_thumbnail: $scope.image_thumbnail,
-					categories_id: $scope.categories_id,
-					province_id: $scope.province_id,
-					district_id: $scope.district_id,
-					village_id: $scope.commune_id,
-					products_price: $scope.price,
-					products_kind_of: $scope.property_type,
-					bed_rooms: $scope.bed_rooms,
-					bath_rooms: $scope.bath_rooms,
-					number_of_floors: $scope.number_of_floors,
-				},
-				products_description: [
-					{
-						products_name: $scope.title_en,
-						products_description: $scope.content_en,
-						language_id: 1
-					},
-					{
-						products_name: $scope.title_kh,
-						products_description: $scope.content_kh,
-						language_id: 2
-					}
-				],
-				products_image: $scope.optionalImage
-			};
-			$scope.disabled = false;
-			//console.log(data);
-			Restful.post("api/Product", data).success(function (data) {
-				$scope.disabled = true;
-				console.log(data);
-				$scope.service.alertMessage('<b>Complete: </b>Save Success.');
-				$location.path('product');
-			});
+		vm.save = function(){
+			if (!$scope.myForm.$valid) {
+				$anchorScroll();
+				return;
+			}
+			vm.disabled = false;
+			console.log(vm.post);
+			if (vm.currentPage == "product/post") {
+				Restful.post("api/Product", vm.post).success(function (data) {
+					vm.disabled = true;
+					console.log(data);
+					vm.service.alertMessage('<b>Complete: </b>Save Success.');
+					$state.go('/product');
+				});
+			} else {
+				Restful.put("api/Product/" + $stateParams.id, vm.post).success(function (data) {
+					console.log(data);
+					vm.service.alertMessage('<strong>Complete: </strong>Save Success.');
+					vm.isDisabled = false;
+					$state.go('/product');
+				});
+			}
+
 		};
 
 		//functionality upload image
-		$scope.uploadPic = function(file, type) {
-			// validate on if image option limit with 8 photo.
-			if(type == 'optional') {
-				if($scope.optionalImage.length >= 8){
-					return $scope.service.alertMessagePromt('<b>Warning: </b>We limit image upload only 8 photo.');
-				}
-			}
+		vm.uploadPic = function(file) {
 			if (file) {
 				file.upload = Upload.upload({
 					url: 'api/ImageUpload',
-					data: {file: file, username: $scope.username},
+					data: {file: file, username: vm.username},
 				});
 				file.upload.then(function (response) {
 					$timeout(function () {
+						console.log(response);
 						file.result = response.data;
-						if(type == 'feature_image') {
-							$scope.image = response.data.image;
-							$scope.image_thumbnail = response.data.image_thumbnail;
-						}
-						if(type == 'optional') {
-							var option = {
-								image: response.data.image,
-								image_thumbnail: response.data.image_thumbnail
-							};
-							$scope.optionalImage.push(option);
-						}
+						vm.post.products.products_image = response.data.image;
+						vm.post.products.products_image_thumbnail = response.data.image_thumbnail;
+
 					});
 				}, function (response) {
 					if (response.status > 0)
-						$scope.errorMsg = response.status + ': ' + response.data;
+						vm.errorMsg = response.status + ': ' + response.data;
 				}, function (evt) {
 					// Math.min is to fix I	E which reports 200% sometimes
 					file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
@@ -110,11 +91,21 @@ app.controller(
 			}
 		};
 
-		// remove image
-		$scope.removeImage = function ($index) {
-			$scope.optionalImage.splice($index, 1);
-		};
 
-
+		vm.currentPage = $state.current.name;
+		console.log(vm.currentPage);
+		if(vm.currentPage == "product/post"){
+			vm.header = 'Create Product';
+		}else{
+			vm.header = 'Edit Product';
+			var data = {
+				id: $stateParams.id
+			};
+			Restful.get("api/Product", data).success(function(data){
+				console.log(data);
+				vm.post.products = data.elements[0];
+				vm.post.products_description = data.elements[0].product_detail[0];
+			});
+		}
 	}
 ]);

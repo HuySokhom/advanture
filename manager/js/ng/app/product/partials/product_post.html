@@ -1,103 +1,196 @@
-<form data-ng-submit="save();" name="myForm">
+<form data-ng-submit="vm.save();" name="myForm" novalidate>
     <h4>
-        Product Information
+        {{vm.header}}
     </h4>
     <div class="row">
-        <div class="col-md-5">
-            <label>
-                Category:
-            </label>
-            <select
-                data-ng-model="categories_id"
-                data-ng-options="c.categories_id as c.detail[0].categories_name for c in categoryList.elements"
-                class="form-control"
-                required
-            >
-                <option value="">--Select Category--</option>
-            </select>
-            <label>
-                Title:
-            </label>
-            <input
-                type="text"
-                class="form-control"
-                data-ng-model="title_en"
-                required
-            />
-            <label>
-                Price:
-            </label>
-            <input type="number" class="form-control" step="any" min="0" required data-ng-model="price"/>
-            <label>
-                Day:
-            </label>
-            <input type="number" class="form-control" step="any" min="0" required data-ng-model="day"/>
-            <label>
-                Person:
-            </label>
-            <input type="number" class="form-control" step="any" min="0" required data-ng-model="person"/>
-            <label>
-                Image:
-            </label>
-            <input
-                type="file"
-                ng-model="picFile"
-                name="file"
-                accept="image/*"
-                ngf-max-size="2MB"
-                ngf-model-invalid="errorFiles"
-                ngf-select="uploadPic(picFile, 'feature_image')"
-                class="form-control"
-            >
-            <i ng-show="myForm.file.$error.maxSize">
-                File too large {{errorFiles[0].size / 1000000|number:1}}MB: max 2M
-            </i>
-            <img
-                ng-show="image"
-                class="thumb"
-                src="../images/{{image_thumbnail}}"
-            >
-            <span class="progress" ng-show="picFile.progress >= 0">
-                <div
-                    style="width:{{picFile.progress}}%"
-                    ng-bind="picFile.progress + '%'"
-                >
-                </div>
-            </span>
-            <span ng-show="picFile.result">Upload Successful</span>
-            <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
-        </div>
-        <div class="col-md-7">
-            <div class="col-md-12">
-                <div class="col-md-12">
-                    <label>
-                        Description:
-                    </label>
-                <textarea
-                        class="form-control"
-                        data-ng-model="content_en"
-                        ui-tinymce="tinymceOptions"
-                        rows="15"
-                ></textarea>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row col-md-12">
         <a
             class="btn btn-default"
             href="javascript:;"
-            onclick="location.href='#/product';"
+            ui-sref="/product"
         >
             <i class="fa fa-close"></i>
             Close
         </a>
         <button
             class="btn btn-primary"
-            data-ng-disabled="!disabled"
+            data-ng-disabled="!vm.disabled"
         >
-            <i class="fa fa-save" data-ng-show="disabled"></i>
-            <i class="fa fa-refresh fa-spin" data-ng-hide="disabled"></i>
+            <i class="fa fa-save" data-ng-show="vm.disabled"></i>
+            <i class="fa fa-refresh fa-spin" data-ng-hide="vm.disabled"></i>
+            Save
+        </button>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group col-md-12" ng-class="{ 'has-error': myForm.category.$invalid && myForm.$submitted }">
+                <label class="col-md-3 control-label">
+                    Category:
+                    <span class="required">* </span>
+                </label>
+                <div class="col-md-9">
+                    <select
+                        data-ng-model="vm.post.products.categories_id"
+                        data-ng-options="c.categories_id as c.detail[0].categories_name for c in vm.categoryList.elements"
+                        class="form-control"
+                        required
+                        name="category"
+                    >
+                        <option value="">--Select Category--</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-md-12" ng-class="{ 'has-error': myForm.title.$invalid && myForm.$submitted }">
+                <label class="col-md-3 control-label">
+                    Title:
+                    <span class="required">* </span>
+                </label>
+                <div class="col-md-9">
+                    <input
+                        type="text"
+                        class="form-control"
+                        data-ng-model="vm.post.products_description.products_name"
+                        name="title"
+                        required
+                    />
+                </div>
+            </div>
+            <div class="form-group col-md-12" ng-class="{ 'has-error': myForm.products_price.$invalid && myForm.$submitted }">
+                <label class="col-md-3 control-label">
+                    Price:
+                    <span class="required">* </span>
+                </label>
+                <div class="col-md-9">
+                    <input type="number"
+                            class="form-control"
+                            step="any"
+                            min="0"
+                            data-ng-model="vm.post.products.products_price"
+                            name="products_price"
+                            required
+                    />
+                </div>
+            </div>
+
+            <div class="form-group col-md-12" ng-class="{ 'has-error': myForm.day.$invalid && myForm.$submitted }">
+                <label class="col-md-3 control-label">
+                    Day:
+                    <span class="required">* </span>
+                </label>
+                <div class="col-md-9">
+                    <input type="number"
+                           class="form-control"
+                           step="any"
+                           min="0"
+                           data-ng-model="vm.post.products.day"
+                           name="day"
+                           required
+                    />
+                </div>
+            </div>
+            <div class="form-group col-md-12" ng-class="{ 'has-error': myForm.person.$invalid && myForm.$submitted }">
+                <label class="col-md-3 control-label">
+                    Person:
+                    <span class="required">* </span>
+                </label>
+                <div class="col-md-9">
+                    <input type="number"
+                           class="form-control"
+                           step="any"
+                           min="0"
+                           data-ng-model="vm.post.products.person"
+                           name="person"
+                           required
+                    />
+                </div>
+            </div>
+
+            <div class="form-group col-md-12" ng-class="{ 'has-error': myForm.file.$invalid && myForm.$submitted }">
+                <label class="col-md-3 control-label">
+                    Image:
+                    <span class="required">* </span>
+                </label>
+                <div class="col-md-9">
+                    <input
+                        type="file"
+                        ng-model="vm.picFile"
+                        name="file"
+                        ng-required="!vm.post.products.products_image_thumbnail"
+                        accept="image/*"
+                        ngf-max-size="2MB"
+                        ngf-model-invalid="errorFiles"
+                        ngf-select="vm.uploadPic(vm.picFile, 'feature_image')"
+                        class="form-control"
+                    >
+                    <i ng-show="myForm.file.$error.maxSize">
+                        File too large {{errorFiles[0].size / 1000000|number:1}}MB: max 2M
+                    </i>
+                    <img
+                        ng-show="vm.post.products.products_image_thumbnail"
+                        class="thumb"
+                        ng-src="../images/{{vm.post.products.products_image_thumbnail}}"
+                    >
+                    <div ng-show="vm.picFile.progress >= 0">
+                        <div class="progress-bar progress-bar-striped"
+                             data-ng-class="{'active': vm.picFile.progress != 100}"
+                             aria-valuenow="vm.picFile.progress"
+                             aria-valuemin="0"
+                             aria-valuemax="100"
+                             style="width:{{vm.picFile.progress}}%"
+                        >
+                            {{vm.picFile.progress}}%
+                        </div>
+                    </div>
+                    <span class="progress" ng-show="vm.picFile.progress >= 0">
+                        <div
+                            style="width:{{picFile.progress}}%"
+                            ng-bind="vm.picFile.progress + '%'"
+                        >
+                        </div>
+                    </span>
+                    <span ng-show="vm.picFile.result">Upload Successful</span>
+                    <span class="err" ng-show="vm.errorMsg">{{errorMsg}}</span>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-md-7">
+            <div class="col-md-12">
+                <div class="form-group" ng-class="{ 'has-error': myForm.description.$invalid && myForm.$submitted }">
+                    <label class="col-md-12 control-label">
+                        Description:
+                        <span class="required">* </span>
+                    </label>
+                    <div class="col-md-12">
+                        <textarea
+                            class="form-control"
+                            name="description"
+                            required
+                            data-ng-model="vm.post.products_description.products_description"
+                            ui-tinymce="vm.tinymceOptions"
+                            rows="15"
+                        ></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <a
+            class="btn btn-default"
+            href="javascript:;"
+            ui-sref="/product"
+        >
+            <i class="fa fa-close"></i>
+            Close
+        </a>
+        <button
+            class="btn btn-primary"
+            data-ng-disabled="!vm.disabled"
+        >
+            <i class="fa fa-save" data-ng-show="vm.disabled"></i>
+            <i class="fa fa-refresh fa-spin" data-ng-hide="vm.disabled"></i>
             Save
         </button>
     </div>
