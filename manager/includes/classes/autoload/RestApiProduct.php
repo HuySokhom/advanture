@@ -42,6 +42,7 @@ class RestApiProduct extends RestApi {
 	public function post($params){
 		$productObject = new ProductPostObj();
 		$productObject->setProperties($params['POST']['products']);
+		$productObject->setCreateBy($_SESSION['admin']['username']);
 		$productObject->insert();
 		$productId = $productObject->getProductsId();
 
@@ -65,6 +66,7 @@ class RestApiProduct extends RestApi {
 		$productDetailObject = new ProductDescriptionObj();
 		$productDetailObject->setProductsId($productId);
 		$productDetailObject->setProperties($fields);
+		$productDetailObject->setLanguageId(1);
 		$productDetailObject->insert();
 
 		return array(
@@ -82,6 +84,7 @@ class RestApiProduct extends RestApi {
 			$cols->populate();
 			$col = $cols->getFirstElement();
 			$col->setProductsId($productId);
+			$col->setUpdateBy($_SESSION['admin']['username']);
 			$col->setProperties($params['PUT']['products']);
 			$col->update();
 

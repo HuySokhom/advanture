@@ -37,7 +37,8 @@
 		select
 			pd.products_name,
 			p.products_id,
-			p.products_image_thumbnail
+			p.products_image_thumbnail,
+			DATE_FORMAT(p.create_date, '%d/%m/%Y') as create_date
 		from
 			" . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd
 		where
@@ -84,9 +85,10 @@
 ?>
 	  <div class="banner-area"
 	  	style="
-	  		background: rgba(0, 0, 0, 0) url('images/<?php echo $product_info['products_image'];?>') no-repeat scroll center top / cover;
-	  		">
-
+	  		background: rgba(0, 0, 0, 0)
+				url('images/<?php echo $product_info['products_image'];?>')
+				no-repeat scroll center top / cover;
+		">
 	  </div>
 	  <!--Blog Post Area Start-->
 	  <div class="blog-post-area section-padding">
@@ -101,50 +103,29 @@
 								  <button class="submit"><i class="fa fa-search"></i></button>
 							  </form>
 						  </div>
-						  <div class="clearfix"></div>
-						  <div class="single-sidebar-widget country-select">
-							  <h4>Select <span>Categories</span></h4>
-							  <ul class="widget-categories">
-								  <li><a href="blog-details.html#">Hiking <span>(10)</span></a></li>
-								  <li><a href="blog-details.html#">Camping <span>(175)</span></a></li>
-								  <li><a href="blog-details.html#">Trekking <span>(25)</span></a></li>
-								  <li><a href="blog-details.html#">Safari <span>(18)</span></a></li>
-								  <li><a href="blog-details.html#">Polar <span>(247)</span></a></li>
-								  <li><a href="blog-details.html#">Mountain <span>(95)</span></a></li>
-								  <li><a href="blog-details.html#">Biking <span>(39)</span></a></li>
-								  <li><a href="blog-details.html#">Climbing <span>(69)</span></a></li>
-								  <li class="no-margin"><a href="blog-details.html#" class="no-margin">Sailing <span>(27)</span></a></li>
-							  </ul>
-						  </div>
 						  <div class="single-sidebar-widget">
 							  <h4>Recent <span>Posts</span></h4>
-							  <div class="single-widget-posts">
-								  <div class="post-img">
-									  <a href="blog-details.html#"><img src="img/blog/3.jpg" alt=""></a>
-								  </div>
-								  <div class="posts-text">
-									  <h4><a href="blog-details.html#">Himalaia Trip | Europe</a></h4>
-									  <p><i class="fa fa-clock-o"></i> May 27, 2015</p>
-								  </div>
-							  </div>
-							  <div class="single-widget-posts">
-								  <div class="post-img">
-									  <a href="blog-details.html#"><img src="img/blog/4.jpg" alt=""></a>
-								  </div>
-								  <div class="posts-text">
-									  <h4><a href="blog-details.html#">Himalaia Trip | Nepal</a></h4>
-									  <p><i class="fa fa-clock-o"></i> Aug 09, 2016</p>
-								  </div>
-							  </div>
-							  <div class="single-widget-posts no-margin">
-								  <div class="post-img">
-									  <a href="blog-details.html#"><img src="img/blog/5.jpg" alt=""></a>
-								  </div>
-								  <div class="posts-text">
-									  <h4><a href="blog-details.html#">Himalaia Trip | China</a></h4>
-									  <p><i class="fa fa-clock-o"></i> Jun 22, 2016</p>
-								  </div>
-							  </div>
+							  <?php
+							  	foreach($array_other as $row){
+									echo '
+										<div class="single-widget-posts">
+											  <div class="post-img">
+												  <a href="'.tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $row['products_id']).'">
+												  	<img src="images/'.$row['products_image_thumbnail'].'" style=" width: 80px;height: 80px;">
+												  </a>
+											  </div>
+											  <div class="posts-text">
+												  <h4>
+													  <a href="'.tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $row['products_id']).'">
+													  	'.$row['products_name'].'
+													  </a>
+												  </h4>
+												  <p><i class="fa fa-clock-o"></i> '.$row['create_date'].'</p>
+											  </div>
+										  </div>
+									';
+								}
+							  ?>
 						  </div>
 						  <div class="single-sidebar-widget">
 							  <h4>Blog <span>Archives</span></h4>
@@ -210,8 +191,13 @@
 						  <div class="single-blog-post-img">
 							  <img src="images/<?php echo $product_info['products_image'];?>" alt="<?php echo $product_info['products_name'];?>" width="100%">
 							  <div class="date-time">
-								  <span class="date">10</span>
-								  <span class="month">AUG</span>
+								  <span class="date">$<?php echo $product_info['products_price']?></span>
+								  <span class="month">
+									  <?php echo $product_info['person']?> Person
+								  </span>
+								  <span class="month">
+									  <?php echo $product_info['day']?> Days
+								  </span>
 							  </div>
 						  </div>
 						  <div class="single-blog-post-text">

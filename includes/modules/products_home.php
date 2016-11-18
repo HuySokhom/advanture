@@ -173,7 +173,7 @@
                                         <div class="hover-effect">
                                             <div class="box-hover">
                                                 <a href="'.tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $pro['products_id']).'">
-                                                    <img src="images/'.$pro['products_image_thumbnail'].'" alt="">
+                                                    <img src="images/'.$pro['products_image_thumbnail'].'" width="100%">
                                                     <span>'.$pro['products_name'].'</span>
                                                 </a>
                                             </div>
@@ -220,11 +220,11 @@
                                             </a>
                                         </h4>
                                         <div class="member-link">
-                                            <a href=""><i class="fa fa-facebook"></i></a>
-                                            <a href="index.html#"><i class="fa fa-twitter"></i></a>
-                                            <a href="index.html#"><i class="fa fa-google-plus"></i></a>
-                                            <a href="index.html#"><i class="fa fa-linkedin"></i></a>
-                                            <a href="index.html#"><i class="fa fa-rss"></i></a>
+                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                                            <a href="#"><i class="fa fa-rss"></i></a>
                                         </div>
                                     </div>
                                 </div>

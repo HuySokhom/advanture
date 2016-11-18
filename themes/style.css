@@ -2931,7 +2931,7 @@ header.fixed .header-logo-menu {
     line-height: 68px;
     margin-bottom: 5px;
     padding-left: 18px;
-    width: 99px;
+    width: auto;
 }
 .single-blog-post-img .date-time {
     right: 3px;
@@ -2949,7 +2949,7 @@ header.fixed .header-logo-menu {
     line-height: 58px;
     padding-left: 0;
     position: relative;
-    width: 71px;
+    width: auto;
     z-index: 9999;
 }
 .single-blog-post-img .date-time .month::after {

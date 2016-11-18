@@ -153,7 +153,8 @@ class Object extends DbObj {
 				categories_id = '" . (int)$this->getCategoriesId() . "',
 				products_image = '" . $this->getProductsImage() . "',
 				products_image_thumbnail = '" . $this->getProductsImageThumbnail() . "',
- 				products_price = '" . $this->getProductsPrice() . "'
+ 				products_price = '" . $this->getProductsPrice() . "',
+ 				update_by = '" . $this->getUpdateBy() . "'
 			WHERE
 				products_id = '" . (int)$this->getProductsId() . "'
 		");
@@ -173,7 +174,8 @@ class Object extends DbObj {
 				products_price,
 				products_date_added,
 				products_status,
-				create_date
+				create_date,
+				create_by
 			)
 				VALUES
 			(
@@ -185,7 +187,8 @@ class Object extends DbObj {
 				'" . $this->getProductsPrice() . "',
  				NOW(),
  				1,
- 				NOW()
+ 				NOW(),
+ 				'". $this->getCreateBy() ."'
 			)
 		");	
 		$this->setProductsId( $this->dbInsertId() );
