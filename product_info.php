@@ -1,102 +1,75 @@
 <?php
 	require('includes/application_top.php');
-
 	if (!isset($HTTP_GET_VARS['products_id'])) {
-	tep_redirect(tep_href_link(FILENAME_DEFAULT));
+		tep_redirect(tep_href_link(FILENAME_DEFAULT));
 	}
-
 	require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_PRODUCT_INFO);
-
-	require(DIR_WS_INCLUDES . 'template_top.php');
 	$product_info_query = tep_db_query("
 		select
-			p.products_id,
-			p.customers_id,
-			cu.company_name,
-			cu.photo_thumbnail,
-			cu.customers_email_address,
-			cu.customers_address,
-			cu.customers_website,
-			cu.customers_telephone,
-			cu.detail,
-			p.products_kind_of,
-			p.gender,
-			p.number_of_hire,
-			pd.products_name,
-			l.name as province_name,
-			pd.products_description,
-			pd.skill,
-			pd.benefits,
-			pd.products_viewed,
-			p.salary,
-			DATE_FORMAT(p.products_date_added, '%d/%M/%Y') as products_date_added,
-			DATE_FORMAT(p.products_close_date, '%d/%M/%Y') as products_close_date
-		from
-			" . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd, location l, customers cu
-		where
-			p.products_status = '1'
+              pd.products_name,
+              pd.products_description,
+              pd.products_viewed,
+              p.products_id,
+              p.products_price,
+              p.day,
+              p.person,
+              p.products_image,
+              DATE_FORMAT(p.create_date, '%d/%m/%Y') as create_date,
+              p.create_by
+          from
+              products_description pd, products p
+          where
+              p.products_status = 1
 				and
-			cu.customers_id = p.customers_id
-				and
-			l.id = p.province_id
-				and
-			p.products_id = '" . (int)$HTTP_GET_VARS['products_id'] . "'
-				and
-			pd.products_id = p.products_id
-				and
-			pd.language_id = '" . (int)$languages_id . "'
+			  p.products_id = '".(int)$_GET['products_id'] ."'
+			  	and
+              pd.products_id = p.products_id
+			  	and
+              pd.language_id = " . (int)$languages_id . "
+          LIMIT 1
 	");
 	$product_info = tep_db_fetch_array($product_info_query);
 
-	// query hot jobs
-	$hot_product_query = tep_db_query("
+	/**
+	 *
+	 */
+	$other_product_query = tep_db_query("
 		select
+			pd.products_name,
 			p.products_id,
-			p.customers_id,
-			cu.company_name,
-			pd.products_name
+			p.products_image_thumbnail
 		from
-			" . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd, customers cu
+			" . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd
 		where
 			p.products_status = '1'
-				and
-			cu.customers_id = p.customers_id
 				and
 			p.products_id != '".(int)$_GET['products_id'] ."'
 				and
 			pd.products_id = p.products_id
 				and
 			pd.language_id = '" . (int)$languages_id . "'
-		order by
-        	p.products_promote desc, rand(), p.products_close_date desc
-		limit 15
+		order by rand()
+			limit 4
 	");
-	$array_hot = array();
-	while( $product_hot_info = tep_db_fetch_array($hot_product_query) ){
-		$array_hot[] = $product_hot_info ;
+	$array_other = [];
+	while( $product_hot_info = tep_db_fetch_array($other_product_query) ){
+		$array_other[] = $product_hot_info;
 	}
 
+	require(DIR_WS_INCLUDES . 'template_top.php');
 ?>
-<br>
-<div class="container">
 <?php
   if (tep_db_num_rows($product_info_query) < 1) {
 ?>
-	<br>
-	<div class="col-md-3">
-		<div class="filter-stacked">
-			<?php include('advanced_search_box_right.php'); ?>
-		</div>
-	</div>
-	<div class="col-md-8">
+	<div class="banner-area"></div>
+	<div class="container">
+		<br/>
 		<div class="alert alert-warning"><?php echo TEXT_PRODUCT_NOT_FOUND; ?></div>
-		<div class="pull-right">
-			<?php echo tep_draw_button(IMAGE_BUTTON_CONTINUE, 'fa fa-mail-forward', tep_href_link(FILENAME_DEFAULT)); ?>
-		</div>
+		<a class="button-one" href="index.php">
+			<i class="fa fa-forward"></i>
+			Continue
+		</a>
 	</div>
-	<br>
-	<br>
-	<br>
 <?php
   } else {
     tep_db_query("
@@ -109,164 +82,187 @@
     ");
 
 ?>
-	  <div class="row">
-		  <div class="col-sm-8">
-			  <div class="position-header">
-				  <h1>
-					  <?php echo $product_info['products_name'];?>
-					  <span>Urgent</span>
-				  </h1>
-			  </div><!-- /.position-header -->
+	  <div class="banner-area"
+	  	style="
+	  		background: rgba(0, 0, 0, 0) url('images/<?php echo $product_info['products_image'];?>') no-repeat scroll center top / cover;
+	  		">
 
-			  <div class="position-general-information">
-				  <dl>
-					  <dt>Location</dt>
-					  <dd><?php echo $product_info['province_name'];?></dd>
-
-					  <dt>Public Date</dt>
-					  <dd><?php echo $product_info['products_date_added'];?></dd>
-					  <dt>Close Date</dt>
-					  <dd><?php echo $product_info['products_close_date'];?></dd>
-
-					  <dt>Contract</dt>
-					  <dd><?php echo $product_info['products_kind_of'];?></dd>
-
-					  <dt>Salary</dt>
-					  <dd>
-						  <?php
-						  	if($product_info['salary'] > 0){
-								echo '$'.$product_info['salary'];
-							}else{
-								echo "Negotiable";
-							}
-						  ?>
-					  </dd>
-
-					  <dt>Number Of Hire</dt>
-					  <dd><?php echo $product_info['number_of_hire'];?></dd>
-
-					  <dt>Gender</dt>
-					  <dd><?php echo $product_info['gender'];?></dd>
-
-					  <dt>Job ID</dt>
-					  <dd>#<?php echo $product_info['products_id'];?></dd>
-
-					  <dt>View</dt>
-					  <dd>
-						  <?php echo $product_info['products_viewed'];?>
-					  </dd>
-				  </dl>
-			  </div><!-- /.position-general-information -->
-
-			  <h3 class="page-header background-header">Description, duties, responsibilities</h3>
-			  <p>
-				  <?php echo $product_info['products_description'];?>
-			  </p>
-
-			  <h3 class="page-header background-header">Other benefits</h3>
-			  <?php echo $product_info['benefits'];?>
-
-			  <h3 class="page-header background-header">Personality requirements and skills</h3>
-			  <?php echo $product_info['skill'];?>
-
-			  <h3 class="page-header background-header">About Company</h3>
-			  <?php echo $product_info['detail'];?>
-		  </div><!-- /.col-* -->
-
-		  <div class="col-sm-4">
-			  <div class="company-card">
-				  <div class="company-card-image">
-					  <a href="<?php echo tep_href_link(FILENAME_INFORMATION, 'info_id=' . $product_info['customers_id']) ?>">
-						  <img src="images/<?php echo $product_info['photo_thumbnail'];?>" alt=""></a>
-					  </a>
-				  </div><!-- /.company-card-image -->
-
-				  <div class="company-card-data">
-					  <dl>
-						  <dt>Website</dt>
-						  <dd>
-							  <?php
-								  if($product_info['customers_website']){
-									  echo '
-										  <a href="http://' . $product_info['customers_website'] . '" target="_blank">
-											  ' . $product_info['customers_website'] . '
-										  </a>';
-								  }else{
-									  echo 'N/A';
-								  }
-							  ?>
-						  </dd>
-
-						  <dt>E-mail</dt>
-						  <dd>
-							  <a href="mailto:<?php echo $product_info['customers_email_address'];?>">
-								  <?php echo $product_info['customers_email_address'];?>
-							  </a>
-						  </dd>
-
-						  <dt>Phone</dt>
-						  <dd><?php echo $product_info['customers_telephone'];?></dd>
-
-						  <dt>Address</dt>
-						  <dd>
-							  <?php echo $product_info['customers_address'];?>
-						  </dd>						  
-					  </dl>
-					  <div><button class="btn btn-primary">Apply Now</button></div>
-				  </div><!-- /.company-card-data -->
-			  </div><!-- /.company-card -->
-
-			  <div class="hero-content-carousel">
-				  <h2 style="color: #fff;">Hot Jobs</h2>
-				  <ul class="cycle-slideshow vertical"
-					  data-cycle-fx="carousel"
-					  data-cycle-slides="li"
-					  data-cycle-carousel-visible="10"
-					  data-cycle-carousel-vertical="true"
-				  >
-					  <?php
-					  	foreach($array_hot as $hot){
-							echo '
-								<li>
-									<a href="'. tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $hot['products_id']) .'"
-									>
-										' . $hot['products_name'] . '
-									</a>
-									' . $hot['company_name']. '
-								</li>
-							';
-						}
-					  ?>
-				  </ul>
-				  <a href="positions.php" class="hero-content-show-all">Show All</a>
+	  </div>
+	  <!--Blog Post Area Start-->
+	  <div class="blog-post-area section-padding">
+		  <div class="container">
+			  <div class="row">
+				  <div class="col-md-3">
+					  <div class="sidebar-widget">
+						  <div class="single-sidebar-widget">
+							  <h4>Search <span>Blog</span></h4>
+							  <form id="text-search" action="blog-details.html#">
+								  <input type="text" placeholder="Search Here .....">
+								  <button class="submit"><i class="fa fa-search"></i></button>
+							  </form>
+						  </div>
+						  <div class="clearfix"></div>
+						  <div class="single-sidebar-widget country-select">
+							  <h4>Select <span>Categories</span></h4>
+							  <ul class="widget-categories">
+								  <li><a href="blog-details.html#">Hiking <span>(10)</span></a></li>
+								  <li><a href="blog-details.html#">Camping <span>(175)</span></a></li>
+								  <li><a href="blog-details.html#">Trekking <span>(25)</span></a></li>
+								  <li><a href="blog-details.html#">Safari <span>(18)</span></a></li>
+								  <li><a href="blog-details.html#">Polar <span>(247)</span></a></li>
+								  <li><a href="blog-details.html#">Mountain <span>(95)</span></a></li>
+								  <li><a href="blog-details.html#">Biking <span>(39)</span></a></li>
+								  <li><a href="blog-details.html#">Climbing <span>(69)</span></a></li>
+								  <li class="no-margin"><a href="blog-details.html#" class="no-margin">Sailing <span>(27)</span></a></li>
+							  </ul>
+						  </div>
+						  <div class="single-sidebar-widget">
+							  <h4>Recent <span>Posts</span></h4>
+							  <div class="single-widget-posts">
+								  <div class="post-img">
+									  <a href="blog-details.html#"><img src="img/blog/3.jpg" alt=""></a>
+								  </div>
+								  <div class="posts-text">
+									  <h4><a href="blog-details.html#">Himalaia Trip | Europe</a></h4>
+									  <p><i class="fa fa-clock-o"></i> May 27, 2015</p>
+								  </div>
+							  </div>
+							  <div class="single-widget-posts">
+								  <div class="post-img">
+									  <a href="blog-details.html#"><img src="img/blog/4.jpg" alt=""></a>
+								  </div>
+								  <div class="posts-text">
+									  <h4><a href="blog-details.html#">Himalaia Trip | Nepal</a></h4>
+									  <p><i class="fa fa-clock-o"></i> Aug 09, 2016</p>
+								  </div>
+							  </div>
+							  <div class="single-widget-posts no-margin">
+								  <div class="post-img">
+									  <a href="blog-details.html#"><img src="img/blog/5.jpg" alt=""></a>
+								  </div>
+								  <div class="posts-text">
+									  <h4><a href="blog-details.html#">Himalaia Trip | China</a></h4>
+									  <p><i class="fa fa-clock-o"></i> Jun 22, 2016</p>
+								  </div>
+							  </div>
+						  </div>
+						  <div class="single-sidebar-widget">
+							  <h4>Blog <span>Archives</span></h4>
+							  <div class="blog-archive">
+								  <select class="archive" name="archive">
+									  <option>Select Month</option>
+									  <option>January</option>
+									  <option>February</option>
+									  <option>March</option>
+									  <option>April</option>
+									  <option>May</option>
+									  <option>June</option>
+									  <option>July</option>
+									  <option>August</option>
+									  <option>September</option>
+									  <option>October</option>
+									  <option>November</option>
+									  <option>December</option>
+								  </select>
+							  </div>
+						  </div>
+						  <div class="single-sidebar-widget icon-bottom tooltip-icons">
+							  <h4>Blog <span>Tags</span></h4>
+							  <div class="widget-icon">
+								  <span><a href="blog-details.html#" data-toggle="tooltip" title="Tents"><img alt="" src="img/icon/25.png"></a></span>
+								  <span><a href="blog-details.html#" data-toggle="tooltip" title="Hiking"><img alt="" src="img/icon/26.png"></a></span>
+								  <span><a href="blog-details.html#" data-toggle="tooltip" title="Cycling"><img alt="" src="img/icon/27.png"></a></span>
+								  <span><a href="blog-details.html#" data-toggle="tooltip" title="Beach"><img alt="" src="img/icon/28.png"></a></span>
+								  <span class="no-margin"><a href="blog-details.html#" data-toggle="tooltip" title="Ship Tour"><img alt="" src="img/icon/29.png"></a></span>
+								  <span class="no-margin"><a href="blog-details.html#" data-toggle="tooltip" title="Boat Tour"><img alt="" src="img/icon/30.png"></a></span>
+								  <span class="no-margin"><a href="blog-details.html#" data-toggle="tooltip" title="Water Games"><img alt="" src="img/icon/31.png"></a></span>
+								  <span class="no-margin"><a href="blog-details.html#" data-toggle="tooltip" title="Jungle"><img alt="" src="img/icon/32.png"></a></span>
+							  </div>
+						  </div>
+						  <div class="clearfix"></div>
+						  <div class="single-sidebar-widget widget-gallery">
+							  <h4>Photo <span>Gallery</span></h4>
+							  <div class="row">
+								  <div class="col-md-4 col-sm-2 col-xs-4">
+									  <a href="blog-details.html#"><img src="img/blog/6.jpg" alt=""></a>
+								  </div>
+								  <div class="col-md-4 col-sm-2 col-xs-4">
+									  <a href="blog-details.html#"><img src="img/blog/7.jpg" alt=""></a>
+								  </div>
+								  <div class="col-md-4 col-sm-2 col-xs-4">
+									  <a href="blog-details.html#"><img src="img/blog/8.jpg" alt=""></a>
+								  </div>
+								  <div class="col-md-4 col-sm-2 col-xs-4">
+									  <a href="blog-details.html#"><img src="img/blog/9.jpg" alt=""></a>
+								  </div>
+								  <div class="col-md-4 col-sm-2 col-xs-4">
+									  <a href="blog-details.html#"><img src="img/blog/10.jpg" alt=""></a>
+								  </div>
+								  <div class="col-md-4 col-sm-2 col-xs-4">
+									  <a href="blog-details.html#"><img src="img/blog/11.jpg" alt=""></a>
+								  </div>
+							  </div>
+						  </div>
+					  </div>
+				  </div>
+				  <div class="col-md-9">
+					  <div class="single-blog-post blog-post-details">
+						  <div class="single-blog-post-img">
+							  <img src="images/<?php echo $product_info['products_image'];?>" alt="<?php echo $product_info['products_name'];?>" width="100%">
+							  <div class="date-time">
+								  <span class="date">10</span>
+								  <span class="month">AUG</span>
+							  </div>
+						  </div>
+						  <div class="single-blog-post-text">
+							  <h4>
+								  <?php echo $product_info['products_name'];?>
+							  </h4>
+							  <div class="author-comments">
+								  <span><i class="fa fa-user"></i><?php echo $product_info['create_by'];?></span>
+								  <span><i class="fa fa-calendar"></i><?php echo $product_info['create_date'];?></span>
+							  </div>
+							  <?php echo $product_info['products_description'];?>
+						  </div>
+						  <div class="blog-button-links">
+							  <div class="blog-links">
+								  <a href="blog-details.html#"><i class="fa fa-facebook"></i></a>
+								  <a href="blog-details.html#"><i class="fa fa-twitter"></i></a>
+								  <a href="blog-details.html#"><i class="fa fa-google-plus"></i></a>
+								  <a href="blog-details.html#"><i class="fa fa-linkedin"></i></a>
+								  <a href="blog-details.html#"><i class="fa fa-rss"></i></a>
+							  </div>
+						  </div>
+					  </div>
+					  <div class="leave-comment">
+						  <h4 class="blog-title">Get In <span>Touch</span></h4>
+						  <form action="blog-details.html#" method="post" id="comment">
+							  <div class="comment-form">
+								  <div class="row">
+									  <div class="col-md-5">
+										  <label class="required">name</label>
+										  <input type="text" name="name" value="">
+										  <label class="required">Email</label>
+										  <input type="email" name="email" value="">
+										  <label>Subject</label>
+										  <input type="text" name="subject" value="">
+									  </div>
+									  <div class="col-md-7">
+										  <label>Your Comments</label>
+										  <textarea rows="12" name="enquiry"></textarea>
+									  </div>
+								  </div>
+								  <input type="submit" class="comment-btn" value="Submit comment">
+							  </div>
+						  </form>
+					  </div>
+				  </div>
 			  </div>
-			  <div class="widget">
-				  <h2>Apply For Position</h2>
-
-				  <form>
-					  <div class="form-group">
-						  <input type="text" id="name" class="form-control" placeholder="Name" required>
-					  </div><!-- /.form-group -->
-
-					  <div class="form-group">
-						  <input type="email" class="form-control" id="email" placeholder="Your E-mail" required>
-					  </div><!-- /.form-group -->
-
-					  <div class="form-group">
-						  <textarea class="form-control" rows="5" id="text" placeholder="Your Message" required></textarea>
-					  </div><!-- /.form-group -->
-
-					  <button class="btn btn-secondary pull-right" type="submit" id="sendEmail">Apply Now</button>
-				  </form>
-			  </div><!-- /.widget -->
-		  </div><!-- /.col-* -->
-	  </div><!-- /.row -->
-	  <?php
-  }
-?>
-</div><!-- /.container -->
-<br><br>
+		  </div>
+	  </div>
+	  <!--End of Blog Post Area -->
 <?php
+  	}
   require(DIR_WS_INCLUDES . 'template_bottom.php');
   require(DIR_WS_INCLUDES . 'application_bottom.php');
 ?>
