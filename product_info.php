@@ -191,8 +191,10 @@
 						  <div class="single-blog-post-img">
 							  <img src="images/<?php echo $product_info['products_image'];?>" alt="<?php echo $product_info['products_name'];?>" width="100%">
 							  <div class="date-time">
-								  <span class="date">$<?php echo $product_info['products_price']?></span>
-								  <span class="month">
+								  <span class="date">
+									  <?php echo $currencies->display_price($product_info['products_price'], 0);?>
+								  </span>
+								  <span class="month">,
 									  <?php echo $product_info['person']?> Person
 								  </span>
 								  <span class="month">

@@ -44,6 +44,11 @@
       select
           DATE_FORMAT(p.create_date, '%d/%m/%Y') as create_date,
           pd.products_name,
+          p.create_by,
+          p.products_image,
+          p.products_price,
+          p.person,
+          p.day,
           pd.products_viewed,
           p.products_id
       from
@@ -59,17 +64,8 @@
       ORDER BY
           p.products_id DESC
       ";
-
-?>
-<div class="margin-top">
-
-<?php
     include(DIR_WS_MODULES . FILENAME_PRODUCT_LISTING);
-?>
 
-</div>
-
-<?php
   } else {
 
     /****************************************************************/
@@ -81,14 +77,8 @@
   if ($messageStack->size('product_action') > 0) {
     echo $messageStack->output('product_action');
   }
-?>
+  include(DIR_WS_MODULES . FILENAME_HOME);
 
-<div class="">
-    <?php
-        include(DIR_WS_MODULES . FILENAME_HOME);
-    ?>
-</div>
-<?php
   }
 
   require(DIR_WS_INCLUDES . 'template_bottom.php');
