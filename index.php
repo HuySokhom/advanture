@@ -28,6 +28,8 @@
         $category_depth = 'products'; // category has no products, but display the 'no products' message
       }
     }
+    $categories_query = tep_db_query("select categories_image from " . TABLE_CATEGORIES . " where categories_id = '" . (int)$current_category_id . "'");
+    $categories_info = tep_db_fetch_array($categories_query);
   }
 
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_DEFAULT);

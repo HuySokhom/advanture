@@ -15,9 +15,22 @@
       while ($listing = tep_db_fetch_array($listing_query)) {
           $prod_list_contents[] = $listing;
       }
-  }
+  }    var_dump($categories_info['categories_image']);
 ?>
-<div class="banner-area"></div>
+<?php
+    if($categories_info['categories_image']){
+        $img = 'images/'.$categories_info['categories_image'] ;
+        echo "<div
+            class='banner-area'
+            style='
+	  		    background: rgba(0, 0, 0, 0)
+				url(". $img .")
+				no-repeat scroll center top / cover;'
+            ></div>";
+    }else{
+        echo '<div class="banner-area"></div>';
+    }
+?>
 <!--Blog Post Area Start-->
 <div class="blog-post-area section-padding">
     <div class="container">
