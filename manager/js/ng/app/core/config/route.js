@@ -92,7 +92,7 @@ app.config([
 			.state('/category', {
 				url: '/category',
 				templateUrl: 'js/ng/app/category/partials/index.html',
-				controller: 'category_ctrl'
+				controller: 'category_ctrl as vm'
 			})
 			.state('/product', {
 				url: '/product',

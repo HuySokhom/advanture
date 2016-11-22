@@ -42,6 +42,7 @@ class Object extends DbObj {
 		$q = $this->dbQuery("
 			SELECT
 				categories_id,
+				categories_image,
 				sort_order,
 				parent_id
 			FROM

@@ -8,77 +8,85 @@ app.controller(
 	, 'alertify'
 	, '$timeout'
 	, function ($scope, Restful, Services, $location, Upload, $alertify, $timeout){
-		$scope.service = new Services();
+		var vm = this;
+		vm.service = new Services();
+		vm.category = {};
 		var url = "api/Category/";
 		var params = {pagination: 'yes'};
 		function init(params){
 			Restful.get(url, params).success(function(data){
-				$scope.category = data;
-				$scope.totalItems = data.count;console.log(data);
+				vm.categories = data;
+				vm.totalItems = data.count;
+				console.log(data);
 			});
 		};
 		init(params);
 
-		$scope.clear = function(){
-			$scope.name_en = '';
-			$scope.sort_order = '';
-			$scope.parent_id = '';
-			$scope.id = '';
-			$scope.getCategory();
+		vm.clear = function(){
+			vm.category = {};
+			vm.getCategory();
+			vm.picFile = '';
 		};
 
 
-		$scope.getCategory = function(){
+		vm.getCategory = function(){
 			Restful.get(url).success(function(data){
-				$scope.categories = data;
+				vm.categoriesDropdown = data;
 			});
 		};
 
-		$scope.edit = function(params){
+		vm.edit = function(params){
+			vm.picFile = '';
 			$('#categoryPopup').modal('show');
 			var temp = angular.copy(params);
-			$scope.name_en = temp.detail[0].categories_name;
-			$scope.parent_id = temp.parent_id;
-			$scope.id = temp.categories_id;
-			$scope.sort_order = temp.sort_order;
-			$scope.getCategory();
+			console.log(params);
+			vm.category.parent_id = temp.parent_id;
+			vm.category.categories_name = temp.detail[0].categories_name;
+			vm.category.sort_order = temp.sort_order;
+			vm.category.categories_image = temp.categories_image;
+			vm.category.id = temp.categories_id;
+			vm.getCategory();
 		};
 
-		$scope.save = function(){
+		vm.save = function(){
 			var data = {
 				category: [{
-					parent_id: $scope.parent_id,
-					sort_order: $scope.sort_order,
+					parent_id: vm.category.parent_id,
+					sort_order: vm.category.sort_order,
+					categories_image: vm.category.categories_image,
 				}],
 				detail: [
 					{
-						categories_name: $scope.name_en,
+						categories_name: vm.category.categories_name,
 						language_id: 1
 					},{
-						categories_name: $scope.name_kh,
+						categories_name: vm.category.categories_name,
 						language_id: 2
 					}
 				]
-			};console.log(data);
-			$scope.isDisabled = true;
-			if( $scope.id ){
-				Restful.put(url + $scope.id, data).success(function(data){
+			};
+			console.log(vm.category);
+			vm.isDisabled = true;
+			if( vm.category.id ){
+				Restful.put(url + vm.category.id, data).success(function(data){
 					init(params);
 					$('#categoryPopup').modal('hide');
-					$scope.service.alertMessage('<strong>Complete: </strong>Save Success.');
-					$scope.isDisabled = false;
+					vm.service.alertMessage('<strong>Complete: </strong>Save Success.');
+					vm.isDisabled = false;
+					console.log(data);
 				});
 			}else{
 				Restful.post(url, data).success(function(data){
 					init(params);
-					$scope.service.alertMessage('<strong>Complete: </strong>Save Success.');
+					console.log(data);
+					vm.service.alertMessage('<strong>Complete: </strong>Save Success.');
 					$('#categoryPopup').modal('hide')
-					$scope.isDisabled = false;
+					vm.isDisabled = false;
 				});
 			}
 		};
 
-		$scope.remove = function($index, params){
+		vm.remove = function($index, params){
 			$alertify.okBtn("Ok")
 				.cancelBtn("Cancel")
 				.confirm("<b>Waring: </b>If you delete this category it will " +
@@ -88,9 +96,9 @@ app.controller(
 					// it here.
 					ev.preventDefault();
 					Restful.delete( url + params.categories_id, params ).success(function(data){
-						$scope.disabled = true;
-						$scope.service.alertMessage('<strong>Complete: </strong>Delete Success.');
-						$scope.category.elements.splice($index, 1);
+						vm.disabled = true;
+						vm.service.alertMessage('<strong>Complete: </strong>Delete Success.');
+						vm.categories.elements.splice($index, 1);
 					});
 				}, function(ev) {
 					// The click event is in the
@@ -102,12 +110,40 @@ app.controller(
 		/**
 		 * start functionality pagination
 		 */
-		$scope.currentPage = 1;
+		vm.currentPage = 1;
 		//get another portions of data on page changed
-		$scope.pageChanged = function() {
-			$scope.pageSize = 10 * ( $scope.currentPage - 1 );
-			params.start = $scope.pageSize;
+		vm.pageChanged = function() {
+			vm.pageSize = 10 * ( vm.currentPage - 1 );
+			params.start = vm.pageSize;
 			init(params);
 		};
+
+
+		//functionality upload
+		vm.uploadPic = function(file) {
+			console.log(file);
+			if (file) {
+				file.upload = Upload.upload({
+					url: 'api/ImageUpload',
+					data: {file: file, username: vm.username},
+				});
+				file.upload.then(function (response) {
+					console.log(response);
+					$timeout(function () {
+						console.log(response);
+						file.result = response.data;
+						vm.category.categories_image = response.data.image;
+						vm.image_thumbnail = response.data.image_thumbnail;
+						//file.result.substring(1, file.result.length - 1);
+					});
+				}, function (response) {
+					if (response.status > 0)
+						vm.errorMsg = response.status + ': ' + response.data;
+				}, function (evt) {
+					// Math.min is to fix IE which reports 200% sometimes
+					file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+				});
+			}
+	};
 	}
 ]);

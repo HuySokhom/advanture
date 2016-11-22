@@ -2,7 +2,7 @@
 	class="btn btn-default default-font" 
 	data-toggle="modal" 
 	data-target="#categoryPopup"
-	data-ng-click="clear();"
+	data-ng-click="vm.clear();"
 >
 	<span class="glyphicon glyphicon-plus"></span>
 	Add Category
@@ -26,13 +26,13 @@
 			Action
 		</th>
 	</tr>
-	<tr data-ng-if="!category">
+	<tr data-ng-if="!vm.categories">
 		<td colspan="6" align="center">
 			<img src="images/icons/gettestr-large-spinner-orange.gif"/>
 		</td>
 	</tr>
 	<tr
-		data-ng-repeat="c in category.elements"
+		data-ng-repeat="c in vm.categories.elements"
 	>
 		<td>
 			{{c.categories_id}}
@@ -49,7 +49,7 @@
 		<td>
 			<button
 				class="btn btn-default"
-				data-ng-click="edit(c);"
+				data-ng-click="vm.edit(c);"
 				data-toggle="tooltip"
 				data-placement="top"
 				title="Edit"
@@ -59,19 +59,19 @@
 			</button>
 			<button
 				class="btn btn-danger"
-				data-ng-click="remove($index, c);"
+				data-ng-click="vm.remove($index, c);"
 				data-toggle="modals"
 				data-placement="bottom"
 				title="Delete"
 				tooltip
 			>
-				<span class="glyphicon glyphicon-trash"></span>
+				<span class="fa fa-trash"></span>
 			</button>
 		</td>
 	</tr>
 </table>
 <div
-	data-ng-if="category.elements == 0"
+	data-ng-if="vm.categories.elements == 0"
 >
 	<div class="alert alert-danger alert-dismissible">
 		<strong>Warning!</strong> Empty Data.
@@ -81,16 +81,16 @@
 	class="panel-footer"
 >
 	<pagination
-		total-items="totalItems"
-		ng-model="currentPage"
-		ng-change="pageChanged()"
+		total-items="vm.totalItems"
+		ng-model="vm.currentPage"
+		ng-change="vm.pageChanged()"
 		max-size="5"
 		items-per-page="10"
 		boundary-links="true"
 	></pagination>
 </div>
 
-<form data-ng-submit="save();" name="myForm">
+<form data-ng-submit="vm.save();" name="myForm">
 	<div
 		class="modal fade"
 		id="categoryPopup"
@@ -120,8 +120,8 @@
 							<td>
 								<select
 									class="form-control"
-									data-ng-options="c.detail[0].categories_id as c.detail[0].categories_name for c in categories.elements"
-									data-ng-model="parent_id"
+									data-ng-options="c.detail[0].categories_id as c.detail[0].categories_name for c in vm.categoriesDropdown.elements"
+									data-ng-model="vm.category.parent_id"
 
 									data-ng-init="parent_id == c.detail[0].categories_id"
 								>
@@ -137,7 +137,7 @@
 								<input
 									type="text"
 									class="form-control"
-									data-ng-model="name_en"
+									data-ng-model="vm.category.categories_name"
 									required="required"
 								/>
 							</td>
@@ -147,7 +147,52 @@
 								Sort Order:
 							</td>
 							<td>
-								<input type="text" data-ng-model="sort_order" class="form-control"/>
+								<input type="text" data-ng-model="vm.category.sort_order" class="form-control"/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Image:
+							</td>
+							<td>
+								<input
+									type="file"
+									ng-model="vm.picFile"
+									name="file"
+									accept="image/*"
+									ngf-max-size="2MB"
+									ngf-model-invalid="errorFiles"
+									ngf-select="vm.uploadPic(vm.picFile)"
+								>
+								<i ng-show="our_teamForm.file.$error.maxSize" class="error">
+									File too large {{errorFiles[0].size / 1000000|number:1}}MB: max 2M
+								</i>
+								<img
+									data-ng-if="vm.category.categories_image"
+									class="img-thumbnail"
+									width="300px"
+									src="../images/{{vm.category.categories_image}}"
+								/>
+								<div ng-show="vm.picFile.progress >= 0">
+									<div class="progress-bar progress-bar-striped"
+										 data-ng-class="{'active': vm.picFile.progress != 100}"
+										 aria-valuenow="vm.picFile.progress"
+										 aria-valuemin="0"
+										 aria-valuemax="100"
+										 style="width:{{vm.picFile.progress}}%"
+									>
+										{{vm.picFile.progress}}%
+									</div>
+								</div>
+								<span class="progress" ng-show="vm.picFile.progress >= 0">
+									<div
+										style="width:{{picFile.progress}}%"
+										ng-bind="vm.picFile.progress + '%'"
+									>
+									</div>
+								</span>
+								<span ng-show="vm.picFile.result">Upload Successful</span>
+								<span class="err" ng-show="vm.errorMsg">{{vm.errorMsg}}</span>
 							</td>
 						</tr>
 					</table>
