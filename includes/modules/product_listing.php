@@ -15,7 +15,7 @@
       while ($listing = tep_db_fetch_array($listing_query)) {
           $prod_list_contents[] = $listing;
       }
-  }    var_dump($categories_info['categories_image']);
+  }
 ?>
 <?php
     if($categories_info['categories_image']){

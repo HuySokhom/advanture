@@ -21,7 +21,8 @@ class Object extends DbObj {
 			'include' => array(
 				'products_name',
 				'products_description',
-				'products_viewed'
+				'products_viewed',
+				'language_id'
 			)
 		);
 		return parent::toArray($args);
@@ -32,7 +33,8 @@ class Object extends DbObj {
 			SELECT
 				products_name,
 				products_description,
-				products_viewed
+				products_viewed,
+				language_id
 			FROM
 				products_description
 			WHERE

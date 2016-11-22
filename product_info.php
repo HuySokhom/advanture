@@ -242,7 +242,7 @@
 										  <input type="text" name="subject" value="">
 									  </div>
 									  <div class="col-md-7">
-										  <label>Your Comments</label>
+										  <label>Description</label>
 										  <textarea rows="12" name="enquiry"></textarea>
 									  </div>
 								  </div>
