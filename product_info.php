@@ -98,9 +98,15 @@
 					  <div class="sidebar-widget">
 						  <div class="single-sidebar-widget">
 							  <h4>Search <span>Blog</span></h4>
-							  <form id="text-search" action="blog-details.html#">
-								  <input type="text" placeholder="Search Here .....">
-								  <button class="submit"><i class="fa fa-search"></i></button>
+							  <?php
+								echo tep_draw_form(
+										'advanced_search',
+										tep_href_link(FILENAME_ADVANCED_SEARCH_RESULT, '', 'NONSSL', false),
+									  	'get',
+										'id="text-search"') . tep_hide_session_id();
+							  ?>
+								  <input type="text" placeholder="Search Here ....." required name="keywords">
+								  <button class="submit" type="submit"><i class="fa fa-search"></i></button>
 							  </form>
 						  </div>
 						  <div class="single-sidebar-widget">
@@ -224,7 +230,7 @@
 					  </div>
 					  <div class="leave-comment">
 						  <h4 class="blog-title">Get In <span>Touch</span></h4>
-						  <form action="blog-details.html#" method="post" id="comment">
+						  <form action="" method="post" id="comment" name="sendEmail">
 							  <div class="comment-form">
 								  <div class="row">
 									  <div class="col-md-5">
@@ -257,7 +263,7 @@
 <script>
 
 	$(function() {
-		$('form').submit(function (e) {
+		$('form[name="sendEmail"]').submit(function (e) {
 			var form = {
 				name: $('#name').val(),
 				email: $('#email').val(),
