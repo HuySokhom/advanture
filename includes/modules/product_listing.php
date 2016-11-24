@@ -16,6 +16,28 @@
           $prod_list_contents[] = $listing;
       }
   }
+
+    /**
+     * query for product just post with random
+     */
+    $other_product_query = tep_db_query("
+        select
+            pd.products_name,
+            p.products_id,
+            p.products_image_thumbnail,
+            DATE_FORMAT(p.create_date, '%d/%m/%Y') as create_date
+        from
+            " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd
+        where
+            p.products_status = '1'
+                and
+            pd.products_id = p.products_id
+                and
+            pd.language_id = '" . (int)$languages_id . "'
+        order by rand()
+            limit 1
+    ");
+    $product_hot_info = tep_db_fetch_array($other_product_query);
 ?>
 <?php
     if($categories_info['categories_image']){
@@ -38,88 +60,60 @@
             <div class="col-md-3">
                 <div class="sidebar-widget">
                     <div class="single-sidebar-widget">
-                        <h4>Search <span>Blog</span></h4>
-                        <form id="text-search" action="blog-details.html#">
-                            <input type="text" placeholder="Search Here .....">
-                            <button class="submit"><i class="fa fa-search"></i></button>
+                        <h4>Search <span>Trip</span></h4>
+                        <?php
+                        echo tep_draw_form(
+                                'advanced_search',
+                                tep_href_link(FILENAME_ADVANCED_SEARCH_RESULT, '', 'NONSSL', false),
+                                'get',
+                                'id="text-search"') . tep_hide_session_id();
+                        ?>
+                        <input type="text" placeholder="Search Here ....." required name="keywords">
+                        <button class="submit" type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div>
                     <div class="single-sidebar-widget">
                         <h4>Recent <span>Posts</span></h4>
-
-                                <div class="single-widget-posts">
-                                      <div class="post-img">
-                                          <a href="'.tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $row['products_id']).'">
-                                            <img src="images/'.$row['products_image_thumbnail'].'" style=" width: 80px;height: 80px;">
-                                          </a>
-                                      </div>
-                                      <div class="posts-text">
-                                          <h4>
-                                              <a href="'.tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $row['products_id']).'">
-                                                '.$row['products_name'].'
-                                              </a>
-                                          </h4>
-                                          <p><i class="fa fa-clock-o"></i> '.$row['create_date'].'</p>
-                                      </div>
-                                  </div>
-
+                        <div class="single-widget-posts">
+                              <div class="post-img">
+                                  <a href="<?php echo tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $product_hot_info['products_id']); ?>">
+                                    <img src="images/<?php echo $product_hot_info['products_image_thumbnail']; ?>" style=" width: 80px;height: 80px;">
+                                  </a>
+                              </div>
+                              <div class="posts-text">
+                                  <h4>
+                                      <a href="<?php echo tep_href_link(FILENAME_PRODUCT_INFO, 'products_id=' . $product_hot_info['products_id']);?>">
+                                          <?php
+                                            echo $product_hot_info['products_name'];
+                                          ?>
+                                      </a>
+                                  </h4>
+                                  <p>
+                                      <i class="fa fa-clock-o"></i>
+                                      <?php
+                                        echo $product_hot_info['create_date'];
+                                      ?>
+                                  </p>
+                              </div>
+                          </div>
                     </div>
-                    <div class="single-sidebar-widget">
-                        <h4>Blog <span>Archives</span></h4>
-                        <div class="blog-archive">
-                            <select class="archive" name="archive">
-                                <option>Select Month</option>
-                                <option>January</option>
-                                <option>February</option>
-                                <option>March</option>
-                                <option>April</option>
-                                <option>May</option>
-                                <option>June</option>
-                                <option>July</option>
-                                <option>August</option>
-                                <option>September</option>
-                                <option>October</option>
-                                <option>November</option>
-                                <option>December</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="single-sidebar-widget icon-bottom tooltip-icons">
-                        <h4>Blog <span>Tags</span></h4>
-                        <div class="widget-icon">
-                            <span><a href="blog-details.html#" data-toggle="tooltip" title="Tents"><img alt="" src="img/icon/25.png"></a></span>
-                            <span><a href="blog-details.html#" data-toggle="tooltip" title="Hiking"><img alt="" src="img/icon/26.png"></a></span>
-                            <span><a href="blog-details.html#" data-toggle="tooltip" title="Cycling"><img alt="" src="img/icon/27.png"></a></span>
-                            <span><a href="blog-details.html#" data-toggle="tooltip" title="Beach"><img alt="" src="img/icon/28.png"></a></span>
-                            <span class="no-margin"><a href="blog-details.html#" data-toggle="tooltip" title="Ship Tour"><img alt="" src="img/icon/29.png"></a></span>
-                            <span class="no-margin"><a href="blog-details.html#" data-toggle="tooltip" title="Boat Tour"><img alt="" src="img/icon/30.png"></a></span>
-                            <span class="no-margin"><a href="blog-details.html#" data-toggle="tooltip" title="Water Games"><img alt="" src="img/icon/31.png"></a></span>
-                            <span class="no-margin"><a href="blog-details.html#" data-toggle="tooltip" title="Jungle"><img alt="" src="img/icon/32.png"></a></span>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="single-sidebar-widget widget-gallery">
-                        <h4>Photo <span>Gallery</span></h4>
-                        <div class="row">
-                            <div class="col-md-4 col-sm-2 col-xs-4">
-                                <a href="blog-details.html#"><img src="img/blog/6.jpg" alt=""></a>
+                    <div class="leave-comment hidden-sm hidden-xs">
+                        <h4 class="blog-title">Get In <span>Touch</span></h4>
+                        <form action="" method="post" id="comment" name="sendEmail">
+                            <div class="comment-form">
+                                <div class="">
+                                        <label class="required">name</label>
+                                        <input type="text" name="name" placeholder="name...">
+                                        <label class="required">Email</label>
+                                        <input type="email" name="email" placeholder="email...">
+                                        <label class="required">Subject</label>
+                                        <input type="text" name="subject" placeholder="subject...">
+                                        <label class="required">Description</label>
+                                        <textarea name="enquiry" placeholder="description..."></textarea>
+                                </div>
+                                <input type="submit" class="comment-btn" value="Submit comment">
                             </div>
-                            <div class="col-md-4 col-sm-2 col-xs-4">
-                                <a href="blog-details.html#"><img src="img/blog/7.jpg" alt=""></a>
-                            </div>
-                            <div class="col-md-4 col-sm-2 col-xs-4">
-                                <a href="blog-details.html#"><img src="img/blog/8.jpg" alt=""></a>
-                            </div>
-                            <div class="col-md-4 col-sm-2 col-xs-4">
-                                <a href="blog-details.html#"><img src="img/blog/9.jpg" alt=""></a>
-                            </div>
-                            <div class="col-md-4 col-sm-2 col-xs-4">
-                                <a href="blog-details.html#"><img src="img/blog/10.jpg" alt=""></a>
-                            </div>
-                            <div class="col-md-4 col-sm-2 col-xs-4">
-                                <a href="blog-details.html#"><img src="img/blog/11.jpg" alt=""></a>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

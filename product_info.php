@@ -31,7 +31,7 @@
 	$product_info = tep_db_fetch_array($product_info_query);
 
 	/**
-	 *
+	 * query for product just post with random
 	 */
 	$other_product_query = tep_db_query("
 		select
@@ -97,7 +97,7 @@
 				  <div class="col-md-3">
 					  <div class="sidebar-widget">
 						  <div class="single-sidebar-widget">
-							  <h4>Search <span>Blog</span></h4>
+							  <h4>Search <span>Trip</span></h4>
 							  <?php
 								echo tep_draw_form(
 										'advanced_search',
@@ -132,63 +132,6 @@
 									';
 								}
 							  ?>
-						  </div>
-						  <div class="single-sidebar-widget">
-							  <h4>Blog <span>Archives</span></h4>
-							  <div class="blog-archive">
-								  <select class="archive" name="archive">
-									  <option>Select Month</option>
-									  <option>January</option>
-									  <option>February</option>
-									  <option>March</option>
-									  <option>April</option>
-									  <option>May</option>
-									  <option>June</option>
-									  <option>July</option>
-									  <option>August</option>
-									  <option>September</option>
-									  <option>October</option>
-									  <option>November</option>
-									  <option>December</option>
-								  </select>
-							  </div>
-						  </div>
-						  <div class="single-sidebar-widget icon-bottom tooltip-icons">
-							  <h4>Blog <span>Tags</span></h4>
-							  <div class="widget-icon">
-								  <span><a href="blog-details.html#" data-toggle="tooltip" title="Tents"><img alt="" src="img/icon/25.png"></a></span>
-								  <span><a href="blog-details.html#" data-toggle="tooltip" title="Hiking"><img alt="" src="img/icon/26.png"></a></span>
-								  <span><a href="blog-details.html#" data-toggle="tooltip" title="Cycling"><img alt="" src="img/icon/27.png"></a></span>
-								  <span><a href="blog-details.html#" data-toggle="tooltip" title="Beach"><img alt="" src="img/icon/28.png"></a></span>
-								  <span class="no-margin"><a href="blog-details.html#" data-toggle="tooltip" title="Ship Tour"><img alt="" src="img/icon/29.png"></a></span>
-								  <span class="no-margin"><a href="blog-details.html#" data-toggle="tooltip" title="Boat Tour"><img alt="" src="img/icon/30.png"></a></span>
-								  <span class="no-margin"><a href="blog-details.html#" data-toggle="tooltip" title="Water Games"><img alt="" src="img/icon/31.png"></a></span>
-								  <span class="no-margin"><a href="blog-details.html#" data-toggle="tooltip" title="Jungle"><img alt="" src="img/icon/32.png"></a></span>
-							  </div>
-						  </div>
-						  <div class="clearfix"></div>
-						  <div class="single-sidebar-widget widget-gallery">
-							  <h4>Photo <span>Gallery</span></h4>
-							  <div class="row">
-								  <div class="col-md-4 col-sm-2 col-xs-4">
-									  <a href="blog-details.html#"><img src="img/blog/6.jpg" alt=""></a>
-								  </div>
-								  <div class="col-md-4 col-sm-2 col-xs-4">
-									  <a href="blog-details.html#"><img src="img/blog/7.jpg" alt=""></a>
-								  </div>
-								  <div class="col-md-4 col-sm-2 col-xs-4">
-									  <a href="blog-details.html#"><img src="img/blog/8.jpg" alt=""></a>
-								  </div>
-								  <div class="col-md-4 col-sm-2 col-xs-4">
-									  <a href="blog-details.html#"><img src="img/blog/9.jpg" alt=""></a>
-								  </div>
-								  <div class="col-md-4 col-sm-2 col-xs-4">
-									  <a href="blog-details.html#"><img src="img/blog/10.jpg" alt=""></a>
-								  </div>
-								  <div class="col-md-4 col-sm-2 col-xs-4">
-									  <a href="blog-details.html#"><img src="img/blog/11.jpg" alt=""></a>
-								  </div>
-							  </div>
 						  </div>
 					  </div>
 				  </div>
