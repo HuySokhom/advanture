@@ -58,7 +58,7 @@
                         echo tep_get_categories_list();
                       ?>
                       <li><a href="contact_us.php">Contact Us</a></li>
-                      <li><a href="about_us.php">About Us</a></li>
+                      <li><a href="<?php echo tep_href_link(FILENAME_PAGES, 'pages_id=1'); ?>">About Us</a></li>
                     </ul>
                   </nav>
                 </div>

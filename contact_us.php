@@ -154,7 +154,7 @@
         </div>
         <div class="row">
           <div class="col-md-5">
-            <form action="" method="post">
+            <form id="contact-form">
               <div class="row">
                 <div class="col-md-6">
                   <input name="f_name" type="text" class="form-box" placeholder="First name">

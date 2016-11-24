@@ -25,11 +25,14 @@
                     <h4>About Us</h4>
                     <div class="footer-widget-list">
                         <ul class="widget-lists">
-                            <li><a href="index.html#">Why Us</a></li>
-                            <li><a href="index.html#">Our trips</a></li>
-                            <li><a href="index.html#">Responsible Business</a></li>
-                            <li><a href="index.html#">Our History</a></li>
-                            <li><a href="index.html#">Our Core Values</a></li>
+                            <li><a href="<?php echo tep_href_link(FILENAME_PAGES, 'pages_id=1'); ?>">About Us</a></li>
+                            <li><a href="contact_us.php">Contact Us</a></li>
+                            <li>
+                                <a href="<?php echo tep_href_link(FILENAME_PAGES, 'pages_id=3'); ?>">
+                                    Why Us
+                                </a>
+                            </li>
+                            <li><a href="<?php echo tep_href_link(FILENAME_PAGES, 'pages_id=4'); ?>">Our trips</a></li>
                         </ul>
                     </div>
                 </div>
@@ -140,6 +143,10 @@
 ============================================ -->
 <script src="themes/js/plugins.js"></script>
 
+<!-- plugins JQuery Validation
+============================================ -->
+<script src="themes/js/jquery.validate.min.js"></script>
+<script src="themes/js/additional-methods.js"></script>
 <!-- main JS
 ============================================ -->
 <script src="themes/js/main.js"></script>

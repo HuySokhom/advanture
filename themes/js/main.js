@@ -82,6 +82,71 @@
 /*------------------------------------
     Tooltip
 -------------------------------------- */
-    $('[data-toggle="tooltip"]').tooltip(); 
-    
+    $('[data-toggle="tooltip"]').tooltip();
+
+
+    /**
+     * send mail form validation
+     */
+    $("#contact-form").validate({
+        rules: {
+            f_name: {
+                required: true,
+                maxlength: 25,
+            },
+            l_name: {
+                required: true,
+                maxlength: 25,
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            message: {
+                required: true,
+                maxlength: 100,
+            }
+        },
+        messages: {
+            "f_name": {
+                required: "Please, enter a first name"
+            },
+            "l_name": {
+                required: "Please, enter a last name"
+            },
+            "email": {
+                required: "Please, enter an email",
+                email: "Email is invalid"
+            },
+            "message": {
+                required: "Please, enter an message",
+            }
+        },
+        submitHandler: function (form) {
+            // @todo
+            //var values = $(this).serialize();
+            var data = {
+                name: $('#name').val(),
+                email: $('#email').val(),
+                enquiry: $('#enquiry').val(),
+            };
+
+            console.log(data);
+            $.ajax({
+                url: "api/SendMail",
+                dataType: "json",
+                type: "POST",
+                data: data,
+                success: function (response) {
+                    $('#text-message').text('Send Successful.');
+                    console.log(response);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            });
+            return false;
+        }
+    });
+
 })(jQuery); 
