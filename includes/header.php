@@ -21,13 +21,20 @@
           </div>
         </div>
         <div class="col-md-6 col-sm-5 col-xs-12">
-          <div class="header-top-right">
-            <div class="login">
-              <a href="create_account.php"><i class="fa fa-pencil-square-o"></i>Register</a>
-            </div>
-            <div class="account">
-              <a href="login.php"><i class="fa fa-lock"></i>sign In</a>
-            </div>
+          <div class="header-top-right" style="float: right;">
+            <div class="fb-like"
+                 data-href="https://facebook.com/camidexplorer/"
+                 data-layout="button_count"
+                 data-action="like"
+                 data-size="small"
+                 data-show-faces="true"
+                 data-share="true"></div>
+<!--            <div class="login">-->
+<!--              <a href="create_account.php"><i class="fa fa-pencil-square-o"></i>Register</a>-->
+<!--            </div>-->
+<!--            <div class="account">-->
+<!--              <a href="login.php"><i class="fa fa-lock"></i>sign In</a>-->
+<!--            </div>-->
           </div>
         </div>
       </div>
@@ -40,10 +47,10 @@
         <div class="col-md-12">
           <div class="logo-menu-bg">
             <div class="row">
-              <div class="col-md-2 col-sm-12">
+              <div class="col-md-2 col-sm-12 hidden-sm hidden-xs">
                 <div class="logo">
                   <a href="#">
-                    <img src="themes/img/logo/logo.png" alt="<?php echo STORE_NAME; ?>" style="margin-top: 10px;">
+                    <img src="images/logo.png" alt="<?php echo STORE_NAME; ?>" style="margin-top: -51px;width: 115px;position: absolute;">
                   </a>
                 </div>
               </div>

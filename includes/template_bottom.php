@@ -37,36 +37,23 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-6 col-sm-6">
                 <div class="single-footer-widget">
-                    <h4>Design Themes</h4>
+                    <h4>Follow Us On Facebook</h4>
                     <div class="footer-widget-list">
-                        <ul class="widget-lists">
-                            <li><a href="index.html#">Africa</a></li>
-                            <li><a href="index.html#">Asia</a></li>
-                            <li><a href="index.html#">Central America</a></li>
-                            <li><a href="index.html#">Europe</a></li>
-                            <li><a href="index.html#">Middle East</a></li>
-                            <li><a href="index.html#">North America</a></li>
-                            <li><a href="index.html#">Oceania</a></li>
-                            <li><a href="index.html#">South America</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="single-footer-widget">
-                    <h4>Destinations</h4>
-                    <div class="footer-widget-list">
-                        <ul class="widget-lists">
-                            <li><a href="index.html#">Adventure</a></li>
-                            <li><a href="index.html#">Hiking and Camping</a></li>
-                            <li><a href="index.html#">Walking and Trekking</a></li>
-                            <li><a href="index.html#">Safari Trip</a></li>
-                            <li><a href="index.html#">Polar</a></li>
-                            <li><a href="index.html#">Sailing</a></li>
-                            <li><a href="index.html#">Climbing</a></li>
-                        </ul>
+                        <div class="fb-page"
+                             data-href="https://www.facebook.com/camidexplorer/"
+                             data-small-header="false"
+                             data-width="550"
+                             data-adapt-container-width="true"
+                             data-hide-cover="false" data-show-facepile="true">
+                            <blockquote cite="https://www.facebook.com/camidexplorer/"
+                                        class="fb-xfbml-parse-ignore">
+                                <a href="https://www.facebook.com/camidexplorer/">
+                                    CAMID
+                                </a>
+                            </blockquote>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -74,7 +61,9 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="footer-link">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="https://www.facebook.com/camidexplorer/" target="_blank">
+                        <i class="fa fa-facebook"></i>
+                    </a>
                     <a href="#"><i class="fa fa-twitter"></i></a>
                     <a href="#"><i class="fa fa-google-plus"></i></a>
                     <a href="#"><i class="fa fa-linkedin"></i></a>
@@ -97,9 +86,20 @@
     </div>
 </div>
 <!--End of Footer Area-->
+
+<!-- Facebook Plugin-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1423595867869606";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <!-- /.page-wrapper -->
-<!-- jquery
-		============================================ -->
+<!-- jquery ============================================ -->
 <script src="themes/js/vendor/jquery-1.11.3.min.js"></script>
 
 <!-- bootstrap JS
