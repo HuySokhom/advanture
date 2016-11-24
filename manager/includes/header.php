@@ -16,22 +16,22 @@
         <ul>
           <li><a href="#/category"><span class="fa fa-code-fork"></span> Categories</a></li>
           <li><a href="#/product"><span class="fa fa-sitemap"></span> Products</a></li>
-          <li><a href="#/user"><span class="fa fa-users"></span> Users</a></li>
+<!--          <li><a href="#/user"><span class="fa fa-users"></span> Users</a></li>-->
           <li><a href="#/slider"><span class="fa fa-film"></span> Image Slider</a></li>
           <li>
             <a ui-sref="our_team"><span class="fa fa-film">
               </span> Our Team
             </a>
           </li>
-          <li>
-            <a href="#/popular_location"><span class="fa fa-clock-o"></span> Popular Search</a>
-          </li>
-          <li>
-            <a href="#/news"><span class="fa fa-dashboard"></span> News</a>
-          </li>
-          <li>
-            <a href="#/news_type"><span class="fa fa-crop"></span> News Type</a>
-          </li>
+<!--          <li>-->
+<!--            <a href="#/popular_location"><span class="fa fa-clock-o"></span> Popular Search</a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="#/news"><span class="fa fa-dashboard"></span> News</a>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <a href="#/news_type"><span class="fa fa-crop"></span> News Type</a>-->
+<!--          </li>-->
           <li><a href="#/content"><span class="fa fa-comments"></span>Content</a></li>
           <li><a href="#/partner_banner"><span class="fa fa-comments"></span>Partner Banner</a></li>
         </ul>
@@ -40,17 +40,17 @@
         <a href="#"><span class="fa fa-file-text-o"></span> <span class="xn-text">Configuration</span></a>
         <ul>
           <li><a href="administrators.php">Administrators</a></li>
-          <li><a href="#/customer_plan">Customer Book Plan</a></li>
+<!--          <li><a href="#/customer_plan">Customer Book Plan</a></li>-->
         </ul>
       </li>
-      <li class="xn-openable">
-        <a href="#"><span class="fa fa-map-marker"></span> <span class="xn-text">Location</span></a>
-        <ul>
-          <li><a href="#/location">Province</a></li>
-          <li><a href="#/district">District</a></li>
-          <li><a href="#/village">Village</a></li>
-        </ul>
-      </li>
+<!--      <li class="xn-openable">-->
+<!--        <a href="#"><span class="fa fa-map-marker"></span> <span class="xn-text">Location</span></a>-->
+<!--        <ul>-->
+<!--          <li><a href="#/location">Province</a></li>-->
+<!--          <li><a href="#/district">District</a></li>-->
+<!--          <li><a href="#/village">Village</a></li>-->
+<!--        </ul>-->
+<!--      </li>-->
     </ul>
     <!-- END X-NAVIGATION -->
   </div>
@@ -97,10 +97,10 @@
             </div>
           </div>
           <div class="panel-body list-group list-group-contacts scroll" style="height: 200px;">
-            <a class="list-group-item" href="#/customer_expire">
-              <strong>Customer Expire Plan</strong>
-              <span class="label label-danger"><?php echo $countExpiryDay['total'];?></span>
-            </a>
+<!--            <a class="list-group-item" href="#/customer_expire">-->
+<!--              <strong>Customer Expire Plan</strong>-->
+<!--              <span class="label label-danger">--><?php //echo $countExpiryDay['total'];?><!--</span>-->
+<!--            </a>-->
           </div>
           <div class="panel-footer text-center">
             <a href="#">Show all messages</a>
@@ -120,10 +120,10 @@
             </div>
           </div>
           <div class="panel-body list-group scroll" style="height: 200px;">
-            <a class="list-group-item" href="#/customer_plan">
-              <strong>Customer Expire Plan</strong>
-              <span class="label label-danger"><?php echo $countBook['total'];?></span>
-            </a>
+<!--            <a class="list-group-item" href="#/customer_plan">-->
+<!--              <strong>Customer Expire Plan</strong>-->
+<!--              <span class="label label-danger">--><?php //echo $countBook['total'];?><!--</span>-->
+<!--            </a>-->
           </div>
           <div class="panel-footer text-center">
             <a href="#">Show all tasks</a>

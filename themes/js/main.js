@@ -107,6 +107,10 @@
                 required: true,
                 maxlength: 25,
             },
+            name: {
+                required: true,
+                maxlength: 25,
+            },
             l_name: {
                 required: true,
                 maxlength: 25,
@@ -115,6 +119,10 @@
                 required: true,
                 email: true
             },
+            subject: {
+                required: true,
+                maxlength: 25,
+            },
             message: {
                 required: true,
                 maxlength: 100,
@@ -122,26 +130,36 @@
         },
         messages: {
             "f_name": {
-                required: "Please, enter a first name"
+                required: "Please, enter a first name."
+            },
+            "name": {
+                required: "Please, enter a name."
+            },
+            "subject": {
+                required: "Please, enter subject."
             },
             "l_name": {
-                required: "Please, enter a last name"
+                required: "Please, enter a last name."
             },
             "email": {
-                required: "Please, enter an email",
-                email: "Email is invalid"
+                required: "Please, enter an email.",
+                email: "Email is invalid."
             },
             "message": {
-                required: "Please, enter an message",
+                required: "Please, enter an message.",
             }
         },
         submitHandler: function (form) {
             // @todo
             //var values = $(this).serialize();
+            var fName = $('#f_name').val() ? $('#f_name').val() : '';
+            var lName = $('#l_name').val() ? $('#l_name').val() : '';
+            var name = $('#name').val() ? $('#name').val() : '';
             var data = {
-                name: $('#name').val(),
+                name: fName + ' ' + lName + name,
+                subject: $('#subject').val(),
                 email: $('#email').val(),
-                enquiry: $('#enquiry').val(),
+                enquiry: $('#message').val(),
             };
 
             console.log(data);

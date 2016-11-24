@@ -173,23 +173,25 @@
 					  </div>
 					  <div class="leave-comment">
 						  <h4 class="blog-title">Get In <span>Touch</span></h4>
-						  <form action="" method="post" id="comment" name="sendEmail">
+						  <form action="" method="post" id="contact-form" name="sendEmail">
 							  <div class="comment-form">
 								  <div class="row">
 									  <div class="col-md-5">
-										  <label class="required">name</label>
-										  <input type="text" name="name" value="">
-										  <label class="required">Email</label>
-										  <input type="email" name="email" value="">
-										  <label>Subject</label>
-										  <input type="text" name="subject" value="">
+										  <div class="required">
+											  Name
+										  </div>
+										  <input type="text" name="name" id="name" placeholder="name">
+										  <div class="required">Email</div>
+										  <input type="email" name="email" id="email" placeholder="email">
+										  <div>Subject</div>
+										  <input type="text" name="subject" id="subject" placeholder="subject">
 									  </div>
 									  <div class="col-md-7">
-										  <label>Description</label>
-										  <textarea rows="12" name="enquiry"></textarea>
+										  <label>Message</label>
+										  <textarea rows="12" name="message" id="message" placeholder="message"></textarea>
 									  </div>
 								  </div>
-								  <input type="submit" class="comment-btn" value="Submit comment">
+								  <input type="submit" class="comment-btn" value="Submit Message">
 							  </div>
 						  </form>
 					  </div>
@@ -203,30 +205,3 @@
   require(DIR_WS_INCLUDES . 'template_bottom.php');
   require(DIR_WS_INCLUDES . 'application_bottom.php');
 ?>
-<script>
-
-	$(function() {
-		$('form[name="sendEmail"]').submit(function (e) {
-			var form = {
-				name: $('#name').val(),
-				email: $('#email').val(),
-				enquiry: $('#text').val()
-			};
-			e.preventDefault();
-			console.log(form);
-			$.ajax({
-				type: 'POST',
-				url: 'api/SendMail',
-				data: form,
-				success: function (response) {
-					console.log(response);
-					if (response == 0) {
-						// ============================ Not here, this would be too late
-						span.text('email does not exist');
-					}
-				}
-			});
-		});
-	});
-
-</script>

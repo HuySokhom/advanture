@@ -99,19 +99,19 @@
                     </div>
                     <div class="leave-comment hidden-sm hidden-xs">
                         <h4 class="blog-title">Get In <span>Touch</span></h4>
-                        <form action="" method="post" id="comment" name="sendEmail">
+                        <form id="contact-form" name="sendEmail">
                             <div class="comment-form">
                                 <div class="">
-                                        <label class="required">name</label>
-                                        <input type="text" name="name" placeholder="name...">
-                                        <label class="required">Email</label>
-                                        <input type="email" name="email" placeholder="email...">
-                                        <label class="required">Subject</label>
-                                        <input type="text" name="subject" placeholder="subject...">
-                                        <label class="required">Description</label>
-                                        <textarea name="enquiry" placeholder="description..."></textarea>
+                                        <div class="required">name</div>
+                                        <input type="text" name="name" id="name" placeholder="name...">
+                                        <div class="required">Email</div>
+                                        <input type="email" id="email" name="email" placeholder="email...">
+                                        <div class="required">Subject</div>
+                                        <input type="text" name="subject" id="subject" placeholder="subject...">
+                                        <div class="required">Description</div>
+                                        <textarea name="message" id="message" placeholder="description..."></textarea>
                                 </div>
-                                <input type="submit" class="comment-btn" value="Submit comment">
+                                <input type="submit" class="comment-btn" value="Submit Message">
                             </div>
                         </form>
                     </div>
@@ -154,13 +154,17 @@
                         ';
                     }
                 ?>
-                <ul class="pagination">
-                    <?php
-                    echo $listing_split->display_links(MAX_DISPLAY_PAGE_LINKS,
-                        tep_get_all_get_params(array('page', 'info', 'x', 'y'))
-                    );
-                    ?>
-                </ul>
+                    <div class="pagination-content">
+                        <div class="pagination-button">
+                            <ul class="pagination">
+                                <?php
+                                echo $listing_split->display_links(MAX_DISPLAY_PAGE_LINKS,
+                                    tep_get_all_get_params(array('page', 'info', 'x', 'y'))
+                                );
+                                ?>
+                            </ul>
+                        </div>
+                    </div>
                 <?php
                 }else{
                 ?>

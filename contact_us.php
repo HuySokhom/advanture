@@ -157,19 +157,19 @@
             <form id="contact-form">
               <div class="row">
                 <div class="col-md-6">
-                  <input name="f_name" type="text" class="form-box" placeholder="First name">
+                  <input name="f_name" id="f_name" type="text" class="form-box" placeholder="First name">
                 </div>
                 <div class="col-md-6">
-                  <input name="l_name" type="text" class="form-box" placeholder="Last name">
+                  <input name="l_name" id="l_name" type="text" class="form-box" placeholder="Last name">
                 </div>
                 <div class="col-md-6">
-                  <input name="email" type="email" class="form-box" placeholder="Email">
+                  <input name="email" id="email" type="email" class="form-box" placeholder="Email">
                 </div>
                 <div class="col-md-6">
-                  <input name="number" type="text" class="form-box" placeholder="Phone number">
+                  <input name="subject" id="subject" type="text" class="form-box" placeholder="Subject">
                 </div>
                 <div class="col-md-12">
-                  <textarea name="message" class="yourmessage" placeholder="Your message"></textarea>
+                  <textarea name="message" id="message" class="yourmessage" placeholder="Your message"></textarea>
                   <input type="submit" value="Send Message" class="submit-button">
                 </div>
               </div>
