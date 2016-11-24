@@ -85,6 +85,19 @@
     $('[data-toggle="tooltip"]').tooltip();
 
 
+    $("#text-search").validate({
+        rules: {
+            keywords: {
+                required: true,
+                maxlength: 25,
+            },
+        },
+        messages: {
+            "keywords": {
+                required: "Please, enter text"
+            },
+        },
+    });
     /**
      * send mail form validation
      */

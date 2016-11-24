@@ -68,7 +68,7 @@
                                 'get',
                                 'id="text-search"') . tep_hide_session_id();
                         ?>
-                        <input type="text" placeholder="Search Here ....." required name="keywords">
+                        <input type="text" placeholder="Search Here ....." name="keywords">
                         <button class="submit" type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div>
