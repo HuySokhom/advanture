@@ -59,6 +59,8 @@
 
 	require(DIR_WS_INCLUDES . 'template_top.php');
 ?>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-584634cfb1404f0a"></script>
 <?php
   if (tep_db_num_rows($product_info_query) < 1) {
 ?>
@@ -159,16 +161,9 @@
 								  <span><i class="fa fa-user"></i><?php echo $product_info['create_by'];?></span>
 								  <span><i class="fa fa-calendar"></i><?php echo $product_info['create_date'];?></span>
 							  </div>
+                              <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                              <div class="addthis_inline_share_toolbox"></div>
 							  <?php echo $product_info['products_description'];?>
-						  </div>
-						  <div class="blog-button-links">
-							  <div class="blog-links">
-								  <a href="blog-details.html#"><i class="fa fa-facebook"></i></a>
-								  <a href="blog-details.html#"><i class="fa fa-twitter"></i></a>
-								  <a href="blog-details.html#"><i class="fa fa-google-plus"></i></a>
-								  <a href="blog-details.html#"><i class="fa fa-linkedin"></i></a>
-								  <a href="blog-details.html#"><i class="fa fa-rss"></i></a>
-							  </div>
 						  </div>
 					  </div>
 					  <div class="leave-comment">
