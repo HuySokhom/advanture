@@ -18,11 +18,6 @@
 
   require(DIR_WS_INCLUDES . 'template_top.php');
 ?>
-
-<div class="page-header">
-  <h1><?php echo HEADING_TITLE; ?></h1>
-</div>
-
 <?php
 // create column list
   $define_list = array('PRODUCT_LIST_MODEL' => PRODUCT_LIST_MODEL,

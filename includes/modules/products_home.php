@@ -184,7 +184,7 @@
                         ?>
                     </div>
                 </div>
-                <a href="index.html#" class="button-one pull-left">VIew All Trip</a>
+                <a href="products_new.php" class="button-one pull-left">VIew All Trip</a>
             </div>
         </div>
     </div>
