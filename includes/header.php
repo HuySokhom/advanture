@@ -85,34 +85,14 @@
           <div class="mobile-menu">
             <nav id="dropdown">
               <ul>
-                <li>
+                <li class="drop-down">
                   <a href="#">HOME</a>
                 </li>
-                <li><a href="index.html#">Shop</a>
-                  <ul>
-                    <li><a href="shop-grid-no-sidebar.html">Shop No Sidebar</a></li>
-                    <li><a href="shop-grid-with-sidebar.html">Shop with Sidebar</a></li>
-                    <li><a href="shop-list.html">Shop List</a></li>
-                    <li><a href="product-details.html">Product Details 1</a></li>
-                    <li><a href="product-details-2.html">Product Details 2</a></li>
-                  </ul>
-                </li>
-                <li><a href="blog-1.html">Blog</a>
-                  <ul>
-                    <li><a href="blog-2.html">Blog Page 2</a></li>
-                    <li><a href="blog-details.html">Blog Details</a></li>
-                  </ul>
-                </li>
-                <li><a href="about.html">ABOUT</a>
-                <li><a href="index.html#">PAGES</a>
-                  <ul>
-                    <li><a href="signin.html">Sign in</a></li>
-                    <li><a href="404.html">404 error</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="contact_us.php">CONTACT</a>
-                </li>
+                <?php
+                echo tep_get_categories_list();
+                ?>
+                <li><a href="contact_us.php">Contact Us</a></li>
+                <li><a href="<?php echo tep_href_link(FILENAME_PAGES, 'pages_id=1'); ?>">About Us</a></li>
               </ul>
             </nav>
           </div>
